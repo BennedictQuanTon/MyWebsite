@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Default: Light Mode - Pearl Gray (Monochrome/Slate accents) */
+  --bg:             #FFFFFF;
+  --bg-alt:         #F8F9FA;
+  --surface:        #FFFFFF;
+  --surface-2:      #F1F3F5;
+  --border:         rgba(0, 0, 0, 0.08);
+  --accent:         #495057;
+  --accent-bright:  #6C757D;
+  --accent-deep:    #212529;
+  --accent-dim:     rgba(0, 0, 0, 0.04);
+  --text-heading:   #212529;
+  --text-body:      #343A40;
+  --text-muted:     #6C757D;
+  --glass-bg:       rgba(255, 255, 255, 0.85);
+  --glass-border:   rgba(0, 0, 0, 0.08);
+  --shadow:         rgba(0, 0, 0, 0.04);
+  --cursor:         #212529;
+}
+
+:root[data-theme="light"] {
+  --bg:             #FFFFFF;
+  --bg-alt:         #F8F9FA;
+  --surface:        #FFFFFF;
+  --surface-2:      #F1F3F5;
+  --border:         rgba(0, 0, 0, 0.08);
+  --accent:         #495057;
+  --accent-bright:  #6C757D;
+  --accent-deep:    #212529;
+  --accent-dim:     rgba(0, 0, 0, 0.04);
+  --text-heading:   #212529;
+  --text-body:      #343A40;
+  --text-muted:     #6C757D;
+  --glass-bg:       rgba(255, 255, 255, 0.85);
+  --glass-border:   rgba(0, 0, 0, 0.08);
+  --shadow:         rgba(0, 0, 0, 0.04);
+  --cursor:         #212529;
+}
+
+:root[data-theme="dark"] {
+  --bg:             #09100B;
+  --bg-alt:         #0E1710;
+  --surface:        #141F16;
+  --surface-2:      #1C2B1E;
+  --border:         rgba(16, 185, 129, 0.12);
+  --accent:         #10B981;
+  --accent-bright:  #34D399;
+  --accent-deep:    #6EE7B7;
+  --accent-dim:     rgba(16, 185, 129, 0.10);
+  --text-heading:   #E8F5E9;
+  --text-body:      #A7C4B5;
+  --text-muted:     #5A7A6A;
+  --glass-bg:       rgba(9, 16, 11, 0.65);
+  --glass-border:   rgba(16, 185, 129, 0.14);
+  --shadow:         rgba(0, 0, 0, 0.45);
+  --cursor:         #34D399;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border-token: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-dim: var(--accent-dim);
+  --color-text-heading: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-shadow-token: var(--shadow);
+  --color-cursor-token: var(--cursor);
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Global Transitions */
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 300ms ease, color 300ms ease,
+              border-color 300ms ease, box-shadow 300ms ease;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Class Helper */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+
