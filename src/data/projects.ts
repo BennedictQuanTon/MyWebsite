@@ -20,10 +20,16 @@ export interface Project {
   hoverMedia: {
     type: 'image' | 'video';
     src: string;
+    objectPosition?: string;
+    objectFit?: 'cover' | 'contain';
   };
   githubUrl?: string;
   liveUrl?: string;
   status: 'active' | 'placeholder';
+  competitionName?: string;
+  organizer?: string;
+  organizerLogo?: string;
+  organizerLogos?: string[];
 }
 
 export const projects: Project[] = [
@@ -82,7 +88,15 @@ export const projects: Project[] = [
       src: '/assets/videos/weatherise_demo.mp4'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Weatherise',
-    status: 'active'
+    status: 'active',
+    competitionName: 'Vietnam AI Open Hackathon',
+    organizer: 'NVIDIA / Viettel / Sovico',
+    organizerLogo: '/assets/images/companies/weatherise_org.jpg',
+    organizerLogos: [
+      '/assets/images/companies/nvidia_logo.png',
+      '/assets/images/companies/viettel_logo.svg',
+      '/assets/images/companies/sovico_logo.png'
+    ]
   },
   {
     id: 'bkai-admissions',
@@ -168,11 +182,14 @@ export const projects: Project[] = [
       src: '/assets/videos/morphysics_demo.mp4'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Morphysics',
-    status: 'active'
+    status: 'active',
+    competitionName: 'Bach Khoa Innovation 2026',
+    organizer: 'HCMUT',
+    organizerLogo: '/assets/images/companies/bk.png'
   },
   {
     id: 'vinuni-datathon',
-    title: 'VinUni Datathon: The GridBreakers',
+    title: 'Team Datdy',
     category: 'Competition',
     period: 'Apr 18, 2026 – May 11, 2026',
     role: 'Data Analyst',
@@ -196,12 +213,16 @@ export const projects: Project[] = [
       'Discovered key retention trends linking seasonal promotion fatigue to dropping customer lifetime value.',
       'Presented core operational recommendations directly solving retailer inventory challenges.'
     ],
-    images: [], // Missing - uses placeholder frame
+    images: ['/assets/images/datathon/Datathon_Logo.jpg'],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/portrait/Myself_potrait.jpg' // fallback card image
+      src: '/assets/images/datathon/Datathon_Logo.jpg',
+      objectPosition: 'center top'
     },
-    status: 'placeholder'
+    status: 'active',
+    competitionName: 'VinUni Datathon 2026',
+    organizer: 'VinUni',
+    organizerLogo: '/assets/images/companies/vinuni_logo.png'
   },
   {
     id: 'yourai',

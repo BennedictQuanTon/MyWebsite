@@ -41,13 +41,14 @@ export const milestones: Milestone[] = [
     id: 'comp-datathon',
     type: 'competition',
     date: 'April – May 2026',
-    title: 'VinUni Datathon: The GridBreakers 2026',
-    subtitle: 'Data Analyst',
+    title: 'VinUni Datathon 2026',
+    subtitle: 'Data Analyst · Team Datdy',
     description: 'Engineered pandas pipeline and executed comprehensive Exploratory Data Analysis (EDA) on a 10-year transactional database.',
     details: [
       'Merged and cleaned 15 CSV files distributed across Transactional and master layers',
       'Developed inventory optimization models and presented business strategy guidelines'
     ],
+    image: '/assets/images/datathon/Datathon_Logo.jpg',
     highlight: 'Data Analyst'
   },
   {

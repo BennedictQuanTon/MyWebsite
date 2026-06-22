@@ -71,7 +71,8 @@ export const Journey: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center px-6 md:px-12 py-24 max-w-6xl mx-auto">
+    <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-12 py-24 flex flex-col items-center">
       {/* Page Hero Header */}
       <ScrollReveal className="text-center mb-20">
         <span className="text-xs uppercase tracking-widest font-semibold text-accent">Career Timeline</span>
@@ -337,7 +338,7 @@ export const Journey: React.FC = () => {
           })}
         </div>
       </section>
-
+      </div>
     </div>
   );
 };

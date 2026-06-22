@@ -26,3 +26,9 @@ dist-ssr
 # Reference folders
 ref/
 references/
+
+# Personal assets and media
+public/assets/images/personal/
+public/assets/images/portrait/
+public/assets/images/about/
+public/assets/videos/
