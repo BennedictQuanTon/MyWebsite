@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
     },
     { 
       value: '3+', 
-      label: 'Hackathons', 
+      label: 'Competitions', 
       sublabel: 'Explored. Built. Shipped.', 
       icon: <Rocket size={20} className="text-accent" /> 
     },
@@ -135,32 +135,31 @@ export const Home: React.FC = () => {
         <div className="absolute right-[20%] top-[25%] w-[400px] h-[400px] rounded-full bg-accent/20 dark:bg-accent/10 blur-[100px] pointer-events-none z-0" />
 
         {/* Full-bleed Portrait - shifted left by increasing container width and objectPosition */}
-        <div className="absolute inset-y-0 right-0 w-full md:w-[65%] lg:w-[56%] xl:w-[60%] overflow-hidden pointer-events-none">
+        <div
+          className="absolute inset-y-0 right-0 w-full md:w-[65%] lg:w-[56%] xl:w-[60%] overflow-hidden pointer-events-none"
+        >
           <img
             src="/assets/images/portrait/NewImage.jpg"
             alt="Long Quan Ton"
             className="w-full h-full object-cover"
             style={{ objectPosition: '76% 15%', transform: 'scale(0.82)', transformOrigin: 'center top' }}
           />
-          {/* Light mode gradient overlays to blend the photo background seamlessly into the white page */}
+          {/* Bottom blend — merges photo into next section */}
           {theme === 'light' && (
-            <>
-              {/* Soft, targeted horizontal blend with pure white to hide the grey seam completely */}
-              <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-white via-white/95 to-transparent pointer-events-none z-10" />
-              {/* Soft vertical bottom blend to merge with the next section */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
-            </>
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
           )}
-          {/* Dark mode gradient overlays - blend edges into dark green background */}
           {theme === 'dark' && (
-            <>
-              {/* Strong targeted horizontal blend to completely hide the left edge seam */}
-              <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-bg via-bg/90 to-transparent pointer-events-none z-10" />
-              {/* Soft vertical bottom blend to merge with the stats banner / next section */}
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent pointer-events-none z-10" />
-            </>
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg to-transparent pointer-events-none z-10" />
           )}
         </div>
+
+        {/* Full-width left blend — solid covers photo edge, then smooth fade */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[5]"
+          style={{
+            background: 'linear-gradient(to right, var(--color-bg) 0%, var(--color-bg) 47%, transparent 62%)'
+          }}
+        />
 
         {/* Absolutely positioned Terminal - upper right, compact square shape */}
         <div className="hidden lg:flex absolute top-[30%] -translate-y-1/2 right-6 xl:right-12 z-20 w-[240px] xl:w-[260px]">
@@ -266,7 +265,7 @@ export const Home: React.FC = () => {
 
       {/* 2. About Me Section */}
       <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28 border-b border-border-token/20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left Column: Narrative text & tag pills */}
           <div className="lg:col-span-5 flex flex-col space-y-8">
@@ -305,41 +304,92 @@ export const Home: React.FC = () => {
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 1: Identity */}
-            <ScrollReveal direction="right">
-              <div className="glass-panel p-6 rounded-2xl h-full flex flex-col space-y-4 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3 bg-accent-dim rounded-xl w-max">
-                  <Brain size={22} className="text-accent" />
+            <ScrollReveal direction="right" className="h-full">
+              <div className="glass-panel p-5 rounded-3xl h-full flex flex-col space-y-4 hover:border-accent/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group">
+                
+                {/* Rectangular Image at Top */}
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border-token/10 bg-bg-alt/50 shrink-0">
+                  <img 
+                    src="/assets/images/about/1.jpg" 
+                    alt="Identity" 
+                    loading="lazy" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                  />
                 </div>
-                <h3 className="text-base font-bold text-text-heading uppercase tracking-wider">Identity</h3>
-                <p className="text-sm text-text-body leading-relaxed">
-                  Joint AI student at UTS &amp; HCMUT. Passionate about autonomous systems, LLMs, and Model Context Protocol (MCP).
-                </p>
+
+                {/* Title & Description below */}
+                <div className="flex-grow flex flex-col space-y-2.5 justify-end">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-accent-dim rounded-xl w-max shrink-0 border border-border-token/10">
+                      <Brain size={16} className="text-accent" />
+                    </div>
+                    <h3 className="text-sm font-bold font-mono tracking-widest uppercase text-text-heading">Identity</h3>
+                  </div>
+                  <p className="text-xs md:text-sm text-text-body/80 leading-relaxed font-body">
+                    Joint AI student at UTS &amp; HCMUT. Passionate about autonomous systems, LLMs, and Model Context Protocol (MCP).
+                  </p>
+                </div>
+
               </div>
             </ScrollReveal>
 
             {/* Card 2: Goal */}
-            <ScrollReveal direction="right" delay={0.1}>
-              <div className="glass-panel p-6 rounded-2xl h-full flex flex-col space-y-4 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3 bg-accent-dim rounded-xl w-max">
-                  <Cpu size={22} className="text-accent" />
+            <ScrollReveal direction="right" delay={0.1} className="h-full">
+              <div className="glass-panel p-5 rounded-3xl h-full flex flex-col space-y-4 hover:border-accent/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group">
+                
+                {/* Title & Description at Top */}
+                <div className="flex-grow flex flex-col space-y-2.5 justify-start">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-accent-dim rounded-xl w-max shrink-0 border border-border-token/10">
+                      <Cpu size={16} className="text-accent" />
+                    </div>
+                    <h3 className="text-sm font-bold font-mono tracking-widest uppercase text-text-heading">Goal</h3>
+                  </div>
+                  <p className="text-xs md:text-sm text-text-body/80 leading-relaxed font-body">
+                    Embedding agentic systems into economic &amp; engineering applications, helping companies build AI-driven platforms.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-text-heading uppercase tracking-wider">Goal</h3>
-                <p className="text-sm text-text-body leading-relaxed">
-                  Embedding agentic systems into economic &amp; engineering applications, helping companies build AI-driven platforms.
-                </p>
+
+                {/* Rectangular Image at Bottom */}
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border-token/10 bg-bg-alt/50 shrink-0 mt-auto">
+                  <img 
+                    src="/assets/images/about/2.jpg" 
+                    alt="Goal" 
+                    loading="lazy" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                  />
+                </div>
+
               </div>
             </ScrollReveal>
 
             {/* Card 3: Connect */}
-            <ScrollReveal direction="right" delay={0.2}>
-              <div className="glass-panel p-6 rounded-2xl h-full flex flex-col space-y-4 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3 bg-accent-dim rounded-xl w-max">
-                  <BookOpen size={22} className="text-accent" />
+            <ScrollReveal direction="right" delay={0.2} className="h-full">
+              <div className="glass-panel p-5 rounded-3xl h-full flex flex-col space-y-4 hover:border-accent/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group">
+                
+                {/* Rectangular Image at Top */}
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border-token/10 bg-bg-alt/50 shrink-0">
+                  <img 
+                    src="/assets/images/about/3.jpg" 
+                    alt="Connect" 
+                    loading="lazy" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                  />
                 </div>
-                <h3 className="text-base font-bold text-text-heading uppercase tracking-wider">Connect</h3>
-                <p className="text-sm text-text-body leading-relaxed">
-                  Always open to connecting with professionals, engineers, and companies building the next generation of intelligent tech.
-                </p>
+
+                {/* Title & Description below */}
+                <div className="flex-grow flex flex-col space-y-2.5 justify-end">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-accent-dim rounded-xl w-max shrink-0 border border-border-token/10">
+                      <BookOpen size={16} className="text-accent" />
+                    </div>
+                    <h3 className="text-sm font-bold font-mono tracking-widest uppercase text-text-heading">Connect</h3>
+                  </div>
+                  <p className="text-xs md:text-sm text-text-body/80 leading-relaxed font-body">
+                    Always open to connecting with professionals, engineers, and companies building the next generation of intelligent tech.
+                  </p>
+                </div>
+
               </div>
             </ScrollReveal>
 
@@ -383,45 +433,69 @@ export const Home: React.FC = () => {
                   key={`${project.id}-${idx}`}
                   className="w-[300px] md:w-[340px] shrink-0 group"
                 >
-                  <Link to="/projects">
-                    <div className="glass-panel rounded-2xl overflow-hidden h-full flex flex-col hover:border-accent/40 transition-all duration-300">
+                  <Link to={`/projects?id=${project.id}`}>
+                    <div className="glass-panel rounded-2xl overflow-hidden h-full flex flex-col hover:border-accent/40 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                       
                       {/* Small Square Image preview */}
-                      <div className="relative aspect-video w-full bg-bg-alt/50 overflow-hidden border-b border-border-token/20">
+                      <div 
+                        className="relative aspect-video w-full bg-bg-alt/50 overflow-hidden border-b border-border-token/20"
+                        style={{
+                          backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
+                        }}
+                      >
                         {project.status === 'placeholder' ? (
                           <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center">
                             <Sparkles className="text-accent/60 mb-1 animate-pulse" size={24} />
                             <span className="text-xs font-semibold text-text-heading">Coming Soon</span>
                           </div>
                         ) : (
-                          <img
-                            src={project.hoverMedia.src}
-                            alt={project.title}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                          />
+                          <>
+                            <img
+                              src={project.hoverMedia.src}
+                              alt={project.title}
+                              loading="lazy"
+                              className="w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
+                              style={{
+                                objectFit: project.hoverMedia.objectFit || 'cover',
+                                objectPosition: project.hoverMedia.objectPosition || 'center'
+                              }}
+                            />
+                            {/* Dark gradient overlay on hover */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            
+                            {/* Floating Action Button inside image container */}
+                            <div className="absolute bottom-3 right-3 p-2 rounded-full bg-accent text-bg scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out shadow-lg">
+                              <ArrowUpRight size={14} />
+                            </div>
+                          </>
                         )}
-                        {/* Category Label */}
-                        <span className="absolute top-3.5 left-3.5 text-[9px] uppercase tracking-wider font-bold bg-accent-dim text-accent-deep dark:text-accent-bright px-2.5 py-1 rounded">
-                          {project.category}
-                        </span>
                       </div>
 
                       {/* Content */}
-                      <div className="p-6 flex-grow flex flex-col justify-between space-y-4 bg-bg-alt/10">
-                        <div className="space-y-1.5">
-                          <h3 className="text-base font-bold text-text-heading group-hover:text-accent transition-colors">
+                      <div className="p-6 flex-grow flex flex-col justify-between space-y-4 bg-bg-alt/5 transition-colors duration-300 group-hover:bg-bg-alt/25">
+                        <div className="space-y-3">
+                          {/* Category & Period info */}
+                          <div className="flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-text-muted/80">
+                            <span className="font-bold text-accent">
+                              {project.category === 'Competition' && project.competitionName 
+                                ? project.competitionName 
+                                : project.category}
+                            </span>
+                            <span>{project.period.includes(' – ') ? project.period.split(' – ')[0] : project.period}</span>
+                          </div>
+
+                          <h3 className="text-lg md:text-xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-tight">
                             {project.title}
                           </h3>
-                          <p className="text-xs md:text-sm text-text-muted line-clamp-2 leading-relaxed font-normal">
+                          <p className="text-xs md:text-sm text-text-body/75 line-clamp-2 leading-relaxed font-body font-normal">
                             {project.summary}
                           </p>
                         </div>
 
                         {/* Tech stack tags */}
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1.5 pt-1">
                           {project.techStack.slice(0, 3).map((tech) => (
-                            <span key={tech} className="text-[9px] font-mono bg-bg-alt border border-border-token/25 px-2.5 py-1 rounded-full text-text-muted">
+                            <span key={tech} className="text-[9px] font-mono bg-surface-2/60 border border-border-token/15 px-2.5 py-1 rounded-md text-text-muted hover:border-accent/30 hover:text-accent transition-colors duration-200">
                               {tech}
                             </span>
                           ))}
@@ -568,85 +642,155 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Quote Block */}
-            <ScrollReveal direction="right" delay={0.3}>
-              <div className="glass-panel p-5 rounded-xl border border-accent/20 dark:border-accent/14 flex items-center gap-4 overflow-hidden relative">
-                <div className="flex items-center gap-3.5 relative z-10 flex-1">
-                  <span className="text-4xl font-display text-accent/50 font-bold select-none leading-none shrink-0">“</span>
-                  <p className="text-sm md:text-base text-text-heading font-medium leading-relaxed">
-                    Code is not just syntax. <span className="text-accent font-semibold">It’s how I build solutions that make impact.</span>
-                  </p>
-                  <span className="text-4xl font-display text-accent/50 font-bold select-none leading-none shrink-0">”</span>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
 
         </div>
       </section>
 
-      {/* 5. Personal Life Section (Replacing Journey with placeholder grid) */}
-      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      {/* 4.5. Centered Artistic Quote Section */}
+      <section className="relative w-full overflow-hidden py-8 md:py-12 border-b border-border-token/20">
+        {/* Soft glowing background radial gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-dim)_0%,transparent_60%)] pointer-events-none opacity-50" />
+        
+        <div className="max-w-[1360px] mx-auto px-6 relative z-10">
+          <ScrollReveal direction="up">
+            <div className="relative max-w-5xl mx-auto text-center py-2">
+              <blockquote className="space-y-4 relative z-10">
+                <p className="text-2xl md:text-4xl lg:text-[46px] font-display font-medium italic text-text-heading leading-snug tracking-tight">
+                  “Nothing in this world can take the place of persistence.”
+                </p>
+                <cite className="block text-xs md:text-sm font-mono tracking-widest uppercase text-accent not-italic mt-2">
+                  — Calvin Coolidge
+                </cite>
+              </blockquote>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 5. Personal Life Section */}
+      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28 border-t border-border-token/40">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-4 flex flex-col space-y-6">
+          <div className="lg:col-span-4 flex flex-col space-y-8">
             <ScrollReveal direction="left">
               <div className="flex items-center gap-2.5">
                 <Heart size={20} className="text-accent" />
-                <span className="text-sm uppercase tracking-widest font-semibold text-accent">Personal Life</span>
+                <span className="text-xs uppercase tracking-widest font-semibold text-accent">Journal</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3">
-                Life Outside of Code
+              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3 leading-tight">
+                Life Outside <br />
+                <span className="italic font-normal font-serif text-accent">of Code</span>
               </h2>
             </ScrollReveal>
 
-            <ScrollReveal direction="left" delay={0.1}>
-              <p className="text-base md:text-lg text-text-body leading-relaxed">
-                Beyond building AI systems, I focus on personal growth, physical conditioning, and exploring new environments. Here is a glimpse into my life outside of code.
-              </p>
+            {/* Artistic Category Links */}
+            <ScrollReveal direction="left" delay={0.1} className="flex flex-col space-y-4">
+              <Link 
+                to="/personal?tab=youth" 
+                className="group flex items-center justify-between py-3.5 border-b border-border-token/20 hover:border-accent transition-colors duration-300"
+              >
+                <span className="text-base md:text-lg font-display text-text-muted group-hover:text-text-heading group-hover:translate-x-1.5 transition-all duration-300">
+                  01 / Youth &amp; Exploration
+                </span>
+                <ArrowUpRight size={16} className="text-text-muted/40 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+              </Link>
+              <Link 
+                to="/personal?tab=family" 
+                className="group flex items-center justify-between py-3.5 border-b border-border-token/20 hover:border-accent transition-colors duration-300"
+              >
+                <span className="text-base md:text-lg font-display text-text-muted group-hover:text-text-heading group-hover:translate-x-1.5 transition-all duration-300">
+                  02 / Family &amp; Warmth
+                </span>
+                <ArrowUpRight size={16} className="text-text-muted/40 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+              </Link>
+              <Link 
+                to="/personal?tab=friend" 
+                className="group flex items-center justify-between py-3.5 border-b border-border-token/20 hover:border-accent transition-colors duration-300"
+              >
+                <span className="text-base md:text-lg font-display text-text-muted group-hover:text-text-heading group-hover:translate-x-1.5 transition-all duration-300">
+                  03 / Friends &amp; Memories
+                </span>
+                <ArrowUpRight size={16} className="text-text-muted/40 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+              </Link>
+              <Link 
+                to="/personal?tab=hobby" 
+                className="group flex items-center justify-between py-3.5 border-b border-border-token/20 hover:border-accent transition-colors duration-300"
+              >
+                <span className="text-base md:text-lg font-display text-text-muted group-hover:text-text-heading group-hover:translate-x-1.5 transition-all duration-300">
+                  04 / Hobbies &amp; Fuel
+                </span>
+                <ArrowUpRight size={16} className="text-text-muted/40 group-hover:text-accent group-hover:rotate-45 transition-all duration-300" />
+              </Link>
+            </ScrollReveal>
+
+            <ScrollReveal direction="left" delay={0.15}>
+              <Link 
+                to="/personal" 
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-semibold text-accent hover:text-accent-bright border border-accent/25 hover:border-accent bg-accent/5 px-6 py-3 rounded-full transition-all duration-300 w-max"
+              >
+                Explore Full Journal <ArrowUpRight size={14} />
+              </Link>
             </ScrollReveal>
           </div>
 
-          {/* Grid Placeholders for Personal Life images */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          {/* Artistic Collage for Personal Life preview */}
+          <div className="lg:col-span-8 grid grid-cols-2 gap-4 md:gap-6 w-full">
             
-            {/* Card 1 */}
+            {/* Youth Preview */}
             <ScrollReveal direction="right" delay={0.05}>
-              <div className="glass-panel p-6 rounded-2xl border border-dashed border-border-token/40 flex flex-col items-center justify-center text-center space-y-4 h-64 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3.5 bg-accent-dim rounded-full text-accent">
-                  <Sparkles size={22} />
+              <Link to="/personal?tab=youth" className="block group relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[16/10] border border-border-token/20 shadow-lg cursor-pointer">
+                <img 
+                  src="/assets/images/personal/youth_korea.jpg" 
+                  alt="Youth Seoul" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <h4 className="text-base md:text-lg font-display italic font-extrabold text-white mt-1">Seoul, Korea</h4>
                 </div>
-                <h4 className="text-sm font-bold text-text-heading uppercase tracking-wider">Fitness &amp; Discipline</h4>
-                <p className="text-xs md:text-sm text-text-muted leading-relaxed max-w-[220px]">
-                  Physical conditioning, running, and stoic training to build mental stamina.
-                </p>
-              </div>
+              </Link>
             </ScrollReveal>
 
-            {/* Card 2 */}
+            {/* Family Preview */}
             <ScrollReveal direction="right" delay={0.1}>
-              <div className="glass-panel p-6 rounded-2xl border border-dashed border-border-token/40 flex flex-col items-center justify-center text-center space-y-4 h-64 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3.5 bg-accent-dim rounded-full text-accent">
-                  <Sparkles size={22} />
+              <Link to="/personal?tab=family" className="block group relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[16/10] border border-border-token/20 shadow-lg cursor-pointer">
+                <img 
+                  src="/assets/images/personal/family_all_1.jpg" 
+                  alt="Family" 
+                  className="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-700 ease-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <h4 className="text-base md:text-lg font-display italic font-extrabold text-white mt-1">Rooted Support</h4>
                 </div>
-                <h4 className="text-sm font-bold text-text-heading uppercase tracking-wider">Travel &amp; Perspectives</h4>
-                <p className="text-xs md:text-sm text-text-muted leading-relaxed max-w-[220px]">
-                  Exploring new regions, hiking, and documenting details of natural environments.
-                </p>
-              </div>
+              </Link>
             </ScrollReveal>
 
-            {/* Card 3 */}
+            {/* Friends Preview */}
             <ScrollReveal direction="right" delay={0.15}>
-              <div className="glass-panel p-6 rounded-2xl border border-dashed border-border-token/40 flex flex-col items-center justify-center text-center space-y-4 h-64 hover:border-accent/40 transition-all duration-300">
-                <div className="p-3.5 bg-accent-dim rounded-full text-accent">
-                  <Sparkles size={22} />
+              <Link to="/personal?tab=friend" className="block group relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[16/10] border border-border-token/20 shadow-lg cursor-pointer">
+                <img 
+                  src="/assets/images/personal/friend_group_2.jpg" 
+                  alt="Friends Classmates" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <h4 className="text-base md:text-lg font-display italic font-extrabold text-white mt-1">HCMUT Classmates</h4>
                 </div>
-                <h4 className="text-sm font-bold text-text-heading uppercase tracking-wider">Stoic Study</h4>
-                <p className="text-xs md:text-sm text-text-muted leading-relaxed max-w-[220px]">
-                  Philosophy, writing daily logs, and studying biographies of historic figures.
-                </p>
-              </div>
+              </Link>
+            </ScrollReveal>
+
+            {/* Hobby Preview */}
+            <ScrollReveal direction="right" delay={0.2}>
+              <Link to="/personal?tab=hobby" className="block group relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[16/10] border border-border-token/20 shadow-lg cursor-pointer">
+                <img 
+                  src="/assets/images/personal/friend_group_1.jpg" 
+                  alt="High School Cafe Hangout" 
+                  className="w-full h-full object-cover object-[center_75%] group-hover:scale-105 transition-transform duration-700 ease-out" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <h4 className="text-base md:text-lg font-display italic font-extrabold text-white mt-1">High School Cafe Hangout</h4>
+                </div>
+              </Link>
             </ScrollReveal>
 
           </div>

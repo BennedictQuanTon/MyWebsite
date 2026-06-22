@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Vault from './pages/Vault';
 import Journey from './pages/Journey';
 import Education from './pages/Education';
+import Personal from './pages/Personal';
 
 // Page Transition Wrapper Component
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -64,6 +65,14 @@ const AnimatedRoutes: React.FC = () => {
           element={
             <PageWrapper>
               <Education />
+            </PageWrapper>
+          } 
+        />
+        <Route 
+          path="/personal" 
+          element={
+            <PageWrapper>
+              <Personal />
             </PageWrapper>
           } 
         />
