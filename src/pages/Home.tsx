@@ -190,7 +190,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Center-aligned container wrapper - balanced viewport gaps */}
-        <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 xl:px-20 relative z-10 flex flex-col justify-between gap-12 lg:gap-16">
+        <div className="w-full max-w-[1440px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-20 relative z-10 flex flex-col justify-between gap-12 lg:gap-16 2xl:gap-20">
           {/* Top Row: Left content only - terminal is absolutely positioned */}
           <div className="w-full max-w-2xl">
             <div className="flex flex-col space-y-6 text-left relative -left-2 md:-left-8 lg:-left-16 xl:-left-24">
@@ -201,7 +201,7 @@ export const Home: React.FC = () => {
               </div>
 
               <div className="space-y-4">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display text-text-heading leading-[1.05] tracking-tight">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold font-display text-text-heading leading-[1.05] tracking-tight">
                   Long Quan Ton
                 </h1>
                 <p className="text-xl md:text-3xl font-semibold text-accent font-display italic tracking-wider leading-snug">
@@ -264,7 +264,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. About Me Section */}
-      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28 border-b border-border-token/20">
+      <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left Column: Narrative text & tag pills */}
@@ -274,7 +274,7 @@ export const Home: React.FC = () => {
                 <User size={20} className="text-accent" />
                 <span className="text-sm uppercase tracking-widest font-semibold text-accent">About Me</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3">
                 My Story &amp; Path
               </h2>
             </ScrollReveal>
@@ -301,7 +301,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Right Column: Three Feature Cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             
             {/* Card 1: Identity */}
             <ScrollReveal direction="right" className="h-full">
@@ -399,7 +399,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 3. Projects Loop Carousel (Small Square Cards, Infinite Scrolling Marquee) */}
-      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 border-b border-border-token/20">
+      <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 border-b border-border-token/20">
         <div className="flex flex-col space-y-10">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -408,7 +408,7 @@ export const Home: React.FC = () => {
                 <Layers size={20} className="text-accent" />
                 <span className="text-sm uppercase tracking-widest font-semibold text-accent">Selected Works</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3">
                 Projects &amp; Competitions
               </h2>
             </ScrollReveal>
@@ -520,7 +520,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 4. Skills & Tech Stack Section */}
-      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28 border-b border-border-token/20">
+      <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Developer Skills & Layers */}
@@ -530,7 +530,7 @@ export const Home: React.FC = () => {
                 <Terminal size={20} className="text-accent" />
                 <span className="text-sm uppercase tracking-widest font-semibold text-accent">Technical Rigor</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3">
                 Developer Skills
               </h2>
               <p className="text-base text-text-body mt-3 leading-relaxed">
@@ -652,7 +652,7 @@ export const Home: React.FC = () => {
         {/* Soft glowing background radial gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-dim)_0%,transparent_60%)] pointer-events-none opacity-50" />
         
-        <div className="max-w-[1360px] mx-auto px-6 relative z-10">
+        <div className="max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
           <ScrollReveal direction="up">
             <div className="relative max-w-5xl mx-auto text-center py-2">
               <blockquote className="space-y-4 relative z-10">
@@ -669,7 +669,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 5. Personal Life Section */}
-      <section className="w-full max-w-[1360px] mx-auto px-6 py-20 md:py-28 border-t border-border-token/40">
+      <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-t border-border-token/40">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-4 flex flex-col space-y-8">
@@ -678,7 +678,7 @@ export const Home: React.FC = () => {
                 <Heart size={20} className="text-accent" />
                 <span className="text-xs uppercase tracking-widest font-semibold text-accent">Journal</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-text-heading mt-3 leading-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3 leading-tight">
                 Life Outside <br />
                 <span className="italic font-normal font-serif text-accent">of Code</span>
               </h2>

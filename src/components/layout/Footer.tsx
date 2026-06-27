@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full mt-auto py-12 px-6 border-t border-border-token/40 transition-colors duration-300">
+    <footer className="w-full mt-auto py-12 px-4 md:px-8 lg:px-12 xl:px-20 border-t border-border-token/40 transition-colors duration-300">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Left: Branding & Tagline */}
         <div className="flex flex-col items-center md:items-start space-y-2">
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
               href="https://github.com/BennedictQuanTon"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
               title="GitHub"
             >
               <GithubIcon size={18} />
@@ -69,14 +69,14 @@ export const Footer: React.FC = () => {
               href="https://linkedin.com/in/bennedictquanton"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
               title="LinkedIn"
             >
               <LinkedinIcon size={18} />
             </a>
             <a
               href="mailto:tonlongquanvn@gmail.com"
-              className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
               title="Email"
             >
               <Mail size={18} />

@@ -65,11 +65,11 @@ export const Vault: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
-      <div className="w-full max-w-[1340px] mx-auto px-6 md:px-12 py-24 flex flex-col items-center">
+      <div className="w-full max-w-[1340px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
         {/* Page Title */}
         <ScrollReveal className="text-center mb-16">
           <span className="text-xs uppercase tracking-widest font-semibold text-accent">Portfolio</span>
-          <h1 className="text-4xl md:text-6xl font-bold font-display text-text-heading mt-2">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-2">
             Projects & Codebases
           </h1>
           <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
@@ -84,7 +84,7 @@ export const Vault: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer ${filter === cat
+                className={`px-5 py-2.5 min-h-[44px] flex items-center justify-center rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer ${filter === cat
                     ? 'bg-accent text-bg shadow-md'
                     : 'text-text-muted hover:text-text-heading hover:bg-surface-2'
                   }`}
@@ -283,7 +283,7 @@ export const Vault: React.FC = () => {
                             onClick={(e) => {
                               e.stopPropagation(); // prevent modal trigger
                             }}
-                            className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading border border-border-token/30 transition-all duration-200"
+                            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading border border-border-token/30 transition-all duration-200"
                           >
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="Github repo">
                               <GithubIcon size={18} />
@@ -385,7 +385,7 @@ export const Vault: React.FC = () => {
 
                   <button
                     onClick={closeProjectModal}
-                    className="p-2 rounded-full hover:bg-surface-2 border border-border-token text-text-muted hover:text-text-heading transition-colors cursor-pointer"
+                    className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 border border-border-token text-text-muted hover:text-text-heading transition-colors cursor-pointer"
                     aria-label="Close modal"
                   >
                     <X size={20} />
@@ -393,9 +393,9 @@ export const Vault: React.FC = () => {
                 </div>
 
                 {/* Grid content split: 3/5 Left (problem/timeline) + 2/5 Right (tech/outcomes) */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                   {/* Left Column (Details & Process Timeline) */}
-                  <div className="md:col-span-3 flex flex-col space-y-6">
+                  <div className="lg:col-span-3 flex flex-col space-y-6">
                     {/* Problem Statement */}
                     <div className="space-y-2">
                       <h3 className="text-sm uppercase font-bold tracking-widest text-text-heading flex items-center gap-2">
@@ -433,7 +433,7 @@ export const Vault: React.FC = () => {
                   </div>
 
                   {/* Right Column (Outcomes, Tech, Links) */}
-                  <div className="md:col-span-2 flex flex-col space-y-6">
+                  <div className="lg:col-span-2 flex flex-col space-y-6">
                     {/* Key Deliverables & Outcomes */}
                     <div className="space-y-3">
                       <h3 className="text-sm uppercase font-bold tracking-widest text-text-heading">
@@ -473,7 +473,7 @@ export const Vault: React.FC = () => {
                               href={selectedProject.githubUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 border border-border-token hover:bg-surface-2 rounded-xl text-text-heading transition-colors cursor-pointer"
+                              className="flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 min-h-[44px] border border-border-token hover:bg-surface-2 rounded-xl text-text-heading transition-colors cursor-pointer"
                             >
                               <GithubIcon size={14} /> Repository
                             </a>
@@ -483,7 +483,7 @@ export const Vault: React.FC = () => {
                               href={selectedProject.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 bg-accent hover:bg-accent-bright text-bg rounded-xl transition-colors cursor-pointer"
+                              className="flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 min-h-[44px] bg-accent hover:bg-accent-bright text-bg rounded-xl transition-colors cursor-pointer"
                             >
                               <ExternalLink size={14} /> Live System
                             </a>

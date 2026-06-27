@@ -327,12 +327,12 @@ export const Personal: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
-      <div className="w-full max-w-[1360px] mx-auto px-6 md:px-12 py-24 flex flex-col items-center">
+      <div className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
         
         {/* Page Title & Narrative Intro */}
         <ScrollReveal className="text-center mb-14 max-w-3xl">
           <span className="text-xs uppercase tracking-widest font-semibold text-accent">Journal</span>
-          <h1 className="text-4xl md:text-6xl font-bold font-display text-text-heading mt-2">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-2">
             Personal Life
           </h1>
           <p className="text-sm md:text-base text-text-muted mt-4 leading-relaxed font-body">
@@ -347,7 +347,7 @@ export const Personal: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => navigate(tab.id === 'all' ? '/personal' : `/personal?tab=${tab.id}`)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                className={`px-5 py-2.5 min-h-[44px] rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                   activeTab === tab.id
                     ? 'bg-accent text-bg shadow-md'
                     : 'text-text-muted hover:text-text-heading hover:bg-surface-2'

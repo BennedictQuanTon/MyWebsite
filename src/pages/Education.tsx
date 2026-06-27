@@ -52,11 +52,11 @@ export const Education: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
-      <div className="w-full max-w-6xl mx-auto px-6 md:px-12 py-24 flex flex-col items-center min-h-screen">
+      <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center min-h-screen">
       {/* Title */}
       <ScrollReveal className="text-center mb-16">
         <span className="text-xs uppercase tracking-widest font-semibold text-accent">Academic Foundation</span>
-        <h1 className="text-4xl md:text-6xl font-bold font-display text-text-heading mt-2">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-2">
           Education & Credentials
         </h1>
         <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">

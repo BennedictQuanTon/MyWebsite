@@ -25,6 +25,46 @@ A static, client-side single-page application with no backend. Content is define
 | Icons | Lucide React |
 | Linting | ESLint, TypeScript ESLint |
 
+## Project Structure
+
+```
+src/
+├── App.tsx                        # Root component — layout shell only
+├── main.tsx                       # React entry point
+├── assets/                        # Static files (images, svgs)
+├── components/
+│   ├── layout/                    # Structural chrome
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   └── PageWrapper.tsx        # Animated page transition wrapper
+│   ├── ui/                        # Generic reusable components
+│   │   ├── ScrollReveal.tsx
+│   │   └── TechLogos.tsx
+│   └── visuals/                   # 3D / WebGL / canvas components
+│       ├── NeuralAurora.tsx
+│       └── TechStack3D.tsx
+├── context/
+│   └── ThemeContext.tsx            # Light / dark theme state
+├── data/                          # Site content as typed TS modules
+│   ├── about.ts
+│   ├── certs.ts
+│   ├── experience.ts
+│   ├── milestones.ts
+│   └── projects.ts
+├── pages/                         # Route-level page components
+│   ├── Home.tsx
+│   ├── Vault.tsx
+│   ├── Journey.tsx
+│   ├── Education.tsx
+│   └── Personal.tsx
+├── routes/
+│   └── index.tsx                  # AnimatedRoutes — all route definitions
+├── styles/
+│   └── index.css                  # Global styles and theme variables
+└── types/
+    └── index.ts                   # Shared TypeScript interfaces
+```
+
 ## Getting Started
 
 ```bash
