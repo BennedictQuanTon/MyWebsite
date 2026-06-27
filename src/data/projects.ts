@@ -1,36 +1,4 @@
-export interface TimelineStep {
-  date: string;
-  title: string;
-  description: string;
-  image?: string;
-}
-
-export interface Project {
-  id: string;
-  title: string;
-  category: 'Personal Project' | 'Competition';
-  period: string;
-  role: string;
-  summary: string;
-  problem: string;
-  process: TimelineStep[];
-  techStack: string[];
-  outcomes: string[];
-  images: string[];
-  hoverMedia: {
-    type: 'image' | 'video';
-    src: string;
-    objectPosition?: string;
-    objectFit?: 'cover' | 'contain';
-  };
-  githubUrl?: string;
-  liveUrl?: string;
-  status: 'active' | 'placeholder';
-  competitionName?: string;
-  organizer?: string;
-  organizerLogo?: string;
-  organizerLogos?: string[];
-}
+import type { Project } from '../types';
 
 export const projects: Project[] = [
   {

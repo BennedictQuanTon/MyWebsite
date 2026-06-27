@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, X, Calendar, User, Tag, Sparkles, Trophy } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
-import { projects, type Project } from '../data/projects';
-import { genericTechIcon } from '../components/TechLogos';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { projects } from '../data/projects';
+import type { Project } from '../types';
+import { genericTechIcon } from '../components/ui/TechLogos';
 
 const GithubIcon = ({ size = 14 }: { size?: number }) => (
   <svg

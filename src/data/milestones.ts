@@ -1,14 +1,4 @@
-export interface Milestone {
-  id: string;
-  type: 'education' | 'competition';
-  date: string; // display string
-  title: string;
-  subtitle: string;
-  description: string;
-  details: string[];
-  image?: string;
-  highlight?: string;
-}
+import type { Milestone } from '../types';
 
 export const milestones: Milestone[] = [
   {

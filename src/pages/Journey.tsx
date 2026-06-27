@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, MapPin, Briefcase, Award, GraduationCap, CheckCircle, Image as ImageIcon } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { experiences } from '../data/experience';
 import { milestones } from '../data/milestones';
 

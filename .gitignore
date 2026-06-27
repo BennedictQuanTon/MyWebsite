@@ -27,8 +27,5 @@ dist-ssr
 ref/
 references/
 
-# Personal assets and media
-public/assets/images/personal/
-public/assets/images/portrait/
-public/assets/images/about/
-public/assets/videos/
+# All local assets (images, videos) — serve from disk, not tracked in Git
+public/assets/

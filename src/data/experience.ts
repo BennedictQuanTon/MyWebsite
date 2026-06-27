@@ -1,20 +1,4 @@
-export interface WorkExperience {
-  id: string;
-  company: string;
-  companyLogo?: string;
-  companyPhoto?: string;
-  location: string;
-  role: string;
-  type: 'Part-time' | 'Full-time' | 'Internship' | 'Freelance';
-  mode: 'Remote' | 'On-site' | 'Hybrid';
-  startDate: string;
-  endDate: string;
-  isActive: boolean;
-  responsibilities: string[];
-  skills: string[];
-  photos?: string[];
-  status: 'active' | 'placeholder';
-}
+import type { WorkExperience } from '../types';
 
 export const experiences: WorkExperience[] = [
   {
