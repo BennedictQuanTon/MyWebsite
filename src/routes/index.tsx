@@ -8,7 +8,6 @@ import Home from '../pages/Home';
 import Vault from '../pages/Vault';
 import Journey from '../pages/Journey';
 import Education from '../pages/Education';
-import Personal from '../pages/Personal';
 
 export const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
@@ -20,7 +19,6 @@ export const AnimatedRoutes: React.FC = () => {
         <Route path="/projects" element={<PageWrapper><Vault /></PageWrapper>} />
         <Route path="/journey" element={<PageWrapper><Journey /></PageWrapper>} />
         <Route path="/credentials" element={<PageWrapper><Education /></PageWrapper>} />
-        <Route path="/personal" element={<PageWrapper><Personal /></PageWrapper>} />
         {/* Fallback */}
         <Route path="*" element={<PageWrapper><Home /></PageWrapper>} />
       </Routes>

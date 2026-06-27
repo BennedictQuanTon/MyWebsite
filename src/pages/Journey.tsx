@@ -1,75 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, MapPin, Briefcase, Award, GraduationCap, CheckCircle, Image as ImageIcon } from 'lucide-react';
+import React from 'react';
+import { Calendar, MapPin, Briefcase, GraduationCap, CheckCircle, Image as ImageIcon } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { experiences } from '../data/experience';
 import { milestones } from '../data/milestones';
 
-// Register GSAP ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
-
 export const Journey: React.FC = () => {
-  const timelineRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // 1. GSAP ScrollTrigger Timeline Animation
-    if (!timelineRef.current) return;
-
-    const timelineItems = timelineRef.current.querySelectorAll('.timeline-item');
-    const triggers: ScrollTrigger[] = [];
-
-    timelineItems.forEach((item, index) => {
-      const isLeft = index % 2 === 0;
-      const content = item.querySelector('.timeline-content');
-      const dot = item.querySelector('.timeline-dot');
-
-      // Animating the content box sliding in
-      const anim = gsap.fromTo(content, 
-        { 
-          opacity: 0, 
-          x: isLeft ? -80 : 80 
-        }, 
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            end: 'top 50%',
-            toggleActions: 'play none none none',
-            // scrub: 1 // smooth scrolling speed links
-          }
-        }
-      );
-
-      // Animating the dot glow pulsing
-      const dotAnim = gsap.fromTo(dot,
-        { scale: 0.8, boxShadow: '0 0 0 rgba(16, 185, 129, 0)' },
-        {
-          scale: 1.2,
-          boxShadow: '0 0 12px rgba(16, 185, 129, 0.8)',
-          duration: 0.4,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            toggleActions: 'play reverse play reverse'
-          }
-        }
-      );
-
-      if (anim.scrollTrigger) triggers.push(anim.scrollTrigger);
-      if (dotAnim.scrollTrigger) triggers.push(dotAnim.scrollTrigger);
-    });
-
-    // Cleanup scroll triggers on unmount
-    return () => {
-      triggers.forEach(t => t.kill());
-    };
-  }, []);
-
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
       <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
@@ -80,7 +15,7 @@ export const Journey: React.FC = () => {
           The Journey
         </h1>
         <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
-          A documented timeline of academic achievements, technical work experience, and competition outcomes.
+          A documented timeline of academic achievements and technical work experience.
         </p>
       </ScrollReveal>
 
@@ -241,101 +176,6 @@ export const Journey: React.FC = () => {
               </div>
             </ScrollReveal>
           ))}
-        </div>
-      </section>
-
-      {/* 🏆 TRACK 3: COMPETITIONS & HACKATHONS (GSAP ScrollTrigger Timeline) */}
-      <section className="w-full mb-28">
-        <ScrollReveal className="flex items-center gap-3 mb-12">
-          <Award size={28} className="text-accent" />
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-text-heading">
-            Competitions & Hackathons
-          </h2>
-        </ScrollReveal>
-
-        {/* Vertical Timeline */}
-        <div ref={timelineRef} className="relative w-full border-l-2 border-border-token/40 md:border-l-0 md:before:absolute md:before:left-1/2 md:before:top-0 md:before:bottom-0 md:before:w-0.5 md:before:bg-border-token/40 pb-12">
-          {milestones.filter(m => m.type === 'competition').map((comp, idx) => {
-            const isLeft = idx % 2 === 0;
-
-            return (
-              <div 
-                key={comp.id}
-                className="timeline-item relative mb-12 md:mb-16 md:flex md:justify-between w-full pl-6 md:pl-0"
-              >
-                {/* Timeline Dot */}
-                <div className="timeline-dot absolute -left-[27px] md:left-1/2 md:-translate-x-1/2 top-6 w-3 h-3 rounded-full bg-accent border-2 border-bg z-10 transition-shadow duration-300" />
-
-                {/* Left block wrapper (desktop only, to force alignment) */}
-                <div className={`hidden md:block w-[45%] ${isLeft ? '' : 'pointer-events-none opacity-0'}`}>
-                  {isLeft && (
-                    <div className="timeline-content glass-panel p-6 rounded-3xl hover:border-accent/40 transition-all duration-300">
-                      <div className="flex flex-col space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-accent-deep dark:text-accent-bright bg-accent-dim px-2 py-0.5 rounded-md font-bold">{comp.date}</span>
-                          <span className="text-xs text-text-muted font-bold">{comp.highlight}</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-text-heading font-display">{comp.title}</h3>
-                        <span className="text-xs text-text-muted">{comp.subtitle}</span>
-                        <p className="text-xs text-text-body leading-relaxed">{comp.description}</p>
-                        {comp.image && (
-                          <img 
-                            src={comp.image} 
-                            alt={comp.title} 
-                            className="w-full h-36 object-cover rounded-xl mt-2 border border-border-token/30" 
-                          />
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Right block wrapper (desktop only, to force alignment) */}
-                <div className={`hidden md:block w-[45%] ${!isLeft ? '' : 'pointer-events-none opacity-0'}`}>
-                  {!isLeft && (
-                    <div className="timeline-content glass-panel p-6 rounded-3xl hover:border-accent/40 transition-all duration-300">
-                      <div className="flex flex-col space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-accent-deep dark:text-accent-bright bg-accent-dim px-2 py-0.5 rounded-md font-bold">{comp.date}</span>
-                          <span className="text-xs text-text-muted font-bold">{comp.highlight}</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-text-heading font-display">{comp.title}</h3>
-                        <span className="text-xs text-text-muted">{comp.subtitle}</span>
-                        <p className="text-xs text-text-body leading-relaxed">{comp.description}</p>
-                        {comp.image && (
-                          <img 
-                            src={comp.image} 
-                            alt={comp.title} 
-                            className="w-full h-36 object-cover rounded-xl mt-2 border border-border-token/30" 
-                          />
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Mobile View Card (always rendered at full-width below 768px) */}
-                <div className="md:hidden w-full timeline-content glass-panel p-6 rounded-3xl">
-                  <div className="flex flex-col space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-accent-deep dark:text-accent-bright bg-accent-dim px-2 py-0.5 rounded-md font-bold">{comp.date}</span>
-                      <span className="text-xs text-text-muted font-bold">{comp.highlight}</span>
-                    </div>
-                    <h3 className="text-lg font-bold text-text-heading font-display">{comp.title}</h3>
-                    <span className="text-xs text-text-muted">{comp.subtitle}</span>
-                    <p className="text-xs text-text-body leading-relaxed">{comp.description}</p>
-                    {comp.image && (
-                      <img 
-                        src={comp.image} 
-                        alt={comp.title} 
-                        className="w-full h-36 object-cover rounded-xl mt-2 border border-border-token/30" 
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </section>
       </div>
