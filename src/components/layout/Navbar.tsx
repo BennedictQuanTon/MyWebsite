@@ -44,8 +44,8 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 px-4 md:px-8 py-4 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-2.5 rounded-full glass-panel transition-all">
+    <nav className="fixed top-0 left-0 right-0 z-40 px-2 sm:px-4 md:px-8 xl:px-12 py-4 transition-colors duration-300">
+      <div className="max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto flex items-center justify-between px-4 md:px-6 py-2.5 rounded-full glass-panel transition-all">
         {/* Brand Logo in Flowing Serif Italic Font */}
         <NavLink 
           to="/" 
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
             href="https://github.com/BennedictQuanTon"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
             title="GitHub Profile"
           >
             <GithubIcon size={20} />
@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
             href="https://linkedin.com/in/bennedictquanton"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
             title="LinkedIn Profile"
           >
             <LinkedinIcon size={20} />
@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
           {/* Theme Toggle Button */}
           <motion.button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-surface-2 border border-border-token text-text-muted hover:text-text-heading transition-all shadow-sm"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 border border-border-token text-text-muted hover:text-text-heading transition-all shadow-sm"
             whileTap={{ scale: 0.95 }}
             animate={{ rotate: theme === 'dark' ? 180 : 0 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -113,7 +113,7 @@ export const Navbar: React.FC = () => {
           {/* Theme Toggle for Mobile */}
           <motion.button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-surface-2 border border-border-token text-text-muted transition-all shadow-sm"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 border border-border-token text-text-muted transition-all shadow-sm"
             whileTap={{ scale: 0.95 }}
             animate={{ rotate: theme === 'dark' ? 180 : 0 }}
             transition={{ type: 'spring', stiffness: 200 }}
@@ -124,7 +124,7 @@ export const Navbar: React.FC = () => {
           {/* Hamburger Menu Icon */}
           <button
             onClick={toggleMenu}
-            className="p-2 rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
+            className="p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
