@@ -1,6 +1,6 @@
 import React from 'react';
 import { GraduationCap, Award, Calendar, BookOpen, Quote, ShieldCheck } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 export const Education: React.FC = () => {
   const academicDetails = {

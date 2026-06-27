@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Compass, Users, Sparkles, X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 interface PhotoItem {
   src: string;

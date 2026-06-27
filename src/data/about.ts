@@ -1,11 +1,6 @@
-export const SHOW_PERSONAL_PHOTOS = false; // Hidden until personal photos are provided as per rules.md
+import type { Passion } from '../types';
 
-export interface Passion {
-  id: string;
-  title: string;
-  description: string;
-  icon: string; // name of icon
-}
+export const SHOW_PERSONAL_PHOTOS = false;
 
 export const passions: Passion[] = [
   {

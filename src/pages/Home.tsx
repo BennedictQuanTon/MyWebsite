@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Download, Brain, User, Cpu, BookOpen, Layers, Terminal, ChevronRight, Sparkles, Heart, Database, Layout, Trophy, Code, Rocket } from 'lucide-react';
-import { ScrollReveal } from '../components/ScrollReveal';
-import { genericTechIcon } from '../components/TechLogos';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
 import { useTheme } from '../context/ThemeContext';
 
