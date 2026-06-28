@@ -27,5 +27,8 @@ dist-ssr
 ref/
 references/
 
-# All local assets (images, videos) — serve from disk, not tracked in Git
-public/assets/
+# Ignore local private CV folders specifically, but allow public CV file
+/cv/
+/CV/
+/references/CV/
+!public/Long_Quan_Ton_CV.pdf

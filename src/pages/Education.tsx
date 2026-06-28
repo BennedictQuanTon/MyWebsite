@@ -1,66 +1,91 @@
 import React from 'react';
-import { GraduationCap, Award, Calendar, BookOpen, ShieldCheck, Library } from 'lucide-react';
+import { GraduationCap, Calendar, BookOpen, Download } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 export const Education: React.FC = () => {
-  // --- PLACEHOLDER DATA FOR USER TO FILL ---
+  // Degree program data
   const degreeProgram = {
     degree: 'Joint Bachelor of Artificial Intelligence',
     institutions: 'University of Technology Sydney (UTS) & HCMUT',
-    period: '2024 – 2028 (Expected)',
-    gpa: '6.75 / 7.00 (First Semester)',
-    desc: 'An elite joint degree program focused on computational mathematics, deep learning models, computer vision, and neural network architectures. The curriculum bridges rigorous theoretical foundations with enterprise-level AI application engineering.',
-    courses: [
-      'Data Structures & Algorithms',
-      'Linear Algebra & Calculus',
-      'Introduction to Deep Learning',
-      'Probability & Statistics for AI'
-    ]
+    period: '2025 – 2028 (Expected)',
+    gpa: '6.75 / 7.00',
   };
 
-  const extraCourses = [
+  // Certificate credentials data mapped directly from actual files in assets
+  const certifications = [
+    {
+      title: 'Generative AI with Large Language Models',
+      issuer: 'DeepLearning.AI & AWS',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/dlai_aws_genai_llm.png',
+      link: '/assets/images/certificates/dlai_aws_genai_llm.png',
+      aspectRatio: 'aspect-[4/3]',
+    },
     {
       title: 'AI Agents in LangGraph',
-      provider: 'DeepLearning.AI',
-      date: 'Jan 2026',
-      desc: 'Advanced multi-agent orchestration course focusing on building complex, stateful LLM applications.'
+      issuer: 'DeepLearning.AI',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/dlai_ai_agents.jpg',
+      link: '/assets/images/certificates/dlai_ai_agents.jpg',
+      aspectRatio: 'aspect-[4/3]',
     },
     {
       title: 'Building Agentic RAG with LlamaIndex',
-      provider: 'DeepLearning.AI',
-      date: 'Jan 2026',
-      desc: 'Production-ready retriever architectures and advanced RAG techniques.'
+      issuer: 'DeepLearning.AI',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/dlai_building_rag.jpg',
+      link: '/assets/images/certificates/dlai_building_rag.jpg',
+      aspectRatio: 'aspect-[4/3]',
     },
     {
       title: 'Functions, Tools and Agents with LangChain',
-      provider: 'DeepLearning.AI',
-      date: 'Feb 2026',
-      desc: 'LLM tool-calling, reasoning loops, and workflow pipelines.'
-    }
-  ];
-
-  const certifications = [
-    {
-      title: 'IELTS Academic: 7.0 Band Score',
-      issuer: 'British Council',
-      date: 'Dec 2025',
-      type: 'Language proficiency credential'
+      issuer: 'DeepLearning.AI',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/dlai_functions_tools_agents.jpg',
+      link: '/assets/images/certificates/dlai_functions_tools_agents.jpg',
+      aspectRatio: 'aspect-[4/3]',
     },
     {
       title: 'Intro to Machine Learning',
-      issuer: 'Kaggle Certifications',
+      issuer: 'Kaggle',
       date: 'Jun 2026',
-      type: 'Foundational ML modeling and validation'
+      image: '/assets/images/certificates/kaggle_intro_to_ml.png',
+      link: '/assets/images/certificates/kaggle_intro_to_ml.png',
+      aspectRatio: 'aspect-[4/3]',
+    },
+    {
+      title: 'Intermediate Machine Learning',
+      issuer: 'Kaggle',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/kaggle_intermediate_ml.png',
+      link: '/assets/images/certificates/kaggle_intermediate_ml.png',
+      aspectRatio: 'aspect-[4/3]',
+    },
+    {
+      title: 'Agentic AI Explained',
+      issuer: 'NVIDIA Deep Learning Institute',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/nvidia_dli_agentic_ai.jpg',
+      link: '/assets/images/certificates/nvidia_dli_agentic_ai.jpg',
+      aspectRatio: 'aspect-[3.2/1]',
+      gridSpan: 'md:col-span-2 lg:col-span-2',
+    },
+    {
+      title: 'Artificial Intelligence Fundamentals',
+      issuer: 'IBM',
+      date: 'Jun 2026',
+      image: '/assets/images/certificates/ibm_ai_fundamentals.png',
+      link: '/assets/images/certificates/ibm_ai_fundamentals.pdf',
+      aspectRatio: 'aspect-[4/3]',
     }
   ];
-  // -----------------------------------------
 
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
       <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center min-h-screen">
         
         {/* Page Title */}
-        <ScrollReveal className="text-center mb-16 md:mb-24">
+        <ScrollReveal className="text-center mb-16 md:mb-20 flex flex-col items-center">
           <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Academic Foundation</span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
             Education & Credentials
@@ -68,151 +93,127 @@ export const Education: React.FC = () => {
           <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
             A certified record of my academic study, technical specialization, and professional capabilities.
           </p>
+          <div className="mt-8">
+            <a 
+              href="/Long_Quan_Ton_CV.pdf" 
+              download="Long_Quan_Ton_CV.pdf"
+              className="px-6 py-2.5 rounded-full border border-accent/30 hover:border-accent hover:bg-accent/5 text-text-heading text-sm flex items-center gap-2.5 font-semibold transition-all duration-300 cursor-pointer"
+            >
+              Download CV <Download size={16} className="text-accent" />
+            </a>
+          </div>
         </ScrollReveal>
 
         {/* Main Content Grid */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="w-full space-y-16">
           
-          {/* LEFT COLUMN: My Degree Program */}
-          <div className="lg:col-span-6 space-y-8">
-            <ScrollReveal direction="left">
-              <div className="flex items-center gap-3 mb-6">
-                <GraduationCap size={24} className="text-accent" />
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-text-heading">
-                  My Degree Program
-                </h2>
+          {/* University Section */}
+          <ScrollReveal>
+            <div className="glass-panel p-8 md:p-10 rounded-3xl border border-border-token/40 hover:border-accent/30 transition-all duration-500 relative overflow-hidden group shadow-lg max-w-4xl mx-auto">
+              <div className="absolute top-0 right-0 w-60 h-60 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-700 pointer-events-none" />
+              
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <GraduationCap size={28} className="text-accent" />
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-accent font-bold">
+                      University Degree
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h3 className="text-2xl md:text-4xl font-bold text-text-heading font-display leading-tight">
+                      {degreeProgram.degree}
+                    </h3>
+                    <p className="text-base md:text-lg text-text-muted font-medium">
+                      {degreeProgram.institutions}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-6 text-sm text-text-muted pt-2">
+                    <span className="flex items-center gap-2 font-mono">
+                      <Calendar size={16} className="text-accent" /> {degreeProgram.period}
+                    </span>
+                    <span className="flex items-center gap-2 font-mono">
+                      <BookOpen size={16} className="text-accent" /> Full-time Joint Study Program
+                    </span>
+                  </div>
+                </div>
+
+                <div className="md:text-right border-t md:border-t-0 md:border-l border-border-token/20 pt-6 md:pt-0 md:pl-10 shrink-0 flex flex-col justify-center">
+                  <span className="text-xs font-mono text-text-muted uppercase tracking-wider block mb-2">Academic Standing</span>
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-accent font-mono leading-none">
+                    {degreeProgram.gpa}
+                  </div>
+                  <span className="text-[10px] text-text-muted uppercase tracking-wider block mt-2">Scale of 7.00 • First Semester</span>
+                </div>
               </div>
+            </div>
+          </ScrollReveal>
 
-              <div className="glass-panel p-8 md:p-10 rounded-3xl space-y-6 hover:border-accent/30 transition-all duration-500 relative overflow-hidden group shadow-lg">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-all duration-700 pointer-events-none" />
-                
-                <div className="space-y-2 relative z-10">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
-                    University Degree
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-text-heading font-display leading-tight">
-                    {degreeProgram.degree}
-                  </h3>
-                  <p className="text-sm md:text-base text-text-muted font-medium mt-1">
-                    {degreeProgram.institutions}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-6 text-xs text-text-muted border-y border-border-token/20 py-4 relative z-10">
-                  <span className="flex items-center gap-2 font-mono">
-                    <Calendar size={14} className="text-accent" /> {degreeProgram.period}
-                  </span>
-                  <span className="flex items-center gap-2 font-mono">
-                    <BookOpen size={14} className="text-accent" /> Full-time joint study
-                  </span>
-                </div>
-
-                <p className="text-sm text-text-body leading-relaxed relative z-10">
-                  {degreeProgram.desc}
+          {/* Certifications & Courses Section */}
+          <div className="space-y-8">
+            <ScrollReveal>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <h2 className="text-3xl md:text-5xl font-bold font-display text-text-heading">
+                  Certificates & Credentials
+                </h2>
+                <p className="text-sm md:text-base text-text-muted max-w-lg leading-relaxed">
+                  Verified specialization courses, machine learning modeling credentials, and technical workshops.
                 </p>
-
-                <div className="space-y-4 relative z-10">
-                  <h4 className="text-xs uppercase font-bold tracking-widest text-text-heading font-mono">Key Core Subjects</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {degreeProgram.courses.map((course, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs text-text-body">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1 shrink-0" />
-                        <span className="leading-tight">{course}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-border-token/20 flex justify-between items-center relative z-10">
-                  <span className="text-xs font-mono text-text-muted uppercase tracking-wider">Academic Standing</span>
-                  <div className="text-right">
-                    <div className="text-2xl md:text-3xl font-extrabold text-accent font-mono leading-none">
-                      {degreeProgram.gpa}
-                    </div>
-                    <span className="text-[10px] text-text-muted uppercase tracking-wider block mt-1">Scale of 7.00</span>
-                  </div>
-                </div>
               </div>
             </ScrollReveal>
-          </div>
 
-          {/* RIGHT COLUMN: Extra Courses & Certifications */}
-          <div className="lg:col-span-6 flex flex-col gap-12">
-            
-            {/* Extra Courses Section */}
-            <ScrollReveal direction="right">
-              <div className="flex items-center gap-3 mb-6">
-                <Library size={24} className="text-accent" />
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-text-heading">
-                  Extra Courses
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                {extraCourses.map((course, idx) => (
-                  <div 
-                    key={idx} 
-                    className="glass-panel p-6 rounded-2xl hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group"
+            {/* Certifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {certifications.map((cert, idx) => {
+                const isWide = cert.gridSpan;
+                
+                return (
+                  <ScrollReveal
+                    key={idx}
+                    direction="up"
+                    delay={idx * 0.05}
+                    className={`${isWide ? cert.gridSpan : ''}`}
                   >
-                    <div className="flex flex-col space-y-2">
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-[10px] font-mono text-accent-deep dark:text-accent-bright bg-accent-dim px-2.5 py-1 rounded-md font-bold uppercase tracking-wider">
-                          {course.date}
-                        </span>
-                        <span className="text-xs font-mono text-text-muted uppercase tracking-wider">
-                          {course.provider}
-                        </span>
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-panel rounded-2xl border border-border-token/35 hover:border-accent/40 overflow-hidden flex flex-col h-full group hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 cursor-pointer block"
+                    >
+                      
+                      {/* Image / Preview Frame */}
+                      <div className={`relative ${cert.aspectRatio} w-full overflow-hidden bg-surface-2/20 border-b border-border-token/10 flex items-center justify-center`}>
+                        <img
+                          src={cert.image}
+                          alt={cert.title}
+                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                        />
                       </div>
-                      <h4 className="text-base md:text-lg font-bold text-text-heading font-display group-hover:text-accent transition-colors">
-                        {course.title}
-                      </h4>
-                      <p className="text-xs md:text-sm text-text-body/80 leading-relaxed">
-                        {course.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
 
-            {/* Certifications Section */}
-            <ScrollReveal direction="right" delay={0.1}>
-              <div className="flex items-center gap-3 mb-6">
-                <ShieldCheck size={24} className="text-accent" />
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-text-heading">
-                  Certifications
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                {certifications.map((cert, idx) => (
-                  <div 
-                    key={idx} 
-                    className="glass-panel p-5 md:p-6 rounded-2xl hover:border-accent/40 transition-all duration-300 flex items-start gap-4 md:gap-5 group"
-                  >
-                    <div className="p-3 bg-accent-dim rounded-xl shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <Award className="text-accent" size={20} />
-                    </div>
-                    <div className="flex flex-col space-y-1.5 w-full">
-                      <div className="flex items-center justify-between gap-2">
-                        <h4 className="text-sm md:text-base font-bold text-text-heading leading-tight">
-                          {cert.title}
-                        </h4>
-                        <span className="text-[10px] font-mono text-text-muted shrink-0">
-                          {cert.date}
-                        </span>
+                      {/* Content details */}
+                      <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between gap-4">
+                            <span className="text-[10px] font-mono text-accent-deep dark:text-accent-bright bg-accent-dim px-2.5 py-1 rounded-md font-bold uppercase tracking-wider">
+                              {cert.date}
+                            </span>
+                            <span className="text-xs font-mono text-text-muted uppercase tracking-wider">
+                              {cert.issuer}
+                            </span>
+                          </div>
+                          <h4 className="text-base md:text-lg font-bold text-text-heading font-display group-hover:text-accent transition-colors leading-snug">
+                            {cert.title}
+                          </h4>
+                        </div>
                       </div>
-                      <p className="text-xs text-text-muted font-mono uppercase tracking-wider">
-                        {cert.issuer}
-                      </p>
-                      <p className="text-xs text-text-body/70">
-                        {cert.type}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
+
+                    </a>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
 
           </div>
 
