@@ -67,12 +67,12 @@ export const Vault: React.FC = () => {
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
       <div className="w-full max-w-[1340px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
         {/* Page Title */}
-        <ScrollReveal className="text-center mb-16">
-          <span className="text-xs uppercase tracking-widest font-semibold text-accent">Portfolio</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-2">
+        <ScrollReveal className="text-center mb-16 md:mb-20">
+          <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Portfolio</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
             Projects & Codebases
           </h1>
-          <p className="text-sm text-text-muted mt-2 max-w-md mx-auto">
+          <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
             An archive of intelligent agent systems, full-stack applications, and hackathon projects.
           </p>
         </ScrollReveal>
