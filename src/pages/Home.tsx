@@ -68,30 +68,30 @@ export const Home: React.FC = () => {
   const layers = [
     {
       num: '01',
-      name: 'DATA LAYER',
-      desc: 'Collect, store and prepare reliable data.',
-      techs: ['PostgreSQL / PostGIS', 'Redis Cache', 'Qdrant Vector DB', 'Pandas • NumPy'],
-      icon: <Database size={16} />
-    },
-    {
-      num: '02',
-      name: 'INTELLIGENCE LAYER',
-      desc: 'Reasoning, retrieval and decision making.',
-      techs: ['LangGraph', 'LangChain', 'RAG Pipeline', 'LLMs'],
+      name: 'AGENTIC AI LAYER',
+      desc: 'Reasoning, retrieval and autonomous decision making.',
+      techs: ['LangGraph', 'LangChain', 'MCP', 'vLLM', 'Local/Cloud LLMs'],
       icon: <Brain size={16} />
     },
     {
+      num: '02',
+      name: 'MACHINE LEARNING LAYER',
+      desc: 'Scientific computing, modeling and data analysis.',
+      techs: ['PyTorch', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'Matplotlib'],
+      icon: <Cpu size={16} />
+    },
+    {
       num: '03',
-      name: 'BACKEND LAYER',
-      desc: 'APIs, services and real-time communication.',
-      techs: ['FastAPI', 'WebSocket', 'Docker', 'Nginx'],
-      icon: <Terminal size={16} />
+      name: 'BACKEND & DATA LAYER',
+      desc: 'APIs, data models, and high-performance databases.',
+      techs: ['Python', 'FastAPI', 'REST APIs', 'Redis', 'ChromaDB', 'Qdrant'],
+      icon: <Database size={16} />
     },
     {
       num: '04',
       name: 'EXPERIENCE LAYER',
-      desc: 'Deliver fast and delightful user experiences.',
-      techs: ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
+      desc: 'Deliver fast, intuitive and responsive user interfaces.',
+      techs: ['TypeScript', 'React', 'Vite', 'HTML / CSS', 'Tailwind CSS', 'Chart.js'],
       icon: <Layout size={16} />
     }
   ];
@@ -99,57 +99,57 @@ export const Home: React.FC = () => {
   // Skills Overview Progress Cards
   const overviewSkills = [
     {
-      name: 'AI Engineering',
+      name: 'Agentic AI',
       percent: 85,
-      desc: 'Building intelligent agents and RAG systems',
+      desc: 'Building intelligent agents and RAG workflows',
       icon: <Brain size={16} />
     },
     {
-      name: 'Backend Systems',
+      name: 'Machine Learning',
       percent: 80,
-      desc: 'Designing scalable APIs and real-time services',
+      desc: 'Training predictive models and data pipelines',
       icon: <Cpu size={16} />
+    },
+    {
+      name: 'Backend & Databases',
+      percent: 70,
+      desc: 'Designing APIs and optimizing data layers',
+      icon: <Database size={16} />
     },
     {
       name: 'Frontend Development',
       percent: 75,
-      desc: 'Creating responsive and interactive interfaces',
+      desc: 'Creating interactive and responsive interfaces',
       icon: <Layout size={16} />
-    },
-    {
-      name: 'Data Engineering',
-      percent: 80,
-      desc: 'Processing, analyzing and visualizing data',
-      icon: <Layers size={16} />
     }
   ];
 
   // Tech stack rows
   const techCategories = [
     {
-      label: 'Languages',
-      techs: ['Python', 'TypeScript', 'SQL', 'C++', 'HTML/CSS'],
-      icon: <Terminal size={14} />
-    },
-    {
-      label: 'AI / ML & Frameworks',
-      techs: ['LangGraph', 'LangChain', 'RAG', 'Ollama'],
+      label: 'Agentic AI & RAG',
+      techs: ['LangGraph', 'LangChain', 'Model Context Protocol (MCP)', 'vLLM', 'Local & Cloud LLMs'],
       icon: <Brain size={14} />
     },
     {
-      label: 'Backend & Databases',
-      techs: ['FastAPI', 'WebSocket', 'PostgreSQL', 'PostGIS', 'Redis', 'Qdrant'],
+      label: 'Machine Learning',
+      techs: ['PyTorch', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'Matplotlib'],
       icon: <Cpu size={14} />
     },
     {
-      label: 'Frontend & UI',
-      techs: ['React', 'Next.js', 'Tailwind CSS', 'Chart.js'],
+      label: 'Backend & Databases',
+      techs: ['Python', 'FastAPI', 'REST APIs', 'Redis', 'ChromaDB', 'Qdrant'],
+      icon: <Database size={14} />
+    },
+    {
+      label: 'Frontend Development',
+      techs: ['TypeScript', 'React', 'Vite', 'HTML/CSS', 'Tailwind CSS', 'Chart.js'],
       icon: <Layout size={14} />
     },
     {
-      label: 'Tools & DevOps',
-      techs: ['Docker', 'Nginx', 'Git / GitHub', 'VS Code', 'Linux'],
-      icon: <Layers size={14} />
+      label: 'Tools & Infrastructure',
+      techs: ['Docker', 'Git', 'Cursor', 'Antigravity'],
+      icon: <Terminal size={14} />
     }
   ];
 
@@ -513,45 +513,48 @@ export const Home: React.FC = () => {
             </ScrollReveal>
 
             {/* Architecture Layers */}
-            <ScrollReveal direction="left" delay={0.1}>
-              <div className="relative space-y-6">
-                {/* Connecting vertical line */}
-                <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-accent/30 dark:bg-accent/20 -z-10" />
-                
-                {layers.map((layer, idx) => (
-                  <div key={idx} className="relative flex items-start gap-4 group">
-                    {/* Icon Node */}
-                    <div className="w-12 h-12 rounded-xl bg-surface border border-border-token flex items-center justify-center shrink-0 z-10 shadow-xs group-hover:border-accent/50 group-hover:shadow-accent/10 transition-all duration-300">
-                      <div className="text-accent group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                        {layer.icon}
-                      </div>
-                    </div>
-                    
-                    {/* Card Content */}
-                    <div className="flex-grow glass-panel p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-4">
-                      <div className="space-y-1.5 sm:max-w-[65%]">
-                        <span className="text-xs font-mono font-bold text-accent tracking-wider block">
-                          {layer.num} {layer.name}
-                        </span>
-                        <p className="text-xs md:text-sm text-text-body leading-relaxed">
-                          {layer.desc}
-                        </p>
-                      </div>
-                      <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2.5 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
-                        <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-1.5">
-                          {layer.techs.map((t, i) => (
-                            <li key={i} className="text-xs text-text-muted flex items-center gap-1.5 font-mono font-medium">
-                              <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
-                              <span>{t}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+            <div className="relative space-y-6">
+              {/* Connecting vertical line */}
+              <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-accent/30 dark:bg-accent/20 -z-10" />
+              
+              {layers.map((layer, idx) => (
+                <ScrollReveal 
+                  key={idx} 
+                  direction="left" 
+                  delay={idx * 0.08}
+                  className="relative flex items-start gap-4 group"
+                >
+                  {/* Icon Node */}
+                  <div className="w-12 h-12 rounded-xl bg-surface border border-border-token flex items-center justify-center shrink-0 z-10 shadow-xs group-hover:border-accent/50 group-hover:shadow-accent/10 transition-all duration-300">
+                    <div className="text-accent group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                      {layer.icon}
                     </div>
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                  
+                  {/* Card Content */}
+                  <div className="flex-grow glass-panel p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-4">
+                    <div className="space-y-1.5 sm:max-w-[65%]">
+                      <span className="text-xs font-mono font-bold text-accent tracking-wider block">
+                        {layer.num} {layer.name}
+                      </span>
+                      <p className="text-xs md:text-sm text-text-body leading-relaxed">
+                        {layer.desc}
+                      </p>
+                    </div>
+                    <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2.5 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
+                      <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-1.5">
+                        {layer.techs.map((t, i) => (
+                          <li key={i} className="text-xs text-text-muted flex items-center gap-1.5 font-mono font-medium">
+                            <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
+                            <span>{t}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
 
           {/* Right Column: Skills Overview & Tech Stack Rows */}

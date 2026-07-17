@@ -39,11 +39,13 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
         opacity: 0,
         x: offset.x,
         y: offset.y,
+        filter: 'blur(6px)',
       }}
       whileInView={{
         opacity: 1,
         x: 0,
         y: 0,
+        filter: 'blur(0px)',
       }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{
