@@ -52,8 +52,8 @@ export const projects: Project[] = [
       '/assets/images/weatherise/pre.png'
     ],
     hoverMedia: {
-      type: 'video',
-      src: '/assets/videos/weatherise_demo.mp4'
+      type: 'image',
+      src: '/assets/images/previews/weatherise_preview.webp'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Weatherise',
     status: 'active',
@@ -107,8 +107,8 @@ export const projects: Project[] = [
       '/assets/images/bkai/voice_ui.png'
     ],
     hoverMedia: {
-      type: 'video',
-      src: '/assets/videos/bkai_demo.mp4'
+      type: 'image',
+      src: '/assets/images/previews/bkai_preview.webp'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/BKAi-Admissions',
     status: 'active'
@@ -146,8 +146,8 @@ export const projects: Project[] = [
       '/assets/images/morphysics/Experience_Morphysics_BKI_Team.jpg'
     ],
     hoverMedia: {
-      type: 'video',
-      src: '/assets/videos/morphysics_demo.mp4'
+      type: 'image',
+      src: '/assets/images/previews/morphysics_preview.webp'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Morphysics',
     status: 'active',
