@@ -345,7 +345,7 @@ export const Home: React.FC = () => {
               <div className="absolute w-[85%] h-[85%] rounded-[2rem] bg-accent/8 blur-[60px] pointer-events-none" />
               
               {/* Portrait container */}
-              <div className="relative portrait-frame portrait-glow portrait-float w-full max-w-[460px] aspect-[3/4] rounded-[1.5rem] overflow-hidden border border-border-token/25">
+              <div className="relative portrait-frame portrait-glow portrait-float w-full max-w-[460px] aspect-square rounded-[1.5rem] overflow-hidden border border-border-token/25">
                 <img
                   src="/assets/images/portrait/Myself_Best_Potrait.png"
                   alt="Long Quan Ton — AI Engineer"
