@@ -51,7 +51,7 @@ export const Home: React.FC = () => {
       icon: <Code size={20} className="text-accent" /> 
     },
     { 
-      value: '3+', 
+      value: '5+', 
       label: 'Competitions', 
       sublabel: 'Explored. Built. Shipped.', 
       icon: <Rocket size={20} className="text-accent" /> 
@@ -157,7 +157,7 @@ export const Home: React.FC = () => {
     <div className="w-full flex flex-col items-center bg-bg text-text-body overflow-x-hidden">
       
       {/* 1. Cinematic Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden pt-28 pb-16 border-b border-border-token/20 bg-bg">
+      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden pt-28 pb-20 lg:pb-24 border-b border-border-token/20 bg-bg">
         {/* Subtle background glow */}
         <div className="absolute right-[20%] top-[25%] w-[400px] h-[400px] rounded-full bg-accent/20 dark:bg-accent/10 blur-[100px] pointer-events-none z-0" />
 
@@ -217,10 +217,10 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Center-aligned container wrapper - balanced viewport gaps */}
-        <div className="w-full max-w-[1440px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-20 relative z-10 flex flex-col justify-between gap-12 lg:gap-16 2xl:gap-20">
+        <div className="w-full max-w-[1440px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-20 relative z-10 flex flex-col justify-between gap-6 lg:gap-8 2xl:gap-10">
           {/* Top Row: Left content only - terminal is absolutely positioned */}
           <div className="w-full max-w-2xl">
-            <div className="flex flex-col space-y-6 text-left relative -left-2 md:-left-8 lg:-left-16 xl:-left-24">
+            <div className="flex flex-col space-y-6 text-left">
               {/* Location Pill Tag */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-accent-dim border border-border-token w-max">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
@@ -266,7 +266,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Bottom Row: Full-Width Horizontal Stats Banner */}
-          <div className="w-full glass-panel p-6 rounded-2xl border border-border-token/40 shadow-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x lg:divide-border-token/20 mt-8 relative -left-2 md:-left-8 lg:-left-16 xl:-left-24 lg:w-[calc(100%+8rem)] xl:w-[calc(100%+12rem)]">
+          <div className="w-full glass-panel p-5 md:p-6 rounded-2xl border border-border-token/40 shadow-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x lg:divide-border-token/20 mt-2">
             {stats.map((stat, i) => (
               <div key={i} className="flex items-center gap-4 px-2 lg:px-6 first:pl-2">
                 <div className="p-3 bg-accent-dim rounded-xl flex items-center justify-center shrink-0">
