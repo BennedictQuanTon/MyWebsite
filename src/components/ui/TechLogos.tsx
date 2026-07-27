@@ -3,6 +3,7 @@ import React from 'react';
 interface TechIconProps {
   className?: string;
   size?: number;
+  strokeWidth?: number;
 }
 
 // Custom inline SVG icons for Bennedict's tech stack

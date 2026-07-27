@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Heart, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
+import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
@@ -645,70 +645,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Personal Life Section */}
-      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-t border-border-token/40 overflow-hidden">
-        <div className="absolute right-[12%] top-24 w-[420px] h-[420px] rounded-full bg-accent/10 blur-[140px] pointer-events-none" />
-        
-        <div className="relative space-y-12">
-          {/* Compact heading */}
-          <ScrollReveal direction="up">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-2.5 mb-4">
-                <Heart size={18} className="text-accent" />
-                <span className="text-xs uppercase tracking-[0.25em] font-semibold text-accent font-mono">Journal</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-text-heading leading-[0.95] tracking-tight">
-                Life Outside <br />
-                <span className="italic font-normal text-accent">of Code</span>
-              </h2>
-              <p className="text-base md:text-lg text-text-body mt-5 leading-relaxed max-w-lg">
-                The quieter side of my work: travel, family, discipline, and the people who keep the journey grounded.
-              </p>
-            </div>
-          </ScrollReveal>
 
-          {/* 4 Cards on the Same Line */}
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {[
-                { src: '/assets/images/personal/youth_korea.jpg', alt: 'Travel — Seoul, Korea', label: 'Travel', objectPosition: 'center' },
-                { src: '/assets/images/personal/family_all_1.jpg', alt: 'Family roots', label: 'Family', objectPosition: 'center 12%' },
-                { src: '/assets/images/personal/hobby_gym.jpg', alt: 'Gym discipline', label: 'Discipline', objectPosition: 'center' },
-                { src: '/assets/images/personal/friend_group_2.jpg', alt: 'Friends and memories', label: 'Memories', objectPosition: 'center' },
-              ].map((photo, idx) => (
-                <div
-                  key={idx}
-                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-border-token/25 shadow-lg cursor-default"
-                >
-                  {/* Image */}
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[25%] saturate-[0.9] group-hover:grayscale-0 group-hover:saturate-100 group-hover:scale-110 transition-all duration-[1200ms] ease-out"
-                    style={{ objectPosition: photo.objectPosition }}
-                  />
-                  {/* Dark overlay — lightens on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/20 to-transparent group-hover:from-bg/40 group-hover:via-transparent group-hover:to-bg/30 transition-all duration-700 pointer-events-none" />
-                  {/* Inner ring */}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/5 pointer-events-none rounded-2xl" />
-                  {/* Corner label */}
-                  <div className="absolute bottom-4 left-5">
-                    <span className="text-lg md:text-xl font-display font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] group-hover:text-accent transition-colors duration-500">
-                      {photo.label}
-                    </span>
-                    <div className="w-0 group-hover:w-1/2 h-[1.5px] bg-accent mt-1 transition-all duration-500 ease-out rounded-full" />
-                  </div>
-                  {/* Accent glow on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{
-                    background: 'radial-gradient(ellipse at bottom left, rgba(16,185,129,0.12) 0%, transparent 60%)',
-                  }} />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* 6. Contact & Correspondence Section */}
       <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-t border-border-token/20 overflow-hidden bg-bg">
