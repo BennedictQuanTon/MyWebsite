@@ -14,6 +14,19 @@ export const milestones: Milestone[] = [
     ]
   },
   {
+    id: 'comp-amd-agent',
+    type: 'competition',
+    date: 'July 2026',
+    title: 'AMD Developer Hackathon ACT II',
+    subtitle: 'AI Developer · Token-Efficient Agent',
+    description: 'Established a 4-layer hybrid agent router cutting API token usage by 85% and limiting latency to 505.1 ms.',
+    details: [
+      'Designed math reasoning pipeline achieving 95%+ accuracy across 200+ test cases at max 768 tokens',
+      'Engineered local-first QA and summarization logic achieving 89% factual and 97% summary accuracy using Qwen-3B with Metal GPU acceleration'
+    ],
+    highlight: 'AMD Hackathon'
+  },
+  {
     id: 'comp-weatherise',
     type: 'competition',
     date: 'June 2026',
@@ -22,7 +35,7 @@ export const milestones: Milestone[] = [
     description: 'Top 10 Finalists in a nationwide AI hackathon organized by NVIDIA, Viettel, and Sovico Group.',
     details: [
       'Spearheaded the development of a containerized multi-agent AI risk prediction engine',
-      'Deployed Qwen 2.5-27B and Nemotron 3 120B on an NVIDIA 8x H200 GPU cluster'
+      'Engineered unified MCP Server gateway and 4-collection RAG Knowledge Layer on an NVIDIA 8x H200 GPU cluster'
     ],
     image: '/assets/images/weatherise/team_2.jpg',
     highlight: 'Top 10 Finalist'

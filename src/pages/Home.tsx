@@ -157,7 +157,7 @@ export const Home: React.FC = () => {
     <div className="w-full flex flex-col items-center bg-bg text-text-body overflow-x-hidden">
       
       {/* 1. Cinematic Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden pt-28 pb-20 lg:pb-24 border-b border-border-token/20 bg-bg">
+      <section className="relative w-full min-h-[85vh] flex items-center justify-start overflow-hidden pt-24 md:pt-28 pb-10 lg:pb-12 border-b border-border-token/20 bg-bg">
         {/* Subtle background glow */}
         <div className="absolute right-[20%] top-[25%] w-[400px] h-[400px] rounded-full bg-accent/20 dark:bg-accent/10 blur-[100px] pointer-events-none z-0" />
 
@@ -292,7 +292,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. About Me Section */}
-      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20 overflow-hidden">
+      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 border-b border-border-token/20 overflow-hidden">
         <div className="absolute left-[8%] top-1/3 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
         <div className="absolute right-[15%] bottom-1/4 w-[280px] h-[280px] rounded-full bg-accent/5 blur-[100px] pointer-events-none" />
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -396,31 +396,31 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Scrolling Marquee Carousel View */}
-          <div className="w-full overflow-hidden relative py-4">
+          <div className="w-full overflow-hidden relative py-6">
             {/* Fade overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
             
-            <div className="flex gap-6 animate-[project-marquee_35s_linear_infinite] hover:[animation-play-state:paused] w-max">
+            <div className="flex gap-8 animate-[project-marquee_40s_linear_infinite] hover:[animation-play-state:paused] w-max">
               {[...projects, ...projects].map((project, idx) => (
                 <div
                   key={`${project.id}-${idx}`}
-                  className="w-[300px] md:w-[340px] shrink-0 group"
+                  className="w-[380px] sm:w-[420px] md:w-[460px] shrink-0 group"
                 >
                   <Link to={`/projects?id=${project.id}`}>
-                    <div className="glass-panel rounded-2xl overflow-hidden h-full flex flex-col hover:border-accent/40 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                    <div className="glass-panel rounded-3xl overflow-hidden h-full flex flex-col hover:border-accent/60 hover:-translate-y-2.5 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                       
-                      {/* Small Square Image preview */}
+                      {/* Exhibition Image Frame */}
                       <div 
-                        className="relative aspect-video w-full bg-bg-alt/50 overflow-hidden border-b border-border-token/20"
+                        className="relative aspect-[16/10] w-full bg-bg-alt/60 overflow-hidden border-b border-border-token/20"
                         style={{
                           backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
                         }}
                       >
                         {project.status === 'placeholder' ? (
-                          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center">
-                            <Sparkles className="text-accent/60 mb-1 animate-pulse" size={24} />
-                            <span className="text-xs font-semibold text-text-heading">Coming Soon</span>
+                          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                            <Sparkles className="text-accent/60 mb-2 animate-pulse" size={28} />
+                            <span className="text-sm font-semibold text-text-heading">Visual Coming Soon</span>
                           </div>
                         ) : (
                           <>
@@ -428,52 +428,69 @@ export const Home: React.FC = () => {
                               src={project.hoverMedia.src}
                               alt={project.title}
                               loading="lazy"
-                              className="w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
+                              className="w-full h-full group-hover:scale-105 group-hover:rotate-[0.5deg] transition-transform duration-700 ease-out"
                               style={{
                                 objectFit: project.hoverMedia.objectFit || 'cover',
                                 objectPosition: project.hoverMedia.objectPosition || 'center'
                               }}
                             />
-                            {/* Dark gradient overlay on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            {/* Dark cinematic gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
                             
-                            {/* Floating Action Button inside image container */}
-                            <div className="absolute bottom-3 right-3 p-2 rounded-full bg-accent text-bg scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out shadow-lg">
-                              <ArrowUpRight size={14} />
-                            </div>
+                            {/* Badge for Competition Highlights if applicable */}
+                            {project.id === 'weatherise' && (
+                              <div className="absolute top-3.5 right-3.5 z-10 flex items-center gap-1.5 px-3 py-1 bg-amber-500/90 text-white rounded-full text-[10px] font-bold font-mono uppercase tracking-wider shadow-md backdrop-blur-md">
+                                <Trophy size={11} />
+                                <span>Top 10 Finalist</span>
+                              </div>
+                            )}
                           </>
                         )}
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 flex-grow flex flex-col justify-between space-y-4 bg-bg-alt/5 transition-colors duration-300 group-hover:bg-bg-alt/25">
-                        <div className="space-y-3">
-                          {/* Category & Period info */}
-                          <div className="flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-text-muted/80">
-                            <span className="font-bold text-accent">
+                      {/* Content Section */}
+                      <div className="p-7 flex-grow flex flex-col justify-between space-y-5 bg-bg-alt/10 transition-colors duration-300 group-hover:bg-bg-alt/30">
+                        <div className="space-y-3.5">
+                          {/* Role (Left) & Competition Name (Right) */}
+                          <div className="flex items-center justify-between text-xs font-mono tracking-wider gap-2">
+                            <span className="font-bold text-accent bg-accent-dim px-3 py-1 rounded-full border border-accent/20 truncate max-w-[210px]">
+                              {project.role}
+                            </span>
+                            <span className="font-bold text-text-muted uppercase tracking-wider text-[11px] truncate max-w-[170px] text-right">
                               {project.category === 'Competition' && project.competitionName 
                                 ? project.competitionName 
                                 : project.category}
                             </span>
-                            <span>{project.period.includes(' – ') ? project.period.split(' – ')[0] : project.period}</span>
                           </div>
 
-                          <h3 className="text-lg md:text-xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-tight">
+                          {/* Larger Exhibition Title */}
+                          <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-snug">
                             {project.title}
                           </h3>
-                          <p className="text-xs md:text-sm text-text-body/75 line-clamp-2 leading-relaxed font-body font-normal">
+
+                          {/* Legible Summary */}
+                          <p className="text-sm md:text-base text-text-body/85 line-clamp-2 leading-relaxed font-body">
                             {project.summary}
                           </p>
                         </div>
 
-                        {/* Tech stack tags */}
-                        <div className="flex flex-wrap gap-1.5 pt-1">
-                          {project.techStack.slice(0, 3).map((tech) => (
-                            <span key={tech} className="text-[9px] font-mono bg-surface-2/60 border border-border-token/15 px-2.5 py-1 rounded-md text-text-muted hover:border-accent/30 hover:text-accent transition-colors duration-200">
-                              {tech}
-                            </span>
-                          ))}
+                        {/* Tech Stack & Interactive Action Button Bar */}
+                        <div className="space-y-4 pt-1">
+                          <div className="flex flex-wrap gap-2">
+                            {project.techStack.slice(0, 4).map((tech) => (
+                              <span key={tech} className="text-xs font-mono bg-surface-2/70 border border-border-token/20 px-3 py-1 rounded-lg text-text-muted group-hover:border-accent/30 group-hover:text-accent transition-colors duration-200">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* Single Sleek Action Button */}
+                          <div className="w-full py-3 px-4 rounded-xl bg-accent-dim border border-border-token/30 group-hover:bg-accent group-hover:border-accent text-accent group-hover:text-bg font-semibold text-xs md:text-sm flex items-center justify-center gap-2 shadow-sm group-hover:shadow-lg group-hover:shadow-accent/25 transition-all duration-300">
+                            <span>View Project Details</span>
+                            <ArrowUpRight size={15} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                          </div>
                         </div>
+
                       </div>
 
                     </div>
@@ -485,7 +502,7 @@ export const Home: React.FC = () => {
             <style>{`
               @keyframes project-marquee {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-50% - 12px)); }
+                100% { transform: translateX(calc(-50% - 16px)); }
               }
             `}</style>
           </div>
