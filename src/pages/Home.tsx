@@ -70,29 +70,29 @@ export const Home: React.FC = () => {
       num: '01',
       name: 'AGENTIC AI LAYER',
       desc: 'Reasoning, retrieval and autonomous decision making.',
-      techs: ['LangGraph', 'LangChain', 'MCP', 'vLLM', 'Local/Cloud LLMs'],
-      icon: <Brain size={16} />
+      focus: ['Multi-Agent Systems', 'Self-Reflection Graphs', 'Tool Calling & MCP', 'RAG Context Grounding'],
+      icon: <Brain size={18} />
     },
     {
       num: '02',
       name: 'MACHINE LEARNING LAYER',
       desc: 'Scientific computing, modeling and data analysis.',
-      techs: ['PyTorch', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'Matplotlib'],
-      icon: <Cpu size={16} />
+      focus: ['Predictive Modeling', 'Exploratory Analysis', 'Feature Engineering', 'Mathematical Reasoning'],
+      icon: <Cpu size={18} />
     },
     {
       num: '03',
       name: 'BACKEND & DATA LAYER',
       desc: 'APIs, data models, and high-performance databases.',
-      techs: ['Python', 'FastAPI', 'REST APIs', 'Redis', 'ChromaDB', 'Qdrant'],
-      icon: <Database size={16} />
+      focus: ['High-Throughput APIs', 'Vector & Relational DBs', 'Semantic Caching', 'Monorepo Architecture'],
+      icon: <Database size={18} />
     },
     {
       num: '04',
       name: 'EXPERIENCE LAYER',
       desc: 'Deliver fast, intuitive and responsive user interfaces.',
-      techs: ['TypeScript', 'React', 'Vite', 'HTML / CSS', 'Tailwind CSS', 'Chart.js'],
-      icon: <Layout size={16} />
+      focus: ['60 FPS Telemetry UI', 'Interactive Dashboards', 'Glassmorphism Design', 'Cross-Device PWAs'],
+      icon: <Layout size={18} />
     }
   ];
 
@@ -101,26 +101,26 @@ export const Home: React.FC = () => {
     {
       name: 'Agentic AI',
       percent: 85,
-      desc: 'Building intelligent agents and RAG workflows',
-      icon: <Brain size={16} />
+      desc: 'Building intelligent agents & RAG workflows',
+      icon: <Brain size={18} />
     },
     {
       name: 'Machine Learning',
       percent: 80,
-      desc: 'Training predictive models and data pipelines',
-      icon: <Cpu size={16} />
+      desc: 'Training predictive models & data pipelines',
+      icon: <Cpu size={18} />
     },
     {
-      name: 'Backend & Databases',
+      name: 'Backend & Data',
       percent: 70,
-      desc: 'Designing APIs and optimizing data layers',
-      icon: <Database size={16} />
+      desc: 'Designing APIs & optimizing data layers',
+      icon: <Database size={18} />
     },
     {
-      name: 'Frontend Development',
+      name: 'Frontend UX',
       percent: 75,
-      desc: 'Creating interactive and responsive interfaces',
-      icon: <Layout size={16} />
+      desc: 'Creating interactive & responsive interfaces',
+      icon: <Layout size={18} />
     }
   ];
 
@@ -512,25 +512,22 @@ export const Home: React.FC = () => {
 
       {/* 4. Skills & Tech Stack Section */}
       <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left Column: Developer Skills & Layers */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 flex flex-col justify-between">
             <ScrollReveal direction="left">
               <div className="flex items-center gap-2.5">
                 <Terminal size={20} className="text-accent" />
                 <span className="text-sm uppercase tracking-widest font-semibold text-accent">Technical Rigor</span>
               </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3 mb-4">
                 Developer Skills
               </h2>
-              <p className="text-base text-text-body mt-3 leading-relaxed">
-                I design, build and ship reliable <span className="text-accent font-semibold">AI systems</span> from data to intelligent experiences.
-              </p>
             </ScrollReveal>
 
             {/* Architecture Layers */}
-            <div className="relative space-y-6">
+            <div className="relative flex-grow flex flex-col justify-between gap-4 mt-2">
               {/* Connecting vertical line */}
               <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-accent/30 dark:bg-accent/20 -z-10" />
               
@@ -539,7 +536,7 @@ export const Home: React.FC = () => {
                   key={idx} 
                   direction="left" 
                   delay={idx * 0.08}
-                  className="relative flex items-start gap-4 group"
+                  className="relative flex items-start gap-4 group flex-grow"
                 >
                   {/* Icon Node */}
                   <div className="w-12 h-12 rounded-xl bg-surface border border-border-token flex items-center justify-center shrink-0 z-10 shadow-xs group-hover:border-accent/50 group-hover:shadow-accent/10 transition-all duration-300">
@@ -549,21 +546,26 @@ export const Home: React.FC = () => {
                   </div>
                   
                   {/* Card Content */}
-                  <div className="flex-grow glass-panel p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-4">
-                    <div className="space-y-1.5 sm:max-w-[65%]">
-                      <span className="text-xs font-mono font-bold text-accent tracking-wider block">
-                        {layer.num} {layer.name}
-                      </span>
-                      <p className="text-xs md:text-sm text-text-body leading-relaxed">
+                  <div className="flex-grow glass-panel p-4 sm:p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-3 h-full">
+                    <div className="space-y-1.5 sm:max-w-[55%] flex flex-col justify-center">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono font-bold text-accent tracking-wider">
+                          {layer.num}
+                        </span>
+                        <h4 className="text-sm md:text-base font-bold font-display text-text-heading group-hover:text-accent transition-colors leading-tight">
+                          {layer.name}
+                        </h4>
+                      </div>
+                      <p className="text-xs md:text-sm text-text-muted font-normal leading-relaxed">
                         {layer.desc}
                       </p>
                     </div>
-                    <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2.5 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
+                    <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
                       <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-1.5">
-                        {layer.techs.map((t, i) => (
-                          <li key={i} className="text-xs text-text-muted flex items-center gap-1.5 font-mono font-medium">
-                            <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
-                            <span>{t}</span>
+                        {layer.focus.map((item, i) => (
+                          <li key={i} className="text-xs md:text-sm text-text-body font-mono font-medium flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent/70 shrink-0" />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -575,29 +577,26 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Right Column: Skills Overview & Tech Stack Rows */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
             {/* Skills Overview */}
             <div className="space-y-4">
-              <span className="text-xs uppercase font-bold tracking-widest text-text-muted block">
+              <span className="text-xs md:text-sm uppercase font-bold tracking-widest text-text-muted block">
                 Skills Overview
               </span>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {overviewSkills.map((skill, idx) => (
                   <ScrollReveal key={skill.name} direction="right" delay={idx * 0.05}>
-                    <div className="glass-panel p-5 rounded-xl flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-300">
-                      <div className="space-y-3.5">
+                    <div className="glass-panel p-4.5 rounded-xl flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-300">
+                      <div className="space-y-3">
                         <div className="flex items-center justify-between text-accent">
-                          <div className="p-2 bg-accent-dim rounded-lg flex items-center justify-center">
+                          <div className="p-2 bg-accent-dim rounded-xl flex items-center justify-center">
                             {skill.icon}
                           </div>
-                          <span className="text-sm font-mono font-bold">{skill.percent}%</span>
+                          <span className="text-base md:text-lg font-mono font-extrabold text-accent">{skill.percent}%</span>
                         </div>
-                        <div className="space-y-1">
-                          <h4 className="text-xs md:text-sm font-bold text-text-heading leading-tight">{skill.name}</h4>
-                          <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">{skill.desc}</p>
-                        </div>
+                        <h4 className="text-sm md:text-base font-bold text-text-heading leading-tight">{skill.name}</h4>
                       </div>
-                      <div className="w-full h-1.5 bg-border-token/20 rounded-full overflow-hidden mt-4">
+                      <div className="w-full h-1.5 bg-border-token/20 rounded-full overflow-hidden mt-3.5">
                         <div 
                           className="h-full bg-accent rounded-full transition-all duration-500" 
                           style={{ width: `${skill.percent}%` }}
