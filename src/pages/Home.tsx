@@ -848,7 +848,7 @@ export const Home: React.FC = () => {
                         </span>
                       </div>
                       <span className="text-xs md:text-sm font-mono text-text-muted flex items-center gap-1.5">
-                        <MapPin size={12} className="text-accent" /> 10.8231° N, 106.6297° E
+                      
                       </span>
                     </div>
 
