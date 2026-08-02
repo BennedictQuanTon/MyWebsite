@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Heart, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
+import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
@@ -51,7 +51,7 @@ export const Home: React.FC = () => {
       icon: <Code size={20} className="text-accent" /> 
     },
     { 
-      value: '3+', 
+      value: '5+', 
       label: 'Competitions', 
       sublabel: 'Explored. Built. Shipped.', 
       icon: <Rocket size={20} className="text-accent" /> 
@@ -68,88 +68,88 @@ export const Home: React.FC = () => {
   const layers = [
     {
       num: '01',
-      name: 'DATA LAYER',
-      desc: 'Collect, store and prepare reliable data.',
-      techs: ['PostgreSQL / PostGIS', 'Redis Cache', 'Qdrant Vector DB', 'Pandas • NumPy'],
-      icon: <Database size={16} />
+      name: 'AGENTIC AI LAYER',
+      desc: 'Reasoning, retrieval and autonomous decision making.',
+      focus: ['Multi-Agent Systems', 'Self-Reflection Graphs', 'Tool Calling & MCP', 'RAG Context Grounding'],
+      icon: <Brain size={18} />
     },
     {
       num: '02',
-      name: 'INTELLIGENCE LAYER',
-      desc: 'Reasoning, retrieval and decision making.',
-      techs: ['LangGraph', 'LangChain', 'RAG Pipeline', 'LLMs'],
-      icon: <Brain size={16} />
+      name: 'MACHINE LEARNING LAYER',
+      desc: 'Scientific computing, modeling and data analysis.',
+      focus: ['Predictive Modeling', 'Exploratory Analysis', 'Feature Engineering', 'Mathematical Reasoning'],
+      icon: <Cpu size={18} />
     },
     {
       num: '03',
-      name: 'BACKEND LAYER',
-      desc: 'APIs, services and real-time communication.',
-      techs: ['FastAPI', 'WebSocket', 'Docker', 'Nginx'],
-      icon: <Terminal size={16} />
+      name: 'BACKEND & DATA LAYER',
+      desc: 'APIs, data models, and high-performance databases.',
+      focus: ['High-Throughput APIs', 'Vector & Relational DBs', 'Semantic Caching', 'Monorepo Architecture'],
+      icon: <Database size={18} />
     },
     {
       num: '04',
       name: 'EXPERIENCE LAYER',
-      desc: 'Deliver fast and delightful user experiences.',
-      techs: ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
-      icon: <Layout size={16} />
+      desc: 'Deliver fast, intuitive and responsive user interfaces.',
+      focus: ['60 FPS Telemetry UI', 'Interactive Dashboards', 'Glassmorphism Design', 'Cross-Device PWAs'],
+      icon: <Layout size={18} />
     }
   ];
 
   // Skills Overview Progress Cards
   const overviewSkills = [
     {
-      name: 'AI Engineering',
+      name: 'Agentic AI',
       percent: 85,
-      desc: 'Building intelligent agents and RAG systems',
-      icon: <Brain size={16} />
+      desc: 'Building intelligent agents & RAG workflows',
+      icon: <Brain size={18} />
     },
     {
-      name: 'Backend Systems',
+      name: 'Machine Learning',
       percent: 80,
-      desc: 'Designing scalable APIs and real-time services',
-      icon: <Cpu size={16} />
+      desc: 'Training predictive models & data pipelines',
+      icon: <Cpu size={18} />
     },
     {
-      name: 'Frontend Development',
+      name: 'Backend & Data',
+      percent: 70,
+      desc: 'Designing APIs & optimizing data layers',
+      icon: <Database size={18} />
+    },
+    {
+      name: 'Frontend UX',
       percent: 75,
-      desc: 'Creating responsive and interactive interfaces',
-      icon: <Layout size={16} />
-    },
-    {
-      name: 'Data Engineering',
-      percent: 80,
-      desc: 'Processing, analyzing and visualizing data',
-      icon: <Layers size={16} />
+      desc: 'Creating interactive & responsive interfaces',
+      icon: <Layout size={18} />
     }
   ];
 
   // Tech stack rows
   const techCategories = [
     {
-      label: 'Languages',
-      techs: ['Python', 'TypeScript', 'SQL', 'C++', 'HTML/CSS'],
-      icon: <Terminal size={14} />
-    },
-    {
-      label: 'AI / ML & Frameworks',
-      techs: ['LangGraph', 'LangChain', 'RAG', 'Ollama'],
+      label: 'Agentic AI & RAG',
+      techs: ['LangGraph', 'LangChain', 'Model Context Protocol (MCP)', 'vLLM', 'Local & Cloud LLMs'],
       icon: <Brain size={14} />
     },
     {
-      label: 'Backend & Databases',
-      techs: ['FastAPI', 'WebSocket', 'PostgreSQL', 'PostGIS', 'Redis', 'Qdrant'],
+      label: 'Machine Learning',
+      techs: ['PyTorch', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'Matplotlib'],
       icon: <Cpu size={14} />
     },
     {
-      label: 'Frontend & UI',
-      techs: ['React', 'Next.js', 'Tailwind CSS', 'Chart.js'],
+      label: 'Backend & Databases',
+      techs: ['Python', 'FastAPI', 'REST APIs', 'Redis', 'ChromaDB', 'Qdrant'],
+      icon: <Database size={14} />
+    },
+    {
+      label: 'Frontend Development',
+      techs: ['TypeScript', 'React', 'Vite', 'HTML/CSS', 'Tailwind CSS', 'Chart.js'],
       icon: <Layout size={14} />
     },
     {
-      label: 'Tools & DevOps',
-      techs: ['Docker', 'Nginx', 'Git / GitHub', 'VS Code', 'Linux'],
-      icon: <Layers size={14} />
+      label: 'Tools & Infrastructure',
+      techs: ['Docker', 'Git', 'Cursor', 'Antigravity'],
+      icon: <Terminal size={14} />
     }
   ];
 
@@ -157,7 +157,7 @@ export const Home: React.FC = () => {
     <div className="w-full flex flex-col items-center bg-bg text-text-body overflow-x-hidden">
       
       {/* 1. Cinematic Hero Section */}
-      <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden pt-28 pb-16 border-b border-border-token/20 bg-bg">
+      <section className="relative w-full min-h-[85vh] flex items-center justify-start overflow-hidden pt-24 md:pt-28 pb-10 lg:pb-12 border-b border-border-token/20 bg-bg">
         {/* Subtle background glow */}
         <div className="absolute right-[20%] top-[25%] w-[400px] h-[400px] rounded-full bg-accent/20 dark:bg-accent/10 blur-[100px] pointer-events-none z-0" />
 
@@ -217,10 +217,10 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Center-aligned container wrapper - balanced viewport gaps */}
-        <div className="w-full max-w-[1440px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-20 relative z-10 flex flex-col justify-between gap-12 lg:gap-16 2xl:gap-20">
+        <div className="w-full max-w-[1440px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-20 relative z-10 flex flex-col justify-between gap-6 lg:gap-8 2xl:gap-10">
           {/* Top Row: Left content only - terminal is absolutely positioned */}
           <div className="w-full max-w-2xl">
-            <div className="flex flex-col space-y-6 text-left relative -left-2 md:-left-8 lg:-left-16 xl:-left-24">
+            <div className="flex flex-col space-y-6 text-left">
               {/* Location Pill Tag */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-accent-dim border border-border-token w-max">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
@@ -266,7 +266,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Bottom Row: Full-Width Horizontal Stats Banner */}
-          <div className="w-full glass-panel p-6 rounded-2xl border border-border-token/40 shadow-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x lg:divide-border-token/20 mt-8 relative -left-2 md:-left-8 lg:-left-16 xl:-left-24 lg:w-[calc(100%+8rem)] xl:w-[calc(100%+12rem)]">
+          <div className="w-full glass-panel p-5 md:p-6 rounded-2xl border border-border-token/40 shadow-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x lg:divide-border-token/20 mt-2">
             {stats.map((stat, i) => (
               <div key={i} className="flex items-center gap-4 px-2 lg:px-6 first:pl-2">
                 <div className="p-3 bg-accent-dim rounded-xl flex items-center justify-center shrink-0">
@@ -292,7 +292,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. About Me Section */}
-      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20 overflow-hidden">
+      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 border-b border-border-token/20 overflow-hidden">
         <div className="absolute left-[8%] top-1/3 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
         <div className="absolute right-[15%] bottom-1/4 w-[280px] h-[280px] rounded-full bg-accent/5 blur-[100px] pointer-events-none" />
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -345,7 +345,7 @@ export const Home: React.FC = () => {
               <div className="absolute w-[85%] h-[85%] rounded-[2rem] bg-accent/8 blur-[60px] pointer-events-none" />
               
               {/* Portrait container */}
-              <div className="relative portrait-frame portrait-glow portrait-float w-full max-w-[460px] aspect-[3/4] rounded-[1.5rem] overflow-hidden border border-border-token/25">
+              <div className="relative portrait-frame portrait-glow portrait-float w-full max-w-[460px] aspect-square rounded-[1.5rem] overflow-hidden border border-border-token/25">
                 <img
                   src="/assets/images/portrait/Myself_Best_Potrait.png"
                   alt="Long Quan Ton — AI Engineer"
@@ -396,31 +396,31 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Scrolling Marquee Carousel View */}
-          <div className="w-full overflow-hidden relative py-4">
+          <div className="w-full overflow-hidden relative py-6">
             {/* Fade overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
             
-            <div className="flex gap-6 animate-[project-marquee_35s_linear_infinite] hover:[animation-play-state:paused] w-max">
+            <div className="flex gap-8 animate-[project-marquee_40s_linear_infinite] hover:[animation-play-state:paused] w-max">
               {[...projects, ...projects].map((project, idx) => (
                 <div
                   key={`${project.id}-${idx}`}
-                  className="w-[300px] md:w-[340px] shrink-0 group"
+                  className="w-[380px] sm:w-[420px] md:w-[460px] shrink-0 group"
                 >
                   <Link to={`/projects?id=${project.id}`}>
-                    <div className="glass-panel rounded-2xl overflow-hidden h-full flex flex-col hover:border-accent/40 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:shadow-accent/5 dark:hover:shadow-accent/15 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                    <div className="glass-panel rounded-3xl overflow-hidden h-full flex flex-col hover:border-accent/60 hover:-translate-y-2.5 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                       
-                      {/* Small Square Image preview */}
+                      {/* Exhibition Image Frame */}
                       <div 
-                        className="relative aspect-video w-full bg-bg-alt/50 overflow-hidden border-b border-border-token/20"
+                        className="relative aspect-[16/10] w-full bg-bg-alt/60 overflow-hidden border-b border-border-token/20"
                         style={{
                           backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
                         }}
                       >
                         {project.status === 'placeholder' ? (
-                          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center">
-                            <Sparkles className="text-accent/60 mb-1 animate-pulse" size={24} />
-                            <span className="text-xs font-semibold text-text-heading">Coming Soon</span>
+                          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                            <Sparkles className="text-accent/60 mb-2 animate-pulse" size={28} />
+                            <span className="text-sm font-semibold text-text-heading">Visual Coming Soon</span>
                           </div>
                         ) : (
                           <>
@@ -428,52 +428,69 @@ export const Home: React.FC = () => {
                               src={project.hoverMedia.src}
                               alt={project.title}
                               loading="lazy"
-                              className="w-full h-full group-hover:scale-110 transition-transform duration-700 ease-out"
+                              className="w-full h-full group-hover:scale-105 group-hover:rotate-[0.5deg] transition-transform duration-700 ease-out"
                               style={{
                                 objectFit: project.hoverMedia.objectFit || 'cover',
                                 objectPosition: project.hoverMedia.objectPosition || 'center'
                               }}
                             />
-                            {/* Dark gradient overlay on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                            {/* Dark cinematic gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
                             
-                            {/* Floating Action Button inside image container */}
-                            <div className="absolute bottom-3 right-3 p-2 rounded-full bg-accent text-bg scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out shadow-lg">
-                              <ArrowUpRight size={14} />
-                            </div>
+                            {/* Badge for Competition Highlights if applicable */}
+                            {project.id === 'weatherise' && (
+                              <div className="absolute top-3.5 right-3.5 z-10 flex items-center gap-1.5 px-3 py-1 bg-amber-500/90 text-white rounded-full text-[10px] font-bold font-mono uppercase tracking-wider shadow-md backdrop-blur-md">
+                                <Trophy size={11} />
+                                <span>Top 10 Finalist</span>
+                              </div>
+                            )}
                           </>
                         )}
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 flex-grow flex flex-col justify-between space-y-4 bg-bg-alt/5 transition-colors duration-300 group-hover:bg-bg-alt/25">
-                        <div className="space-y-3">
-                          {/* Category & Period info */}
-                          <div className="flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-text-muted/80">
-                            <span className="font-bold text-accent">
+                      {/* Content Section */}
+                      <div className="p-7 flex-grow flex flex-col justify-between space-y-5 bg-bg-alt/10 transition-colors duration-300 group-hover:bg-bg-alt/30">
+                        <div className="space-y-3.5">
+                          {/* Role (Left) & Competition Name (Right) */}
+                          <div className="flex items-center justify-between text-xs font-mono tracking-wider gap-2">
+                            <span className="font-bold text-accent bg-accent-dim px-3 py-1 rounded-full border border-accent/20 truncate max-w-[210px]">
+                              {project.role}
+                            </span>
+                            <span className="font-bold text-text-muted uppercase tracking-wider text-[11px] truncate max-w-[170px] text-right">
                               {project.category === 'Competition' && project.competitionName 
                                 ? project.competitionName 
                                 : project.category}
                             </span>
-                            <span>{project.period.includes(' – ') ? project.period.split(' – ')[0] : project.period}</span>
                           </div>
 
-                          <h3 className="text-lg md:text-xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-tight">
+                          {/* Larger Exhibition Title */}
+                          <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-snug">
                             {project.title}
                           </h3>
-                          <p className="text-xs md:text-sm text-text-body/75 line-clamp-2 leading-relaxed font-body font-normal">
+
+                          {/* Legible Summary */}
+                          <p className="text-sm md:text-base text-text-body/85 line-clamp-2 leading-relaxed font-body">
                             {project.summary}
                           </p>
                         </div>
 
-                        {/* Tech stack tags */}
-                        <div className="flex flex-wrap gap-1.5 pt-1">
-                          {project.techStack.slice(0, 3).map((tech) => (
-                            <span key={tech} className="text-[9px] font-mono bg-surface-2/60 border border-border-token/15 px-2.5 py-1 rounded-md text-text-muted hover:border-accent/30 hover:text-accent transition-colors duration-200">
-                              {tech}
-                            </span>
-                          ))}
+                        {/* Tech Stack & Interactive Action Button Bar */}
+                        <div className="space-y-4 pt-1">
+                          <div className="flex flex-wrap gap-2">
+                            {project.techStack.slice(0, 4).map((tech) => (
+                              <span key={tech} className="text-xs font-mono bg-surface-2/70 border border-border-token/20 px-3 py-1 rounded-lg text-text-muted group-hover:border-accent/30 group-hover:text-accent transition-colors duration-200">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* Single Sleek Action Button */}
+                          <div className="w-full py-3 px-4 rounded-xl bg-accent-dim border border-border-token/30 group-hover:bg-accent group-hover:border-accent text-accent group-hover:text-bg font-semibold text-xs md:text-sm flex items-center justify-center gap-2 shadow-sm group-hover:shadow-lg group-hover:shadow-accent/25 transition-all duration-300">
+                            <span>View Project Details</span>
+                            <ArrowUpRight size={15} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                          </div>
                         </div>
+
                       </div>
 
                     </div>
@@ -485,7 +502,7 @@ export const Home: React.FC = () => {
             <style>{`
               @keyframes project-marquee {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-50% - 12px)); }
+                100% { transform: translateX(calc(-50% - 16px)); }
               }
             `}</style>
           </div>
@@ -495,89 +512,91 @@ export const Home: React.FC = () => {
 
       {/* 4. Skills & Tech Stack Section */}
       <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-b border-border-token/20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Left Column: Developer Skills & Layers */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 flex flex-col justify-between">
             <ScrollReveal direction="left">
               <div className="flex items-center gap-2.5">
                 <Terminal size={20} className="text-accent" />
                 <span className="text-sm uppercase tracking-widest font-semibold text-accent">Technical Rigor</span>
               </div>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-display text-text-heading mt-3 mb-4">
                 Developer Skills
               </h2>
-              <p className="text-base text-text-body mt-3 leading-relaxed">
-                I design, build and ship reliable <span className="text-accent font-semibold">AI systems</span> from data to intelligent experiences.
-              </p>
             </ScrollReveal>
 
             {/* Architecture Layers */}
-            <ScrollReveal direction="left" delay={0.1}>
-              <div className="relative space-y-6">
-                {/* Connecting vertical line */}
-                <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-accent/30 dark:bg-accent/20 -z-10" />
-                
-                {layers.map((layer, idx) => (
-                  <div key={idx} className="relative flex items-start gap-4 group">
-                    {/* Icon Node */}
-                    <div className="w-12 h-12 rounded-xl bg-surface border border-border-token flex items-center justify-center shrink-0 z-10 shadow-xs group-hover:border-accent/50 group-hover:shadow-accent/10 transition-all duration-300">
-                      <div className="text-accent group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                        {layer.icon}
-                      </div>
-                    </div>
-                    
-                    {/* Card Content */}
-                    <div className="flex-grow glass-panel p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-4">
-                      <div className="space-y-1.5 sm:max-w-[65%]">
-                        <span className="text-xs font-mono font-bold text-accent tracking-wider block">
-                          {layer.num} {layer.name}
-                        </span>
-                        <p className="text-xs md:text-sm text-text-body leading-relaxed">
-                          {layer.desc}
-                        </p>
-                      </div>
-                      <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2.5 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
-                        <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-1.5">
-                          {layer.techs.map((t, i) => (
-                            <li key={i} className="text-xs text-text-muted flex items-center gap-1.5 font-mono font-medium">
-                              <span className="w-1 h-1 rounded-full bg-accent/60 shrink-0" />
-                              <span>{t}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+            <div className="relative flex-grow flex flex-col justify-between gap-4 mt-2">
+              {/* Connecting vertical line */}
+              <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-accent/30 dark:bg-accent/20 -z-10" />
+              
+              {layers.map((layer, idx) => (
+                <ScrollReveal 
+                  key={idx} 
+                  direction="left" 
+                  delay={idx * 0.08}
+                  className="relative flex items-start gap-4 group flex-grow"
+                >
+                  {/* Icon Node */}
+                  <div className="w-12 h-12 rounded-xl bg-surface border border-border-token flex items-center justify-center shrink-0 z-10 shadow-xs group-hover:border-accent/50 group-hover:shadow-accent/10 transition-all duration-300">
+                    <div className="text-accent group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                      {layer.icon}
                     </div>
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                  
+                  {/* Card Content */}
+                  <div className="flex-grow glass-panel p-4 sm:p-5 rounded-2xl border border-border-token/40 hover:border-accent/40 transition-all duration-300 flex flex-col sm:flex-row justify-between gap-3 h-full">
+                    <div className="space-y-1.5 sm:max-w-[55%] flex flex-col justify-center">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono font-bold text-accent tracking-wider">
+                          {layer.num}
+                        </span>
+                        <h4 className="text-sm md:text-base font-bold font-display text-text-heading group-hover:text-accent transition-colors leading-tight">
+                          {layer.name}
+                        </h4>
+                      </div>
+                      <p className="text-xs md:text-sm text-text-muted font-normal leading-relaxed">
+                        {layer.desc}
+                      </p>
+                    </div>
+                    <div className="border-t sm:border-t-0 sm:border-l border-border-token/20 pt-2 sm:pt-0 sm:pl-4 shrink-0 flex flex-col justify-center">
+                      <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-1.5">
+                        {layer.focus.map((item, i) => (
+                          <li key={i} className="text-xs md:text-sm text-text-body font-mono font-medium flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent/70 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
 
           {/* Right Column: Skills Overview & Tech Stack Rows */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
             {/* Skills Overview */}
             <div className="space-y-4">
-              <span className="text-xs uppercase font-bold tracking-widest text-text-muted block">
+              <span className="text-xs md:text-sm uppercase font-bold tracking-widest text-text-muted block">
                 Skills Overview
               </span>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {overviewSkills.map((skill, idx) => (
                   <ScrollReveal key={skill.name} direction="right" delay={idx * 0.05}>
-                    <div className="glass-panel p-5 rounded-xl flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-300">
-                      <div className="space-y-3.5">
+                    <div className="glass-panel p-4.5 rounded-xl flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-300">
+                      <div className="space-y-3">
                         <div className="flex items-center justify-between text-accent">
-                          <div className="p-2 bg-accent-dim rounded-lg flex items-center justify-center">
+                          <div className="p-2 bg-accent-dim rounded-xl flex items-center justify-center">
                             {skill.icon}
                           </div>
-                          <span className="text-sm font-mono font-bold">{skill.percent}%</span>
+                          <span className="text-base md:text-lg font-mono font-extrabold text-accent">{skill.percent}%</span>
                         </div>
-                        <div className="space-y-1">
-                          <h4 className="text-xs md:text-sm font-bold text-text-heading leading-tight">{skill.name}</h4>
-                          <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">{skill.desc}</p>
-                        </div>
+                        <h4 className="text-sm md:text-base font-bold text-text-heading leading-tight">{skill.name}</h4>
                       </div>
-                      <div className="w-full h-1.5 bg-border-token/20 rounded-full overflow-hidden mt-4">
+                      <div className="w-full h-1.5 bg-border-token/20 rounded-full overflow-hidden mt-3.5">
                         <div 
                           className="h-full bg-accent rounded-full transition-all duration-500" 
                           style={{ width: `${skill.percent}%` }}
@@ -642,70 +661,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Personal Life Section */}
-      <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-t border-border-token/40 overflow-hidden">
-        <div className="absolute right-[12%] top-24 w-[420px] h-[420px] rounded-full bg-accent/10 blur-[140px] pointer-events-none" />
-        
-        <div className="relative space-y-12">
-          {/* Compact heading */}
-          <ScrollReveal direction="up">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-2.5 mb-4">
-                <Heart size={18} className="text-accent" />
-                <span className="text-xs uppercase tracking-[0.25em] font-semibold text-accent font-mono">Journal</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-text-heading leading-[0.95] tracking-tight">
-                Life Outside <br />
-                <span className="italic font-normal text-accent">of Code</span>
-              </h2>
-              <p className="text-base md:text-lg text-text-body mt-5 leading-relaxed max-w-lg">
-                The quieter side of my work: travel, family, discipline, and the people who keep the journey grounded.
-              </p>
-            </div>
-          </ScrollReveal>
 
-          {/* 4 Cards on the Same Line */}
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {[
-                { src: '/assets/images/personal/youth_korea.jpg', alt: 'Travel — Seoul, Korea', label: 'Travel', objectPosition: 'center' },
-                { src: '/assets/images/personal/family_all_1.jpg', alt: 'Family roots', label: 'Family', objectPosition: 'center 12%' },
-                { src: '/assets/images/personal/hobby_gym.jpg', alt: 'Gym discipline', label: 'Discipline', objectPosition: 'center' },
-                { src: '/assets/images/personal/friend_group_2.jpg', alt: 'Friends and memories', label: 'Memories', objectPosition: 'center' },
-              ].map((photo, idx) => (
-                <div
-                  key={idx}
-                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-border-token/25 shadow-lg cursor-default"
-                >
-                  {/* Image */}
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[25%] saturate-[0.9] group-hover:grayscale-0 group-hover:saturate-100 group-hover:scale-110 transition-all duration-[1200ms] ease-out"
-                    style={{ objectPosition: photo.objectPosition }}
-                  />
-                  {/* Dark overlay — lightens on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/20 to-transparent group-hover:from-bg/40 group-hover:via-transparent group-hover:to-bg/30 transition-all duration-700 pointer-events-none" />
-                  {/* Inner ring */}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/5 pointer-events-none rounded-2xl" />
-                  {/* Corner label */}
-                  <div className="absolute bottom-4 left-5">
-                    <span className="text-lg md:text-xl font-display font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] group-hover:text-accent transition-colors duration-500">
-                      {photo.label}
-                    </span>
-                    <div className="w-0 group-hover:w-1/2 h-[1.5px] bg-accent mt-1 transition-all duration-500 ease-out rounded-full" />
-                  </div>
-                  {/* Accent glow on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{
-                    background: 'radial-gradient(ellipse at bottom left, rgba(16,185,129,0.12) 0%, transparent 60%)',
-                  }} />
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* 6. Contact & Correspondence Section */}
       <section className="relative w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 md:py-28 2xl:py-32 border-t border-border-token/20 overflow-hidden bg-bg">
@@ -892,7 +848,7 @@ export const Home: React.FC = () => {
                         </span>
                       </div>
                       <span className="text-xs md:text-sm font-mono text-text-muted flex items-center gap-1.5">
-                        <MapPin size={12} className="text-accent" /> 10.8231° N, 106.6297° E
+                      
                       </span>
                     </div>
 

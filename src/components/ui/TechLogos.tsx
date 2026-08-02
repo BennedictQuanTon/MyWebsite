@@ -3,6 +3,7 @@ import React from 'react';
 interface TechIconProps {
   className?: string;
   size?: number;
+  strokeWidth?: number;
 }
 
 // Custom inline SVG icons for Bennedict's tech stack
@@ -65,7 +66,7 @@ export const SupabaseIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", s
 
 export const LangchainIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+    <path d="M13.796 0a6.93 6.93 0 0 0-4.91 2.019L5.451 5.455l3.273 3.27 3.432-3.432a2.284 2.284 0 0 1 3.277 0 2.28 2.28 0 0 1 0 3.275L12 12.001l3.273 3.273 3.433-3.435c2.692-2.692 2.692-7.127 0-9.82A6.92 6.92 0 0 0 13.796 0m-5.07 8.728-3.433 3.434c-2.692 2.693-2.692 7.126 0 9.819A6.92 6.92 0 0 0 10.203 24a6.93 6.93 0 0 0 4.911-2.02l3.432-3.432-3.271-3.272-3.433 3.433a2.284 2.284 0 0 1-3.277 0 2.28 2.28 0 0 1 0-3.276L12 12z" />
   </svg>
 );
 
@@ -84,8 +85,54 @@ export const NvidiaIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", siz
   </svg>
 );
 
+export const GitIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M23.384 11.233L12.767.616c-.822-.822-2.155-.822-2.977 0L8.273 3.132l2.946 2.946c.712-.241 1.527-.08 2.096.488.571.571.729 1.391.482 2.106l2.936 2.936c.715-.247 1.535-.089 2.106.482.784.784.784 2.054 0 2.838-.784.784-2.054.784-2.838 0-.582-.582-.735-1.42-.469-2.144l-2.812-2.812v4.887c.287.172.531.428.694.741.526 1.011.135 2.253-.876 2.779-1.011.526-2.253.135-2.779-.876-.526-1.011-.135-2.253.876-2.779.351-.183.74-.252 1.119-.215V8.892c-.379.037-.768-.032-1.119-.215-.571-.297-.962-.832-1.077-1.455L6.096 9.426c.266.724.113 1.562-.469 2.144-.784.784-2.054.784-2.838 0-.784-.784-.784-2.054 0-2.838.582-.582 1.42-.735 2.144-.469l2.809-2.809c-.112-.612-.006-1.258.324-1.812.379-.636.985-1.047 1.677-1.138L6.877 1.737c-.822-.822-2.155-.822-2.977 0L.616 12.354c-.822.822-.822 2.155 0 2.977l10.617 10.617c.822.822 2.155.822 2.977 0l10.617-10.617c.823-.822.823-2.155 0-2.977z"/>
+  </svg>
+);
+
+export const ViteIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z" />
+  </svg>
+);
+
+export const PytorchIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.005 0L4.952 7.053a9.865 9.865 0 0 0 0 14.022 9.866 9.866 0 0 0 14.022 0c3.984-3.9 3.986-10.205.085-14.023l-1.744 1.743c2.904 2.905 2.904 7.634 0 10.538s-7.634 2.904-10.538 0-2.904-7.634 0-10.538l4.647-4.646.582-.665zm3.568 3.899a1.327 1.327 0 0 0-1.327 1.327 1.327 1.327 0 0 0 1.327 1.328A1.327 1.327 0 0 0 16.9 5.226 1.327 1.327 0 0 0 15.573 3.9z"/>
+  </svg>
+);
+
+export const HtmlCssIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0L2 2.85v15.3L12 24V0zm-2 15.6l-3.5-.95-.2-2.5h2.1l.1 1.2 1.5.4v1.85zM10 11H6.1l-.2-2h4.1v2zm0-4H5.7l-.1-1.7h4.4V7z" opacity="0.9" />
+    <path d="M12 0v24l10-5.85v-15.3L12 0zm6 11.1l-.5 4.5-5.5 1.5v-2l3.4-.9.2-2.1h-3.6v-2h5.7zm0-4.1h-6V5h6.2l-.2 2z" opacity="0.75" />
+  </svg>
+);
+
+export const CursorIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.106 5.68L12.5.135a.998.998 0 00-.998 0L1.893 5.68a.84.84 0 00-.419.726v11.186c0 .3.16.577.42.727l9.607 5.547a.999.999 0 00.998 0l9.608-5.547a.84.84 0 00.42-.727V6.407a.84.84 0 00-.42-.726zm-.603 1.176L12.228 22.92c-.063.108-.228.064-.228-.061V12.34a.59.59 0 00-.295-.51l-9.11-5.26c-.107-.062-.063-.228.062-.228h18.55c.264 0 .428.286.296.514z"/>
+  </svg>
+);
+
+export const AntigravityIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L16.5 7H7.5L12 2Z" opacity="0.95" />
+    <path d="M6.6 9H17.4L18.7 12H5.3L6.6 9Z" opacity="0.75" />
+    <path d="M4.4 14H19.6L21.5 19H2.5L4.4 14Z" opacity="0.55" />
+    <ellipse cx="12" cy="22" rx="7" ry="1.5" opacity="0.25" />
+  </svg>
+);
+
+export const TailwindIcon: React.FC<TechIconProps> = ({ className = "w-6 h-6", size = 24 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8 0.913 0.228 1.565 0.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-0.913-0.228-1.565-0.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zM6.001 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8 0.913 0.228 1.565 0.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-0.913-0.228-1.565-0.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
+  </svg>
+);
+
 export const genericTechIcon = (name: string, size: number = 24, className?: string) => {
-  const normalized = name.toLowerCase().replace(/[\s\.\-\:]/g, '');
+  const normalized = name.toLowerCase().replace(/[\s\.\-\:_•\/]/g, '');
   const finalClass = className || "w-6 h-6 transition-colors fill-current";
 
   switch (normalized) {
@@ -120,6 +167,22 @@ export const genericTechIcon = (name: string, size: number = 24, className?: str
     case 'nvidianim':
     case 'nim':
       return <NvidiaIcon size={size} className={finalClass} />;
+    case 'git':
+    case 'github':
+      return <GitIcon size={size} className={finalClass} />;
+    case 'vite':
+      return <ViteIcon size={size} className={finalClass} strokeWidth={2} />;
+    case 'pytorch':
+      return <PytorchIcon size={size} className={finalClass} />;
+    case 'htmlcss':
+      return <HtmlCssIcon size={size} className={finalClass} strokeWidth={2} />;
+    case 'tailwind':
+    case 'tailwindcss':
+      return <TailwindIcon size={size} className={finalClass} />;
+    case 'cursor':
+      return <CursorIcon size={size} className={finalClass} strokeWidth={2} />;
+    case 'antigravity':
+      return <AntigravityIcon size={size} className={finalClass} strokeWidth={2} />;
     default:
       // Fallback: A nice generic chip/tech node icon
       return (
@@ -131,3 +194,4 @@ export const genericTechIcon = (name: string, size: number = 24, className?: str
       );
   }
 };
+
