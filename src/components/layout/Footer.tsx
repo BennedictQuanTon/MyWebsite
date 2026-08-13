@@ -48,8 +48,8 @@ export const Footer: React.FC = () => {
           <a href="mailto:tonlongquanvn@gmail.com" className="hover:text-accent transition-colors">
             tonlongquanvn@gmail.com
           </a>
-          <a href="tel:0964474527" className="hover:text-accent transition-colors">
-            0964474527
+          <a href="tel:+84964474527" className="hover:text-accent transition-colors">
+            (+84) 964474527
           </a>
         </div>
 

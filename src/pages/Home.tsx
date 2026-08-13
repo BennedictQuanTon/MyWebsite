@@ -745,9 +745,8 @@ export const Home: React.FC = () => {
           <ScrollReveal direction="up">
             <div className="space-y-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-xs uppercase font-mono tracking-[0.25em] text-text-muted">06</span>
-                <span className="w-1.5 h-[1.5px] bg-accent/40 rounded-full" />
-                <span className="text-xs uppercase font-mono tracking-[0.25em] text-accent font-semibold">Contact &amp; Availability</span>
+                <User size={20} className="text-accent" />
+                <span className="text-sm uppercase tracking-widest font-semibold text-accent">Contact &amp; Availability</span>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-text-heading leading-[0.95] tracking-tight">
                 Let's build <br />
