@@ -125,14 +125,9 @@ export const Journey: React.FC = () => {
                 
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center relative z-10">
                   {/* Left: Content */}
-                  <div className="flex-1 space-y-5">
-                    <div className="space-y-3">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-xs md:text-sm font-mono bg-accent-dim text-accent-deep dark:text-accent-bright border border-accent/20 px-3.5 py-1.5 rounded-full uppercase tracking-wider font-bold">
-                          {edu.date}
-                        </span>
-                      </div>
-                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-text-heading tracking-tight leading-tight pt-1">
+                  <div className="flex-1 space-y-4">
+                    <div className="space-y-2.5">
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-text-heading tracking-tight leading-tight">
                         {edu.subtitle}
                       </h3>
                       <p className="text-lg md:text-xl font-semibold text-text-muted">
@@ -140,17 +135,17 @@ export const Journey: React.FC = () => {
                       </p>
                     </div>
 
-                    <p className="text-base md:text-lg text-text-body/90 leading-relaxed border-l-2 border-accent/40 pl-4 py-1 italic">
-                      "{edu.description}"
-                    </p>
+                    <div className="flex items-center gap-2 text-base md:text-lg text-text-body/90 font-medium pt-1">
+                      <Calendar size={18} className="text-accent shrink-0" />
+                      <span>{edu.date}</span>
+                    </div>
                   </div>
 
                   {/* Right: Logos arranged nicely in a container */}
-                  <div className="flex items-center gap-4 bg-bg-alt/40 border border-border-token/30 p-5 md:p-6 rounded-2xl shrink-0 self-stretch lg:self-center justify-center lg:flex-col lg:gap-4 min-w-[240px] hover:border-accent/30 transition-colors">
+                  <div className="flex items-center gap-4 bg-bg-alt/40 border border-border-token/30 p-5 md:p-6 rounded-2xl shrink-0 self-stretch lg:self-center justify-center lg:flex-col lg:gap-3 min-w-[240px] hover:border-accent/30 transition-colors">
                     <div className="h-24 px-6 rounded-xl border border-border-token/20 bg-white flex items-center justify-center shadow-sm w-48 hover:scale-105 transition-transform">
                       <img src="/assets/images/companies/uts_logo.png" alt="UTS Logo" className="h-14 w-auto object-contain" />
                     </div>
-                    <div className="text-text-muted font-bold text-[10px] uppercase tracking-widest">Joint Program</div>
                     <div className="h-24 px-6 rounded-xl border border-border-token/20 bg-white flex items-center justify-center shadow-sm w-48 hover:scale-105 transition-transform">
                       <img src="/assets/images/companies/bku_logo.png" alt="BKU Logo" className="h-14 w-auto object-contain" />
                     </div>

@@ -16,9 +16,9 @@ export const experiences: WorkExperience[] = [
     responsibilities: [
       'Architected high-throughput RESTful API endpoints and backend microservices using FastAPI, Redis, and Python, improving system response latency by ~40% across production workflows.',
       'Engineered autonomous multi-agent reasoning flows using LangGraph and LangChain, accelerating task execution speeds and complex query resolution by ~65%.',
-      'Optimized development velocity and API spec design throughput by ~3x through intelligent integration of Claude 3.5 Opus and Cursor Grok 4.6 workflows into daily engineering pipelines.'
+      'Optimized development velocity and API spec design throughput by ~3x through intelligent integration of Claude Opus 5 and Cursor IDE workflows into daily engineering pipelines.'
     ],
-    skills: ['FastAPI', 'LangChain', 'LangGraph', 'Python', 'TypeScript', 'Claude 3.5 Opus', 'Cursor Grok 4.6', 'Redis'],
+    skills: ['FastAPI', 'LangChain', 'LangGraph', 'Python', 'TypeScript', 'Claude Code', 'Cursor IDE', 'Redis'],
     photos: [],
     status: 'active'
   },
