@@ -2,6 +2,27 @@ import type { WorkExperience } from '../types';
 
 export const experiences: WorkExperience[] = [
   {
+    id: 'flyrank-ai-intern',
+    company: 'FlyRank AI',
+    companyLogo: '/assets/images/companies/flyrank_logo.svg',
+    companyPhoto: undefined,
+    location: 'Ho Chi Minh City, Vietnam',
+    role: 'Backend AI Engineering Intern',
+    type: 'Internship',
+    mode: 'Remote',
+    startDate: 'August 2026',
+    endDate: 'Present',
+    isActive: true,
+    responsibilities: [
+      'Architected high-throughput RESTful API endpoints and backend microservices using FastAPI, Redis, and Python, improving system response latency by ~40% across production workflows.',
+      'Engineered autonomous multi-agent reasoning flows using LangGraph and LangChain, accelerating task execution speeds and complex query resolution by ~65%.',
+      'Optimized development velocity and API spec design throughput by ~3x through intelligent integration of Claude 3.5 Opus and Cursor Grok 4.6 workflows into daily engineering pipelines.'
+    ],
+    skills: ['FastAPI', 'LangChain', 'LangGraph', 'Python', 'TypeScript', 'Claude 3.5 Opus', 'Cursor Grok 4.6', 'Redis'],
+    photos: [],
+    status: 'active'
+  },
+  {
     id: 'globaltech-annotator',
     company: 'GlobalTech SJC VietNam',
     companyLogo: '/assets/images/companies/globaltech_logo.jpg',
