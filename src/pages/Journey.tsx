@@ -31,13 +31,13 @@ export const Journey: React.FC = () => {
         <div className="flex flex-col space-y-8 w-full">
           {experiences.map((exp) => (
             <ScrollReveal key={exp.id}>
-              <div className="glass-panel p-6 md:p-8 rounded-3xl hover:border-accent/40 transition-all duration-300">
+              <div className="glass-panel p-6 md:p-8 lg:p-10 rounded-3xl hover:border-accent/40 transition-all duration-300">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                   {/* Left Column (Logo & Meta) */}
-                  <div className="md:col-span-4 flex flex-col space-y-6">
-                    {/* Company Logo */}
+                  <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-5">
+                    {/* Company Logo (Wider & centered frame) */}
                     {exp.companyLogo ? (
-                      <div className="w-36 h-20 rounded-xl border border-border-token/30 overflow-hidden bg-white flex items-center justify-center p-2.5">
+                      <div className="w-full max-w-[340px] md:max-w-[380px] h-24 rounded-2xl border border-border-token/30 overflow-hidden bg-white flex items-center justify-center p-3.5 shadow-sm">
                         <img 
                           src={exp.companyLogo} 
                           alt={exp.company + ' logo'} 
@@ -51,68 +51,51 @@ export const Journey: React.FC = () => {
                       </div>
                     )}
 
-                    <div className="space-y-3">
-                      <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading leading-tight">{exp.company}</h3>
-                      <p className="text-sm md:text-base font-semibold text-accent font-mono uppercase tracking-wider">{exp.role}</p>
-                      <div className="flex flex-col space-y-2 text-sm text-text-body">
+                    <div className="space-y-2.5 w-full">
+                      <h3 className="text-2xl md:text-4xl font-bold font-display text-text-heading leading-tight">{exp.company}</h3>
+                      <p className="text-sm md:text-base font-semibold text-accent font-display uppercase tracking-wider">{exp.role}</p>
+                      <div className="flex flex-col items-center md:items-start space-y-1.5 text-base md:text-lg text-text-body/90 font-medium">
                         <div className="flex items-center gap-2">
-                          <MapPin size={16} className="text-accent" />
+                          <MapPin size={18} className="text-accent shrink-0" />
                           <span>{exp.location}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Calendar size={16} className="text-accent" />
+                          <Calendar size={18} className="text-accent shrink-0" />
                           <span>{exp.startDate} – {exp.endDate}</span>
                         </div>
                       </div>
                     </div>
-
-                    {/* Meta Pills */}
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      <span className="text-xs font-bold uppercase tracking-wider bg-accent-dim text-accent-deep dark:text-accent-bright px-3.5 py-1.5 rounded-lg">
-                        {exp.type}
-                      </span>
-                      <span className="text-xs font-bold uppercase tracking-wider bg-bg-alt border border-border-token/30 text-text-muted px-3.5 py-1.5 rounded-lg">
-                        {exp.mode}
-                      </span>
-                      {exp.isActive && (
-                        <span className="text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 animate-pulse">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Active
-                        </span>
-                      )}
-                    </div>
                   </div>
 
                   {/* Right Column (Responsibilities Flow & Skills) */}
-                  <div className="md:col-span-8 flex flex-col justify-between space-y-6">
-                    {/* Responsibilities */}
-                    <div className="space-y-4">
-                      <h4 className="text-sm font-bold text-text-heading uppercase tracking-wider">Responsibilities</h4>
-                      <div className="grid grid-cols-1 gap-4">
+                  <div className="md:col-span-7 flex flex-col justify-between space-y-5">
+                    {/* Responsibilities (Tighter spacing & compact line height) */}
+                    <div className="space-y-2.5">
+                      <h4 className="text-sm md:text-base font-bold text-text-heading uppercase tracking-wider">Responsibilities</h4>
+                      <div className="grid grid-cols-1 gap-2">
                         {exp.responsibilities.map((resp, i) => (
                           <div 
                             key={i} 
-                            className="bg-bg-alt/40 border border-border-token/20 p-4 rounded-2xl flex items-start gap-3 hover:border-accent/30 transition-colors"
+                            className="bg-bg-alt/40 border border-border-token/20 p-2.5 md:p-3 rounded-xl flex items-start gap-2.5 hover:border-accent/30 transition-colors"
                           >
-                            <CheckCircle size={16} className="text-accent shrink-0 mt-0.5" />
-                            <p className="text-sm text-text-body leading-relaxed">{resp}</p>
+                            <CheckCircle size={16} className="text-accent shrink-0 mt-1" />
+                            <p className="text-sm md:text-base text-text-body/90 leading-snug font-body">{resp}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Skills Used */}
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-text-heading uppercase tracking-wider">Skills Used</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill) => (
-                          <span 
-                            key={skill} 
-                            className="text-xs font-mono bg-bg-alt/60 border border-border-token/30 px-3 py-1 rounded-full text-text-muted hover:border-accent/40 transition-colors"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                    {/* Skills Used (Tech Stack style matching Project cards) */}
+                    <div className="flex flex-wrap items-center gap-2.5 text-sm md:text-base font-semibold pt-4 border-t border-border-token/15">
+                      <span className="font-bold text-text-heading shrink-0 mr-1">Skills Used:</span>
+                      {exp.skills.map((skill) => (
+                        <span 
+                          key={skill} 
+                          className="text-sm font-medium bg-bg border border-border-token/30 px-3.5 py-1.5 rounded-lg text-text-heading hover:border-accent/40 hover:text-accent transition-colors duration-200"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
