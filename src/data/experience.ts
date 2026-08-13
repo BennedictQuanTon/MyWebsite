@@ -15,10 +15,10 @@ export const experiences: WorkExperience[] = [
     isActive: true,
     responsibilities: [
       'Architected high-throughput RESTful API endpoints and backend microservices using FastAPI, Redis, and Python, improving system response latency by ~40% across production workflows.',
-      'Engineered autonomous multi-agent reasoning flows using LangGraph and LangChain, accelerating task execution speeds and complex query resolution by ~65%.',
-      'Optimized development velocity and API spec design throughput by ~3x through intelligent integration of Claude Opus 5 and Cursor IDE workflows into daily engineering pipelines.'
+      'Engineered autonomous multi-agent reasoning flows using LangGraph, LangChain, and local LLMs via Ollama (Qwen 2.5 & Llama 3), accelerating task execution speeds and complex query resolution by ~65%.',
+      'Optimized development velocity and API spec design throughput by ~3x through intelligent integration of Claude Code and Cursor IDE workflows into daily engineering pipelines.'
     ],
-    skills: ['FastAPI', 'LangChain', 'LangGraph', 'Python', 'TypeScript', 'Claude Code', 'Cursor IDE', 'Redis'],
+    skills: ['FastAPI', 'LangChain', 'LangGraph', 'Python', 'TypeScript', 'Ollama', 'Claude Code', 'Cursor IDE', 'Redis'],
     photos: [],
     status: 'active'
   },
