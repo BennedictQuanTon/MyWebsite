@@ -98,17 +98,7 @@ export const Vault: React.FC = () => {
         {/* Horizontal Project List */}
         <div className="w-full flex flex-col space-y-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => {
-              const isCompetition = project.category === 'Competition';
-
-              const getCompetitionBadge = (id: string) => {
-                if (id === 'weatherise') return { text: 'Top 10 Finalist', color: 'bg-amber-500/90 text-white border border-amber-400/20' };
-                return null;
-              };
-
-              const badge = isCompetition ? getCompetitionBadge(project.id) : null;
-
-              return (
+            {filteredProjects.map((project) => (
                 <motion.div
                   layout
                   key={project.id}
@@ -119,183 +109,160 @@ export const Vault: React.FC = () => {
                   className="w-full group cursor-pointer"
                   onClick={() => navigate(`/projects?id=${project.id}`)}
                 >
-                  <div className={`glass-panel rounded-3xl overflow-hidden hover:-translate-y-1 transition-all duration-300 p-8 md:p-10 flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch relative ${isCompetition
-                      ? 'border-accent/40 dark:border-accent/40 shadow-xl shadow-accent/10 dark:shadow-accent/20 ring-1 ring-accent/20 bg-gradient-to-br from-bg-alt/75 via-surface/30 to-bg-alt/55'
-                      : 'hover:border-accent/40'
-                    }`}>
-                    {/* Glowing background blob for Competition */}
-                    {isCompetition && (
-                      <div className="absolute -right-24 -top-24 w-48 h-48 rounded-full bg-accent/8 dark:bg-accent/4 blur-3xl pointer-events-none z-0" />
-                    )}
+                  <div className="group glass-panel rounded-3xl overflow-hidden p-6 md:p-8 border border-border-token/35 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                      
+                      {/* Left Half (Nửa trái): Preview Image Frame */}
+                      <div 
+                        className="lg:col-span-5 relative w-full aspect-[16/10] lg:aspect-auto min-h-[240px] bg-bg-alt/50 overflow-hidden rounded-2xl border border-border-token/30 shrink-0"
+                        style={{
+                          backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
+                        }}
+                      >
+                        {project.status === 'placeholder' ? (
+                          <div className="w-full h-full min-h-[220px] flex flex-col items-center justify-center p-6 text-center">
+                            <Sparkles className="text-accent/60 mb-2 animate-pulse" size={28} />
+                            <span className="text-sm font-semibold text-text-heading">Visual Coming Soon</span>
+                          </div>
+                        ) : (
+                          <img
+                            src={project.hoverMedia.src}
+                            alt={project.title}
+                            loading="lazy"
+                            className="w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                            style={{
+                              objectFit: project.hoverMedia.objectFit || 'cover',
+                              objectPosition: project.hoverMedia.objectPosition || 'center'
+                            }}
+                          />
+                        )}
+                      </div>
 
-                    {/* Left Column: Media Preview */}
-                    <div className="relative w-full lg:w-[32%] min-h-[260px] lg:min-h-auto lg:self-stretch bg-bg-alt/50 overflow-hidden rounded-2xl border border-border-token/40 shrink-0 z-10">
-                      {/* Competition Badge */}
-                      {badge && (
-                        <div className={`absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 px-3 py-1 ${badge.color} rounded-full text-[9px] font-bold uppercase tracking-wider shadow-md backdrop-blur-sm`}>
-                          <Trophy size={10} />
-                          <span>{badge.text}</span>
-                        </div>
-                      )}
-
-                      {project.status === 'placeholder' ? (
-                        <div className="w-full h-full min-h-[240px] flex flex-col items-center justify-center p-6 text-center">
-                          <Sparkles className="text-accent/60 mb-2 animate-pulse" size={24} />
-                          <span className="text-xs font-semibold text-text-heading">Visual Coming Soon</span>
-                          <span className="text-[10px] text-text-muted mt-0.5">Visual coming soon</span>
-                        </div>
-                      ) : project.hoverMedia.type === 'video' ? (
-                        <video
-                          src={project.hoverMedia.src}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full h-full object-cover transition-transform duration-500 absolute inset-0"
-                        />
-                      ) : (
-                        <img
-                          src={project.hoverMedia.src}
-                          alt={project.title}
-                          loading="lazy"
-                          className="w-full h-full object-contain p-3.5 bg-white transition-transform duration-500 absolute inset-0"
-                        />
-                      )}
-                    </div>
-
-                    {/* Middle Column: Core Info */}
-                    <div className="flex-grow flex flex-col justify-between space-y-5 lg:pr-6 z-10">
-                      <div className="space-y-4">
-                        {/* Top Meta Row */}
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg md:text-xl font-mono font-bold text-accent">
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                          {isCompetition ? (
-                            <span className="text-xs uppercase font-extrabold tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/25 px-3 py-1 rounded-full">
-                              Competition
+                      {/* Right Half (Nửa phải): Structured Info */}
+                      <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                        
+                        {/* Top Info Area */}
+                        <div className="space-y-4">
+                          
+                          {/* 1. Competition Name (Centered, font-display) or "Personal Project" */}
+                          <div className="text-center w-full">
+                            <span className="text-lg md:text-xl font-bold font-display uppercase tracking-wider text-accent inline-block">
+                              {project.category === 'Competition' && project.competitionName 
+                                ? project.competitionName 
+                                : 'Personal Project'}
                             </span>
-                          ) : (
-                            <span className="text-xs uppercase font-extrabold tracking-widest text-accent-deep dark:text-accent-bright bg-accent-dim px-3 py-1 rounded-full">
-                              {project.category}
-                            </span>
-                          )}
-                          {!isCompetition && (
-                            <span className="text-xs md:text-sm font-semibold text-text-muted ml-auto lg:ml-0">
-                              {project.period}
-                            </span>
-                          )}
-                        </div>
+                          </div>
 
-                        {/* Competition Meta Section */}
-                        {isCompetition && project.competitionName && (
-                          <div className="flex flex-col space-y-2.5 mt-2 mb-4">
-                            {/* 1. Tên cuộc thi */}
-                            <div className="text-base md:text-lg font-extrabold text-text-heading leading-snug">
-                              {project.competitionName}
-                            </div>
-
-                            {/* 2. Logo ban tổ chức bên dưới */}
+                          {/* 2. Sub-top Row: Left (Organizer BTC Logos) & Right (Time / Period) */}
+                          <div className="flex flex-wrap items-center justify-between gap-4 py-2.5 border-y border-border-token/15">
+                            {/* Sub-left: Organizer BTC Logos */}
                             <div className="flex items-center gap-2">
-                              {project.organizerLogos ? (
-                                project.organizerLogos.map((logo, idx) => (
-                                  <div key={idx} className="w-12 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/10 shadow-xs hover:scale-105 transition-transform duration-200">
-                                    <img 
-                                      src={logo} 
-                                      alt={`Organizer ${idx + 1}`} 
-                                      className="w-full h-full object-contain" 
-                                    />
+                              {project.category === 'Competition' ? (
+                                project.organizerLogos ? (
+                                  project.organizerLogos.map((logo, lIdx) => (
+                                    <div key={lIdx} className="h-9 px-2 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                      <img src={logo} alt="BTC Logo" className="h-full w-auto object-contain" />
+                                    </div>
+                                  ))
+                                ) : project.organizerLogo ? (
+                                  <div className="h-9 px-3 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                    <img src={project.organizerLogo} alt={project.organizer} className="h-full w-auto object-contain" />
                                   </div>
-                                ))
-                              ) : project.organizerLogo ? (
-                                <div className="w-18 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/10 shadow-xs hover:scale-105 transition-transform duration-200">
-                                  <img 
-                                    src={project.organizerLogo} 
-                                    alt={project.organizer} 
-                                    className="w-full h-full object-contain" 
-                                  />
-                                </div>
-                              ) : null}
+                                ) : (
+                                  <span className="text-xs font-semibold text-text-muted bg-surface-2 px-3 py-1.5 rounded-lg">
+                                    {project.organizer}
+                                  </span>
+                                )
+                              ) : (
+                                <span className="text-xs font-semibold text-text-muted bg-surface-2 px-3 py-1.5 rounded-lg">
+                                  Independent Build
+                                </span>
+                              )}
                             </div>
 
-                            {/* 3. Thời gian thi */}
-                            <div className="text-xs md:text-sm text-text-muted font-medium flex items-center gap-1.5">
-                              <Calendar size={13} className="text-accent shrink-0" />
+                            {/* Sub-right: Competition / Project Time */}
+                            <div className="flex items-center gap-1.5 text-xs md:text-sm text-text-muted font-medium">
+                              <Calendar size={14} className="text-accent shrink-0" />
                               <span>{project.period}</span>
                             </div>
                           </div>
-                        )}
 
-                        <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-200">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm md:text-base text-text-body leading-relaxed md:leading-loose line-clamp-4">
-                          {project.summary}
-                        </p>
-                      </div>
+                          {/* 3. Unified Content Box: Title & Achievement, Role, Description & Tech Stack */}
+                          <div className="bg-bg-alt/40 border border-border-token/25 rounded-2xl p-5 md:p-6 space-y-4">
+                            {/* Project Title & Achievement Badge */}
+                            <div className="flex flex-wrap items-center justify-between gap-3">
+                              <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300">
+                                {project.title}
+                              </h3>
 
-                      {/* Tech Stack Badges */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.techStack.slice(0, 6).map((tech) => (
-                          <span key={tech} className="flex items-center gap-1.5 text-xs font-mono bg-bg-alt/50 border border-border-token/30 px-3 py-1 rounded-full text-text-muted">
-                            {genericTechIcon(tech, 12, "fill-current text-text-muted shrink-0")}
-                            <span>{tech}</span>
-                          </span>
-                        ))}
-                        {project.techStack.length > 6 && (
-                          <span className="text-xs font-mono bg-bg-alt/50 border border-border-token/30 px-3 py-1 rounded-full text-text-muted">
-                            +{project.techStack.length - 6} more
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                              {/* Achievement Badge next to Title */}
+                              {project.id === 'weatherise' && (
+                                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                  <Trophy size={14} className="text-amber-500 shrink-0" />
+                                  <span>Top 10 Finalist</span>
+                                </div>
+                              )}
+                            </div>
 
-                    {/* Right Column: Key Features & Links */}
-                    <div className="w-full lg:w-[30%] shrink-0 border-t lg:border-t-0 lg:border-l border-border-token/20 pt-6 lg:pt-0 lg:pl-8 flex flex-col justify-between space-y-6 z-10">
-                      <div className="space-y-4">
-                        <div className="space-y-1">
-                          <span className="text-[10px] uppercase font-bold tracking-wider text-text-muted block">
-                            My Role
-                          </span>
-                          <span className="text-xs font-bold text-text-heading block bg-surface-2/40 border border-border-token/10 px-3 py-1.5 rounded-lg max-w-max">
-                            {project.role}
-                          </span>
+                            {/* Role: ... */}
+                            <div className="flex flex-wrap items-center gap-2 text-sm md:text-base font-semibold text-accent">
+                              <span className="font-bold text-text-heading shrink-0">Role:</span>
+                              <span className="bg-accent-dim px-3.5 py-1.5 rounded-full border border-accent/20 text-sm font-medium">
+                                {project.role}
+                              </span>
+                            </div>
+
+                            {/* Description / Summary */}
+                            <p className="text-sm md:text-base text-text-body/90 leading-relaxed font-body">
+                              {project.summary}
+                            </p>
+
+                            {/* Tech Stack inside content box (Tech Stack: label on exact same line as badges) */}
+                            <div className="flex flex-wrap items-center gap-2.5 text-sm md:text-base font-semibold pt-3.5 border-t border-border-token/15">
+                              <span className="font-bold text-text-heading shrink-0 mr-1">Tech Stack:</span>
+                              {project.techStack.slice(0, 8).map((tech) => (
+                                <span key={tech} className="text-sm font-medium bg-bg border border-border-token/30 px-3.5 py-1.5 rounded-lg text-text-heading group-hover:border-accent/40 group-hover:text-accent transition-colors duration-200">
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
                         </div>
-                        <span className="text-xs uppercase font-bold tracking-wider text-text-muted block pt-1">
-                          Key Features
-                        </span>
-                        <ul className="space-y-3">
-                          {project.outcomes.slice(0, 3).map((outcome, idx) => (
-                            <li key={idx} className="text-xs md:text-sm text-text-body flex items-start gap-2 leading-relaxed md:leading-loose">
-                              <span className="text-accent mt-1.5 shrink-0">•</span>
-                              <span>{outcome}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
 
-                      <div className="flex items-center justify-between pt-4 mt-auto">
-                        <span className="text-sm font-semibold text-accent group-hover:text-accent-bright flex items-center gap-1.5 transition-colors duration-200">
-                          View Project <ArrowUpRight size={16} />
-                        </span>
-                        {project.githubUrl && (
-                          <div
+                        {/* View Project Details Button & GitHub Link */}
+                        <div className="pt-1 flex items-center gap-3">
+                          <button
                             onClick={(e) => {
-                              e.stopPropagation(); // prevent modal trigger
+                              e.stopPropagation();
+                              navigate(`/projects?id=${project.id}`);
                             }}
-                            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-surface-2 text-text-muted hover:text-text-heading border border-border-token/30 transition-all duration-200"
+                            className="flex-grow py-3.5 px-5 rounded-xl bg-accent-dim border border-border-token/30 group-hover:bg-accent group-hover:border-accent text-accent group-hover:text-bg font-semibold text-sm flex items-center justify-center gap-2 shadow-sm group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300 cursor-pointer"
                           >
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="Github repo">
+                            <span>View Project Details</span>
+                            <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                          </button>
+
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              title="View GitHub Repository"
+                              className="w-12 h-12 rounded-xl bg-surface-2 border border-border-token/30 hover:border-accent hover:bg-accent hover:text-bg text-text-heading flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 cursor-pointer"
+                            >
                               <GithubIcon size={18} />
                             </a>
-                          </div>
-                        )}
+                          )}
+                        </div>
+
                       </div>
+
                     </div>
                   </div>
                 </motion.div>
-              );
-            })}
+            ))}
           </AnimatePresence>
         </div>
 
