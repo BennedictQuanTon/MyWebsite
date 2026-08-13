@@ -47,13 +47,13 @@ export const Home: React.FC = () => {
     { 
       value: '8+', 
       label: 'Projects & Hackathons', 
-      sublabel: 'Personal & Competitions Shipped', 
+      sublabel: 'Personal & Competition AI Systems Shipped', 
       icon: <FolderCode size={20} className="text-accent" /> 
     },
     { 
       value: '5+', 
       label: 'AI Certifications', 
-      sublabel: 'DeepLearning.AI · NVIDIA · Kaggle', 
+      sublabel: 'IBM · AWS · Stanford Online · DeepLearning.AI · Kaggle', 
       icon: <Award size={20} className="text-accent" /> 
     },
     { 
