@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
+import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin, Award, FolderCode, Calendar } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
 import { useTheme } from '../context/ThemeContext';
+
+const GithubIcon = ({ size = 16 }: { size?: number }) => (
+  <svg
+    height={size}
+    width={size}
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.35 3.12.9.01.64.01 1.11.01 1.2 0 .21-.16.46-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8z" />
+  </svg>
+);
 
 export const Home: React.FC = () => {
   const { theme } = useTheme();
@@ -45,16 +57,16 @@ export const Home: React.FC = () => {
       icon: <Trophy size={20} className="text-accent" /> 
     },
     { 
-      value: '2+', 
-      label: 'Personal Projects', 
-      sublabel: 'End-to-end AI Systems', 
-      icon: <Code size={20} className="text-accent" /> 
+      value: '8+', 
+      label: 'Projects & Hackathons', 
+      sublabel: 'Personal & Competition AI Systems Shipped', 
+      icon: <FolderCode size={20} className="text-accent" /> 
     },
     { 
       value: '5+', 
-      label: 'Competitions', 
-      sublabel: 'Explored. Built. Shipped.', 
-      icon: <Rocket size={20} className="text-accent" /> 
+      label: 'AI Certifications', 
+      sublabel: 'IBM · AWS · Stanford Online · DeepLearning.AI · Kaggle', 
+      icon: <Award size={20} className="text-accent" /> 
     },
     { 
       value: 'AI Focused', 
@@ -372,7 +384,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Projects Loop Carousel (Small Square Cards, Infinite Scrolling Marquee) */}
+      {/* 3. Projects & Competitions Section (Vertical Stacked Blocks) */}
       <section className="w-full max-w-[1360px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-20 border-b border-border-token/20">
         <div className="flex flex-col space-y-10">
           
@@ -386,126 +398,185 @@ export const Home: React.FC = () => {
                 Projects &amp; Competitions
               </h2>
             </ScrollReveal>
-
-            <Link
-              to="/projects"
-              className="text-sm font-semibold text-accent hover:text-accent-bright flex items-center gap-1.5"
-            >
-              View All Projects <ChevronRight size={16} />
-            </Link>
           </div>
 
-          {/* Scrolling Marquee Carousel View */}
-          <div className="w-full overflow-hidden relative py-6">
-            {/* Fade overlays */}
-            <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
-            
-            <div className="flex gap-8 animate-[project-marquee_40s_linear_infinite] hover:[animation-play-state:paused] w-max">
-              {[...projects, ...projects].map((project, idx) => (
-                <div
-                  key={`${project.id}-${idx}`}
-                  className="w-[380px] sm:w-[420px] md:w-[460px] shrink-0 group"
-                >
-                  <Link to={`/projects?id=${project.id}`}>
-                    <div className="glass-panel rounded-3xl overflow-hidden h-full flex flex-col hover:border-accent/60 hover:-translate-y-2.5 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(16,185,129,0.15)] dark:hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+          {/* Vertical Stacked Projects List (Top 3 Projects Only: Weatherise, AMD, BKAi) */}
+          <div className="w-full flex flex-col space-y-8">
+            {projects.slice(0, 3).map((project, idx) => (
+              <ScrollReveal key={project.id} direction="up" delay={idx * 0.05}>
+                <div className="group glass-panel rounded-3xl overflow-hidden p-6 md:p-8 border border-border-token/35 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    {/* Left Half (Nửa trái): Preview Image Frame */}
+                    <div 
+                      className="lg:col-span-5 relative w-full aspect-[16/10] lg:aspect-auto min-h-[240px] bg-bg-alt/50 overflow-hidden rounded-2xl border border-border-token/30 shrink-0"
+                      style={{
+                        backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
+                      }}
+                    >
+                      {project.status === 'placeholder' ? (
+                        <div className="w-full h-full min-h-[220px] flex flex-col items-center justify-center p-6 text-center">
+                          <Sparkles className="text-accent/60 mb-2 animate-pulse" size={28} />
+                          <span className="text-sm font-semibold text-text-heading">Visual Coming Soon</span>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.hoverMedia.src}
+                          alt={project.title}
+                          loading="lazy"
+                          className="w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                          style={{
+                            objectFit: project.hoverMedia.objectFit || 'cover',
+                            objectPosition: project.hoverMedia.objectPosition || 'center'
+                          }}
+                        />
+                      )}
+                    </div>
+
+                    {/* Right Half (Nửa phải): Structured Info */}
+                    <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
                       
-                      {/* Exhibition Image Frame */}
-                      <div 
-                        className="relative aspect-[16/10] w-full bg-bg-alt/60 overflow-hidden border-b border-border-token/20"
-                        style={{
-                          backgroundColor: project.hoverMedia && project.hoverMedia.objectFit === 'contain' ? '#ffffff' : undefined
-                        }}
-                      >
-                        {project.status === 'placeholder' ? (
-                          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
-                            <Sparkles className="text-accent/60 mb-2 animate-pulse" size={28} />
-                            <span className="text-sm font-semibold text-text-heading">Visual Coming Soon</span>
+                      {/* Top Info Area */}
+                      <div className="space-y-4">
+                        
+                        {/* 1. Competition Name (Centered, font-display, larger size) or "Personal Project" */}
+                        <div className="text-center w-full">
+                          <span className="text-lg md:text-xl font-bold font-display uppercase tracking-wider text-accent inline-block">
+                            {project.category === 'Competition' && project.competitionName 
+                              ? project.competitionName 
+                              : 'Personal Project'}
+                          </span>
+                        </div>
+
+                        {/* 2. Sub-top Row: Left (Organizer Logos) & Right (Time / Period) */}
+                        <div className="flex flex-wrap items-center justify-between gap-4 py-2.5 border-y border-border-token/15">
+                          {/* Sub-left: Organizer BTC Logos */}
+                          <div className="flex items-center gap-2">
+                            {project.category === 'Competition' ? (
+                              project.organizerLogos ? (
+                                project.organizerLogos.map((logo, lIdx) => (
+                                  <div key={lIdx} className="h-9 px-2 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                    <img src={logo} alt="BTC Logo" className="h-full w-auto object-contain" />
+                                  </div>
+                                ))
+                              ) : project.organizerLogo ? (
+                                <div className="h-9 px-3 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                  <img src={project.organizerLogo} alt={project.organizer} className="h-full w-auto object-contain" />
+                                </div>
+                              ) : (
+                                <span className="text-xs font-semibold text-text-muted bg-surface-2 px-3 py-1.5 rounded-lg">
+                                  {project.organizer}
+                                </span>
+                              )
+                            ) : (
+                              <span className="text-xs font-semibold text-text-muted bg-surface-2 px-3 py-1.5 rounded-lg">
+                                Independent Build
+                              </span>
+                            )}
                           </div>
-                        ) : (
-                          <>
-                            <img
-                              src={project.hoverMedia.src}
-                              alt={project.title}
-                              loading="lazy"
-                              className="w-full h-full group-hover:scale-105 group-hover:rotate-[0.5deg] transition-transform duration-700 ease-out"
-                              style={{
-                                objectFit: project.hoverMedia.objectFit || 'cover',
-                                objectPosition: project.hoverMedia.objectPosition || 'center'
-                              }}
-                            />
-                            {/* Dark cinematic gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
-                            
-                            {/* Badge for Competition Highlights if applicable */}
+
+                          {/* Sub-right: Competition / Project Time */}
+                          <div className="flex items-center gap-1.5 text-xs md:text-sm text-text-muted font-medium">
+                            <Calendar size={14} className="text-accent shrink-0" />
+                            <span>{project.period}</span>
+                          </div>
+                        </div>
+
+                        {/* 3. Unified Content Box: Title & Achievement, Role, Description & Tech Stack */}
+                        <div className="bg-bg-alt/40 border border-border-token/25 rounded-2xl p-5 md:p-6 space-y-4">
+                          {/* Project Title & Achievement Badge */}
+                          <div className="flex flex-wrap items-center justify-between gap-3">
+                            <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300">
+                              {project.title}
+                            </h3>
+
+                            {/* Achievement Badge next to Title */}
                             {project.id === 'weatherise' && (
-                              <div className="absolute top-3.5 right-3.5 z-10 flex items-center gap-1.5 px-3 py-1 bg-amber-500/90 text-white rounded-full text-[10px] font-bold font-mono uppercase tracking-wider shadow-md backdrop-blur-md">
-                                <Trophy size={11} />
+                              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                <Trophy size={14} className="text-amber-500 shrink-0" />
                                 <span>Top 10 Finalist</span>
                               </div>
                             )}
-                          </>
-                        )}
-                      </div>
+                          </div>
 
-                      {/* Content Section */}
-                      <div className="p-7 flex-grow flex flex-col justify-between space-y-5 bg-bg-alt/10 transition-colors duration-300 group-hover:bg-bg-alt/30">
-                        <div className="space-y-3.5">
-                          {/* Role (Left) & Competition Name (Right) */}
-                          <div className="flex items-center justify-between text-xs font-mono tracking-wider gap-2">
-                            <span className="font-bold text-accent bg-accent-dim px-3 py-1 rounded-full border border-accent/20 truncate max-w-[210px]">
+                          {/* Role: ... */}
+                          <div className="flex flex-wrap items-center gap-2 text-sm md:text-base font-semibold text-accent">
+                            <span className="font-bold text-text-heading shrink-0">Role:</span>
+                            <span className="bg-accent-dim px-3.5 py-1.5 rounded-full border border-accent/20 text-sm font-medium">
                               {project.role}
-                            </span>
-                            <span className="font-bold text-text-muted uppercase tracking-wider text-[11px] truncate max-w-[170px] text-right">
-                              {project.category === 'Competition' && project.competitionName 
-                                ? project.competitionName 
-                                : project.category}
                             </span>
                           </div>
 
-                          {/* Larger Exhibition Title */}
-                          <h3 className="text-2xl md:text-3xl font-bold font-display text-text-heading group-hover:text-accent transition-colors duration-300 leading-snug">
-                            {project.title}
-                          </h3>
-
-                          {/* Legible Summary */}
-                          <p className="text-sm md:text-base text-text-body/85 line-clamp-2 leading-relaxed font-body">
+                          {/* Description / Summary */}
+                          <p className="text-sm md:text-base text-text-body/90 leading-relaxed font-body">
                             {project.summary}
                           </p>
-                        </div>
 
-                        {/* Tech Stack & Interactive Action Button Bar */}
-                        <div className="space-y-4 pt-1">
-                          <div className="flex flex-wrap gap-2">
-                            {project.techStack.slice(0, 4).map((tech) => (
-                              <span key={tech} className="text-xs font-mono bg-surface-2/70 border border-border-token/20 px-3 py-1 rounded-lg text-text-muted group-hover:border-accent/30 group-hover:text-accent transition-colors duration-200">
+                          {/* Tech Stack inside content box (Tech Stack: label on exact same line as badges) */}
+                          <div className="flex flex-wrap items-center gap-2.5 text-sm md:text-base font-semibold pt-3.5 border-t border-border-token/15">
+                            <span className="font-bold text-text-heading shrink-0 mr-1">Tech Stack:</span>
+                            {project.techStack.slice(0, 8).map((tech) => (
+                              <span key={tech} className="text-sm font-medium bg-bg border border-border-token/30 px-3.5 py-1.5 rounded-lg text-text-heading group-hover:border-accent/40 group-hover:text-accent transition-colors duration-200">
                                 {tech}
                               </span>
                             ))}
                           </div>
-
-                          {/* Single Sleek Action Button */}
-                          <div className="w-full py-3 px-4 rounded-xl bg-accent-dim border border-border-token/30 group-hover:bg-accent group-hover:border-accent text-accent group-hover:text-bg font-semibold text-xs md:text-sm flex items-center justify-center gap-2 shadow-sm group-hover:shadow-lg group-hover:shadow-accent/25 transition-all duration-300">
-                            <span>View Project Details</span>
-                            <ArrowUpRight size={15} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
-                          </div>
                         </div>
 
                       </div>
 
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
+                      {/* View Project Details Button & GitHub Link */}
+                      <div className="pt-1 flex items-center gap-3">
+                        <Link
+                          to={`/projects?id=${project.id}`}
+                          className="flex-grow py-3.5 px-5 rounded-xl bg-accent-dim border border-border-token/30 group-hover:bg-accent group-hover:border-accent text-accent group-hover:text-bg font-semibold text-sm flex items-center justify-center gap-2 shadow-sm group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300"
+                        >
+                          <span>View Project Details</span>
+                          <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                        </Link>
 
-            <style>{`
-              @keyframes project-marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-50% - 16px)); }
-              }
-            `}</style>
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View GitHub Repository"
+                            className="w-12 h-12 rounded-xl bg-surface-2 border border-border-token/30 hover:border-accent hover:bg-accent hover:text-bg text-text-heading flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 cursor-pointer"
+                          >
+                            <GithubIcon size={18} />
+                          </a>
+                        )}
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
+
+          {/* Bottom Callout & View All Projects CTA */}
+          <ScrollReveal direction="up" className="pt-4">
+            <div className="glass-panel p-6 md:p-8 rounded-3xl border border-border-token/35 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-accent/40 transition-all duration-300">
+              <div className="space-y-1.5 max-w-2xl">
+                <p className="text-xl md:text-2xl lg:text-3xl font-bold font-display text-text-heading leading-tight">
+                  Want to explore more projects &amp; codebases?
+                </p>
+                <p className="text-sm md:text-base text-text-muted font-body">
+                  Discover the complete archive of agentic systems, full-stack applications, and hackathon repositories.
+                </p>
+              </div>
+
+              <Link
+                to="/projects"
+                className="px-8 py-4 rounded-full bg-accent hover:bg-accent-bright text-bg font-semibold text-sm flex items-center gap-2.5 shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-0.5 transition-all duration-300 shrink-0 self-end md:self-center"
+              >
+                <span>View All Projects</span>
+                <ArrowUpRight size={18} />
+              </Link>
+            </div>
+          </ScrollReveal>
 
         </div>
       </section>
@@ -674,9 +745,8 @@ export const Home: React.FC = () => {
           <ScrollReveal direction="up">
             <div className="space-y-4">
               <div className="flex items-center gap-2.5">
-                <span className="text-xs uppercase font-mono tracking-[0.25em] text-text-muted">06</span>
-                <span className="w-1.5 h-[1.5px] bg-accent/40 rounded-full" />
-                <span className="text-xs uppercase font-mono tracking-[0.25em] text-accent font-semibold">Contact &amp; Availability</span>
+                <User size={20} className="text-accent" />
+                <span className="text-sm uppercase tracking-widest font-semibold text-accent">Contact &amp; Availability</span>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-text-heading leading-[0.95] tracking-tight">
                 Let's build <br />
