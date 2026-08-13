@@ -5,7 +5,7 @@ import { ScrollReveal } from '../components/ui/ScrollReveal';
 export const Education: React.FC = () => {
   // Degree program data
   const degreeProgram = {
-    degree: 'Joint Bachelor of Artificial Intelligence',
+    degree: 'Bachelor of Artificial Intelligence',
     institutions: 'University of Technology Sydney (UTS) & HCMUT',
     period: '2025 – 2028 (Expected)',
     gpa: '6.75 / 7.00',
