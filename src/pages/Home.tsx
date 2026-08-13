@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin, Award, FolderCode, Calendar } from 'lucide-react';
+import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, Sparkles, Database, Layout, Trophy, Copy, Check, Award, FolderCode, Calendar } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
