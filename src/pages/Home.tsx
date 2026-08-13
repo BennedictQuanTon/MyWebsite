@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin } from 'lucide-react';
+import { ArrowUpRight, Download, Brain, User, Cpu, Layers, Terminal, ChevronRight, Sparkles, Database, Layout, Trophy, Code, Rocket, Copy, Check, MapPin, Award, FolderCode } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { genericTechIcon } from '../components/ui/TechLogos';
 import { projects } from '../data/projects';
@@ -45,16 +45,16 @@ export const Home: React.FC = () => {
       icon: <Trophy size={20} className="text-accent" /> 
     },
     { 
-      value: '2+', 
-      label: 'Personal Projects', 
-      sublabel: 'End-to-end AI Systems', 
-      icon: <Code size={20} className="text-accent" /> 
+      value: '8+', 
+      label: 'Projects & Hackathons', 
+      sublabel: 'Personal & Competitions Shipped', 
+      icon: <FolderCode size={20} className="text-accent" /> 
     },
     { 
       value: '5+', 
-      label: 'Competitions', 
-      sublabel: 'Explored. Built. Shipped.', 
-      icon: <Rocket size={20} className="text-accent" /> 
+      label: 'AI Certifications', 
+      sublabel: 'DeepLearning.AI · NVIDIA · Kaggle', 
+      icon: <Award size={20} className="text-accent" /> 
     },
     { 
       value: 'AI Focused', 
