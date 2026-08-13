@@ -7,7 +7,7 @@ export const projects: Project[] = [
     category: 'Competition',
     period: 'June 2, 2026 – June 12, 2026',
     role: 'Project Lead & AI Developer',
-    summary: 'A weather-driven multi-agent decision system across Tourism, Construction & Agriculture, optimized on an 8x NVIDIA H200 GPU cluster with live MCP Server gateway & RAG Knowledge Layer.',
+    summary: 'Weatherise is an enterprise-focused multi-agent AI system that helps organizations analyze, predict, and act on weather-related risks in their specific domain. Each domain, such as tourism, construction, and agriculture, is handled by specialized agents that understand the context, gather the right information, evaluate weather impact, and generate practical recommendations for better decision-making.',
     problem: 'Sectors like agriculture, construction, and tourism suffer huge financial losses due to unpredictable weather risks. Traditional systems do not translate raw meteorological data into sector-specific, actionable operational decisions.',
     process: [
       {
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       type: 'image',
       src: '/assets/images/weatherise/cover.png'
     },
-    githubUrl: 'https://github.com/BennedictQuanTon/Weatherise',
+    githubUrl: 'https://github.com/BennedictQuanTon/Weatherise_Vietnam-AI-Open-Hackathon-2026',
     status: 'active',
     competitionName: 'Vietnam AI Open Hackathon',
     organizer: 'NVIDIA / Viettel / Sovico',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     category: 'Competition',
     period: 'July 6, 2026 – July 13, 2026',
     role: 'AI Developer',
-    summary: 'A 4-layer hybrid agent router cutting API token usage by 85% and limiting latency to 505.1 ms using Python, asyncio, local Qwen-3B, and remote Fireworks APIs.',
+    summary: 'Developed in one week, this project features a containerized AI Agent designed to solve complex multi-domain tasks (Math, Logic, Coding, NLP) with extreme token efficiency. It implements a custom 4-layer hybrid router to optimize the balance between local SLMs and remote models.',
     problem: 'High API token consumption and slow response latencies in LLM agents lead to prohibitive costs and poor user experience for complex reasoning and QA tasks.',
     process: [
       {
@@ -103,10 +103,11 @@ export const projects: Project[] = [
       type: 'image',
       src: '/assets/images/amd-token-agent/cover.png'
     },
-    githubUrl: 'https://github.com/BennedictQuanTon/Token-Efficient-Agent',
+    githubUrl: 'https://github.com/BennedictQuanTon/Develarper_AMD-Developer-Hackathon-ACT-II',
     status: 'active',
     competitionName: 'AMD Developer Hackathon ACT II',
-    organizer: 'AMD'
+    organizer: 'AMD',
+    organizerLogo: '/assets/images/companies/amd_logo.png'
   },
   {
     id: 'bkai-admissions',
@@ -114,7 +115,7 @@ export const projects: Project[] = [
     category: 'Personal Project',
     period: 'Jan 2026 – Apr 2026',
     role: 'Full-Stack AI Developer',
-    summary: 'A multi-hop Agentic RAG admissions system with LangGraph, Gemini 3.1 Flash-Lite, hybrid search (ChromaDB + BM25 + BGE reranker), Redis semantic cache, and LiveKit + Deepgram voice.',
+    summary: 'BKAi is an admissions counseling AI for Ho Chi Minh City University of Technology (HCMUT / ĐHQG-HCM). It layers a counselor policy (clarify → retrieve → advise) on top of an Agentic RAG backbone so answers stay grounded in official CSV/Markdown knowledge—not free-form LLM guesses—while supporting multi-turn chat, voice, and an owner evaluation loop.',
     problem: 'University admission offices are flooded with repetitive queries. Standard AI chatbots suffer from hallucinations on complex guidelines and lack low-latency semantic caching and natural Vietnamese voice interfaces.',
     process: [
       {
@@ -144,6 +145,7 @@ export const projects: Project[] = [
       'Secured data privacy by locally hosting ~115 source documents inside Docker volumes with zero third-party document egress.'
     ],
     images: [
+      '/assets/images/bkai/logo.png',
       '/assets/images/bkai/cover.jpg',
       '/assets/images/bkai/chat_ui.png',
       '/assets/images/bkai/chat_response.png',
@@ -152,9 +154,10 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/bkai/cover.jpg'
+      src: '/assets/images/bkai/logo.png',
+      objectFit: 'contain'
     },
-    githubUrl: 'https://github.com/BennedictQuanTon/BKAi-Admissions',
+    githubUrl: 'https://github.com/BennedictQuanTon/BKAi-Multi-Agent-Admissions-Counseling-System',
     status: 'active'
   },
   {
