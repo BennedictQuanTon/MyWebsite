@@ -159,12 +159,12 @@ export const Vault: React.FC = () => {
                               {project.category === 'Competition' ? (
                                 project.organizerLogos ? (
                                   project.organizerLogos.map((logo, lIdx) => (
-                                    <div key={lIdx} className="h-9 px-2 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                    <div key={lIdx} className="h-11 md:h-12 px-3 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
                                       <img src={logo} alt="BTC Logo" className="h-full w-auto object-contain" />
                                     </div>
                                   ))
                                 ) : project.organizerLogo ? (
-                                  <div className="h-9 px-3 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                  <div className="h-11 md:h-12 px-4 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
                                     <img src={project.organizerLogo} alt={project.organizer} className="h-full w-auto object-contain" />
                                   </div>
                                 ) : (

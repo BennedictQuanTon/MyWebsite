@@ -252,7 +252,7 @@ export const projects: Project[] = [
     status: 'active',
     competitionName: 'Bach Khoa Innovation 2026',
     organizer: 'HCMUT',
-    organizerLogo: '/assets/images/companies/bk.png'
+    organizerLogo: '/assets/images/companies/bku_logo.png'
   },
   {
     id: 'vinuni-datathon',
