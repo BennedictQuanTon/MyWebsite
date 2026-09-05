@@ -250,9 +250,13 @@ export const projects: Project[] = [
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Morphysics',
     status: 'active',
-    competitionName: 'Bach Khoa Innovation 2026',
-    organizer: 'HCMUT',
-    organizerLogo: '/assets/images/companies/bku_logo.png'
+    competitionName: 'Bach Khoa Innovation 2026 & VYSC 2026',
+    organizer: 'HCMUT / VYSC',
+    organizerLogo: '/assets/images/companies/bku_logo.png',
+    organizerLogos: [
+      '/assets/images/companies/bku_logo.png',
+      '/assets/images/companies/vysc_logo.jpeg'
+    ]
   },
   {
     id: 'vinuni-datathon',
