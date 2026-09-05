@@ -10,8 +10,7 @@ export const Journey: React.FC = () => {
       <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-20 pb-6 md:pt-24 md:pb-8 flex flex-col items-center">
       {/* Page Hero Header */}
       <ScrollReveal className="text-center mb-16 md:mb-20">
-        <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Career Timeline</span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading">
           The Journey
         </h1>
         <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">

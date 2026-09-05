@@ -66,6 +66,55 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: 'viettel-llm-inference',
+    title: 'LLM Inference Optimization Challenge',
+    category: 'Competition',
+    period: 'July 2026',
+    role: 'LLM Serving & Infrastructure Engineer',
+    summary: 'An end-to-end LLM serving and infrastructure optimization project engineered for the Viettel AI Race 2026 competition. The project focused on maximizing inference efficiency for Liquid AI\'s hybrid LFM2.5-1.2B-Instruct model (Mamba SSM + Short1D Conv + Attention) under strict hardware constraints (1 NVIDIA H200 GPU, 3 vCPU Cores, and 8.0 GB Host RAM). By developing a custom vLLM serving pipeline with FP8 weight/KV-cache quantization, FlashInfer C++ CUDA kernel alignment, and continuous prefill batching, the project achieved Peak Rank #77 nationwide on the competition Leaderboard, increasing the baseline Efficiency Rating Score (ERS) from 49.81 to 62.01 (+24.5% improvement).',
+    problem: 'Liquid AI\'s hybrid LFM2.5-1.2B-Instruct architecture required high throughput inference on strict resource budgets (1 NVIDIA H200 GPU, 3 vCPUs, 8GB RAM). Standard LLM serving pipelines suffered high TTFT latencies, VRAM bandwidth bottlenecks, and failed requests.',
+    process: [
+      {
+        date: 'July 2026',
+        title: 'vLLM Pipeline & FP8 Quantization',
+        description: 'Deployed vLLM v0.26.0 serving engine with native FP8 weight and KV-cache quantization (fp8_e4m3), halving GPU VRAM bandwidth usage and configuring chunked prefill (mbt=768).'
+      },
+      {
+        date: 'July 2026',
+        title: 'FlashInfer & ShortConv CUDA Alignment',
+        description: 'Engineered custom vLLM Docker image (:p8-shortconv) with fused 3-op ShortConv C++ CUDA kernels (causal_conv1d_silu_fused) and PagedAttention block alignment (block-size=32).'
+      },
+      {
+        date: 'July 2026',
+        title: 'National Leaderboard Peak Rank #77',
+        description: 'Achieved Peak Rank #77 nationwide in Viettel AI Race 2026, boosting team ERS score by +24.5% (49.81 to 62.01), cutting decode latency to 4ms/token (-33.3%) and TTFT p50 to 46ms.'
+      }
+    ],
+    techStack: ['vLLM', 'CUDA', 'FP8 Quantization', 'FlashInfer', 'Mamba SSM', 'Docker', 'Python', 'NVIDIA H200'],
+    outcomes: [
+      'Achieved Peak Rank #77 in Viettel AI Race 2026 by boosting team ERS score by +24.5% (from 49.81 to 62.01) with 100% accuracy retention, deploying a vLLM v0.26.0 pipeline with FP8 quantization, FlashInfer SSM alignment, and chunked prefill (mbt=768).',
+      'Cut token decode latency by 33.3% (from 6ms down to 4ms per token) across 420 requests by configuring native Hopper SM90 FP8 execution (fp8_e4m3) and PagedAttention block alignment (block-size=32) to halve GPU VRAM bandwidth usage.',
+      'Reduced initial response latency to a project-record TTFT p50 = 46ms and cut failed requests by 28.6% (from 7 down to 5 / 420) by building a custom vLLM Docker image (:p8-shortconv) with fused 3-op ShortConv C++ CUDA kernels (causal_conv1d_silu_fused).'
+    ],
+    images: [
+      '/assets/images/viettel-inference-opt/cover.svg',
+      '/assets/images/viettel-inference-opt/card.png'
+    ],
+    hoverMedia: {
+      type: 'image',
+      src: '/assets/images/viettel-inference-opt/cover.svg'
+    },
+    githubUrl: 'https://github.com/BennedictQuanTon/Develarper_Viettel_AI_Race_2026',
+    status: 'active',
+    competitionName: 'Viettel AI Race 2026',
+    organizer: 'Viettel / NVIDIA',
+    organizerLogo: '/assets/images/companies/viettel_logo.svg',
+    organizerLogos: [
+      '/assets/images/companies/viettel_logo.svg',
+      '/assets/images/companies/nvidia_logo.png'
+    ]
+  },
+  {
     id: 'amd-token-agent',
     title: 'Token-Efficient Agent',
     category: 'Competition',

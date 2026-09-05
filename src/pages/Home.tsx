@@ -497,6 +497,12 @@ export const Home: React.FC = () => {
                                 <span>Top 10 Finalist</span>
                               </div>
                             )}
+                            {project.id === 'viettel-llm-inference' && (
+                              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-600 dark:text-emerald-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                <Trophy size={14} className="text-emerald-500 shrink-0" />
+                                <span>Peak Rank #77</span>
+                              </div>
+                            )}
                           </div>
 
                           {/* Role: ... */}
