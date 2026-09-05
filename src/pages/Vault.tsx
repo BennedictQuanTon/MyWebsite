@@ -196,15 +196,15 @@ export const Vault: React.FC = () => {
 
                               {/* Achievement Badge next to Title */}
                               {project.id === 'weatherise' && (
-                                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
-                                  <Trophy size={14} className="text-amber-500 shrink-0" />
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-sm md:text-base font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                  <Trophy size={16} className="text-amber-500 shrink-0" />
                                   <span>Top 10 Finalist</span>
                                 </div>
                               )}
                               {project.id === 'viettel-llm-inference' && (
-                                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-600 dark:text-emerald-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
-                                  <Trophy size={14} className="text-emerald-500 shrink-0" />
-                                  <span>Peak Rank #77 / 300+ Teams</span>
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-600 dark:text-emerald-400 text-sm md:text-base font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                  <Trophy size={16} className="text-emerald-500 shrink-0" />
+                                  <span>Peak Rank #77 / 300+</span>
                                 </div>
                               )}
                             </div>
