@@ -151,7 +151,8 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/amd-token-agent/cover.png'
+      src: '/assets/images/amd-token-agent/cover.png',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Develarper_AMD-Developer-Hackathon-ACT-II',
     status: 'active',
