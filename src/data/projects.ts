@@ -245,7 +245,8 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/morphysics/Experience_Morphysics_BKI_UI.jpg'
+      src: '/assets/images/morphysics/Experience_Morphysics_BKI_UI.jpg',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Morphysics',
     status: 'active',
@@ -283,6 +284,7 @@ export const projects: Project[] = [
     hoverMedia: {
       type: 'image',
       src: '/assets/images/datathon/Datathon_Logo.jpg',
+      objectFit: 'contain',
       objectPosition: 'center top'
     },
     status: 'active',
@@ -328,7 +330,8 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/yourai/logo.jpg'
+      src: '/assets/images/yourai/logo.jpg',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/YourAI',
     status: 'active'
