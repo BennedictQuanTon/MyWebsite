@@ -68,8 +68,7 @@ export const Vault: React.FC = () => {
       <div className="w-full max-w-[1340px] xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
         {/* Page Title */}
         <ScrollReveal className="text-center mb-16 md:mb-20">
-          <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Portfolio</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading">
             Projects & Codebases
           </h1>
           <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
@@ -160,12 +159,12 @@ export const Vault: React.FC = () => {
                               {project.category === 'Competition' ? (
                                 project.organizerLogos ? (
                                   project.organizerLogos.map((logo, lIdx) => (
-                                    <div key={lIdx} className="h-9 px-2 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                    <div key={lIdx} className="h-11 md:h-12 px-3 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
                                       <img src={logo} alt="BTC Logo" className="h-full w-auto object-contain" />
                                     </div>
                                   ))
                                 ) : project.organizerLogo ? (
-                                  <div className="h-9 px-3 rounded-lg bg-white p-1 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
+                                  <div className="h-11 md:h-12 px-4 rounded-xl bg-white p-1.5 flex items-center justify-center border border-border-token/20 shadow-xs hover:scale-105 transition-transform">
                                     <img src={project.organizerLogo} alt={project.organizer} className="h-full w-auto object-contain" />
                                   </div>
                                 ) : (
@@ -197,9 +196,15 @@ export const Vault: React.FC = () => {
 
                               {/* Achievement Badge next to Title */}
                               {project.id === 'weatherise' && (
-                                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-xs font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
-                                  <Trophy size={14} className="text-amber-500 shrink-0" />
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/15 border border-amber-500/35 text-amber-600 dark:text-amber-400 text-sm md:text-base font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                  <Trophy size={16} className="text-amber-500 shrink-0" />
                                   <span>Top 10 Finalist</span>
+                                </div>
+                              )}
+                              {project.id === 'viettel-llm-inference' && (
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-600 dark:text-emerald-400 text-sm md:text-base font-bold font-display tracking-wide shadow-xs backdrop-blur-md">
+                                  <Trophy size={16} className="text-emerald-500 shrink-0" />
+                                  <span>Peak Rank #77 / 300+</span>
                                 </div>
                               )}
                             </div>

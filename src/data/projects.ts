@@ -66,6 +66,56 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: 'viettel-llm-inference',
+    title: 'LLM Inference Optimization Challenge',
+    category: 'Competition',
+    period: 'July 2, 2026 – July 30, 2026',
+    role: 'LLM Serving & Infrastructure Engineer',
+    summary: 'An enterprise-grade LLM serving optimization project engineered for the Viettel AI Race 2026 competition. Competing against 300+ teams nationwide, the project focused on maximizing inference efficiency for Liquid AI\'s hybrid LFM2.5-1.2B-Instruct model (Mamba SSM + Short1D Conv + Attention) on NVIDIA H200 GPUs. By developing a custom vLLM serving pipeline with FP8 quantization, FlashInfer C++ CUDA kernels, and PagedAttention, the project achieved Peak Rank #77 / 300+ on the Leaderboard with an official Peak ERS score of 62.01.',
+    problem: 'The Viettel AI Race 2026 challenge directly simulates enterprise AI infrastructure bottlenecks: serving Large Language Models (LLMs) to achieve high throughput, low latency (TTFT & TPOT), and stable accuracy (GPQA Diamond Accuracy Gate) under strict hardware constraints (1 NVIDIA H200 GPU, 3 vCPU Cores, and 8.0 GB Host RAM) across a production workload trace.',
+    process: [
+      {
+        date: 'July 2, 2026 – July 30, 2026',
+        title: 'vLLM Pipeline & FP8 Quantization',
+        description: 'Deployed vLLM v0.26.0 serving engine with native FP8 weight and KV-cache quantization (fp8_e4m3), halving GPU VRAM bandwidth usage and configuring chunked prefill (mbt=768).'
+      },
+      {
+        date: 'July 2026',
+        title: 'FlashInfer & ShortConv CUDA Alignment',
+        description: 'Engineered custom vLLM Docker image (:p8-shortconv) with fused 3-op ShortConv C++ CUDA kernels (causal_conv1d_silu_fused) and PagedAttention block alignment (block-size=32).'
+      },
+      {
+        date: 'July 30, 2026',
+        title: 'National Leaderboard Peak Rank #77 / 300+',
+        description: 'Achieved Peak Rank #77 nationwide in Viettel AI Race 2026 (out of 300+ competing teams), reaching an official Peak ERS score of 62.01 (+24.5% over baseline), cutting decode latency to 4ms/token (-33.3%) and TTFT p50 to 46ms.'
+      }
+    ],
+    techStack: ['vLLM', 'CUDA', 'FP8 Quantization', 'FlashInfer', 'Mamba SSM', 'Docker', 'Python', 'NVIDIA H200'],
+    outcomes: [
+      'Achieved Peak Rank #77 / 300+ Teams in Viettel AI Race 2026 by boosting team official ERS score to 62.01 (+24.5% improvement) with 100% accuracy retention, deploying a vLLM v0.26.0 pipeline with FP8 quantization, FlashInfer SSM alignment, and chunked prefill (mbt=768).',
+      'Cut token decode latency by 33.3% (from 6ms down to 4ms per token) across 420 requests by configuring native Hopper SM90 FP8 execution (fp8_e4m3) and PagedAttention block alignment (block-size=32) to halve GPU VRAM bandwidth usage.',
+      'Reduced initial response latency to a project-record TTFT p50 = 46ms and cut failed requests by 28.6% (from 7 down to 5 / 420) by building a custom vLLM Docker image (:p8-shortconv) with fused 3-op ShortConv C++ CUDA kernels (causal_conv1d_silu_fused).'
+    ],
+    images: [
+      '/assets/images/viettel-inference-opt/cover.jpg',
+      '/assets/images/viettel-inference-opt/card.png',
+      '/assets/images/viettel-inference-opt/cover.svg'
+    ],
+    hoverMedia: {
+      type: 'image',
+      src: '/assets/images/viettel-inference-opt/cover.jpg',
+      objectFit: 'contain'
+    },
+    githubUrl: 'https://github.com/BennedictQuanTon/Develarper_Viettel_AI_Race_2026',
+    status: 'active',
+    competitionName: 'Viettel AI Race 2026',
+    organizer: 'Viettel',
+    organizerLogo: '/assets/images/companies/viettel_logo.svg',
+    organizerLogos: [
+      '/assets/images/companies/viettel_logo.svg'
+    ]
+  },
+  {
     id: 'amd-token-agent',
     title: 'Token-Efficient Agent',
     category: 'Competition',
@@ -101,7 +151,8 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/amd-token-agent/cover.png'
+      src: '/assets/images/amd-token-agent/cover.png',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Develarper_AMD-Developer-Hackathon-ACT-II',
     status: 'active',
@@ -194,13 +245,18 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/morphysics/Experience_Morphysics_BKI_UI.jpg'
+      src: '/assets/images/morphysics/Experience_Morphysics_BKI_UI.jpg',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/Morphysics',
     status: 'active',
-    competitionName: 'Bach Khoa Innovation 2026',
-    organizer: 'HCMUT',
-    organizerLogo: '/assets/images/companies/bk.png'
+    competitionName: 'Bach Khoa Innovation 2026 & VYSC 2026',
+    organizer: 'HCMUT / VYSC',
+    organizerLogo: '/assets/images/companies/bku_logo.png',
+    organizerLogos: [
+      '/assets/images/companies/bku_logo.png',
+      '/assets/images/companies/vysc_logo.jpeg'
+    ]
   },
   {
     id: 'vinuni-datathon',
@@ -232,6 +288,7 @@ export const projects: Project[] = [
     hoverMedia: {
       type: 'image',
       src: '/assets/images/datathon/Datathon_Logo.jpg',
+      objectFit: 'contain',
       objectPosition: 'center top'
     },
     status: 'active',
@@ -277,7 +334,8 @@ export const projects: Project[] = [
     ],
     hoverMedia: {
       type: 'image',
-      src: '/assets/images/yourai/logo.jpg'
+      src: '/assets/images/yourai/logo.jpg',
+      objectFit: 'contain'
     },
     githubUrl: 'https://github.com/BennedictQuanTon/YourAI',
     status: 'active'

@@ -7,11 +7,10 @@ import { milestones } from '../data/milestones';
 export const Journey: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-bg text-text-body flex flex-col items-center overflow-x-hidden">
-      <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 py-24 2xl:py-32 flex flex-col items-center">
+      <div className="w-full max-w-6xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-20 pb-6 md:pt-24 md:pb-8 flex flex-col items-center">
       {/* Page Hero Header */}
       <ScrollReveal className="text-center mb-16 md:mb-20">
-        <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Career Timeline</span>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading">
           The Journey
         </h1>
         <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
@@ -20,7 +19,7 @@ export const Journey: React.FC = () => {
       </ScrollReveal>
 
       {/* 💼 TRACK 1: WORK EXPERIENCE */}
-      <section className="w-full mb-28">
+      <section className="w-full mb-14">
         <ScrollReveal className="flex items-center gap-3 mb-10">
           <Briefcase size={28} className="text-accent" />
           <h2 className="text-2xl md:text-4xl font-bold font-display text-text-heading">
@@ -108,7 +107,7 @@ export const Journey: React.FC = () => {
       </section>
 
       {/* 🎓 TRACK 2: EDUCATION */}
-      <section className="w-full mb-28">
+      <section className="w-full mb-4">
         <ScrollReveal className="flex items-center gap-3 mb-10">
           <GraduationCap size={28} className="text-accent" />
           <h2 className="text-2xl md:text-4xl font-bold font-display text-text-heading">

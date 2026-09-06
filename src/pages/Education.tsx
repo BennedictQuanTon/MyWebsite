@@ -86,8 +86,7 @@ export const Education: React.FC = () => {
         
         {/* Page Title */}
         <ScrollReveal className="text-center mb-16 md:mb-20 flex flex-col items-center">
-          <span className="text-xs uppercase tracking-widest font-semibold text-accent font-mono">Academic Foundation</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading mt-3">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading">
             Education & Credentials
           </h1>
           <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
