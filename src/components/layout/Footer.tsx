@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             Long Quan Ton
           </div>
           <p className="text-xs text-text-muted max-w-sm text-center md:text-left leading-relaxed">
-            AI Developer & Undergraduate Student at UTS & HCMUT. Building intelligent networks with agentic workflows.
+            AI Engineer & Undergraduate Student at UTS & HCMUT. Building intelligent networks with agentic workflows.
           </p>
         </div>
 

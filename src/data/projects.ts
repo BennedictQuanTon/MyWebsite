@@ -215,7 +215,7 @@ export const projects: Project[] = [
     id: 'morphysics',
     title: 'Morphysics',
     category: 'Competition',
-    period: 'Mar 2026 – Present',
+    period: 'Mar 2026 – July 15, 2026',
     role: 'Project Lead & Frontend Developer',
     summary: 'An interactive 2D physics virtual lab built with React 19 and Matter.js, featuring a 60 FPS Glassmorphism Telemetry Dashboard and multimodal AI assistant executing simulations under 3s.',
     problem: 'High school students struggle to visualize abstract physics formulas. Traditional labs are expensive or lack real-time telemetry data to explain mechanical forces dynamically.',

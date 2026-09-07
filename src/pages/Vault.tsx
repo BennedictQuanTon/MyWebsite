@@ -69,7 +69,7 @@ export const Vault: React.FC = () => {
         {/* Page Title */}
         <ScrollReveal className="text-center mb-16 md:mb-20">
           <h1 className="text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold font-display text-text-heading">
-            Projects & Codebases
+            Projects & Competitions
           </h1>
           <p className="text-sm md:text-base text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
             An archive of intelligent agent systems, full-stack applications, and hackathon projects.
