@@ -774,7 +774,6 @@ export const Home: React.FC = () => {
                 {/* Panel Header */}
                 <div className="flex items-center justify-between border-b border-border-token/10 pb-4">
                   <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-text-heading font-bold">¶ Send a Note</span>
-                  <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-text-muted">Direct Submission</span>
                 </div>
 
                 {/* Form Fields */}
@@ -791,7 +790,7 @@ export const Home: React.FC = () => {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="Bennedict Quan Ton"
+                          placeholder="Your name"
                           className="w-full px-4 py-3.5 rounded-xl bg-surface-2/40 border border-border-token/25 text-text-heading placeholder-text-muted/40 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
                         />
                       </div>
@@ -805,7 +804,7 @@ export const Home: React.FC = () => {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="tonlongquanvn@gmail.com"
+                          placeholder="your.email@example.com"
                           className="w-full px-4 py-3.5 rounded-xl bg-surface-2/40 border border-border-token/25 text-text-heading placeholder-text-muted/40 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
                         />
                       </div>
@@ -821,7 +820,7 @@ export const Home: React.FC = () => {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell me about the project, research idea, or what you'd want us working on."
+                        placeholder="Your message..."
                         className="w-full px-4 py-3.5 rounded-xl bg-surface-2/40 border border-border-token/25 text-text-heading placeholder-text-muted/40 text-base focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300 resize-none flex-grow"
                       />
                     </div>
