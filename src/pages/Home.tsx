@@ -51,9 +51,9 @@ export const Home: React.FC = () => {
   // Stats - Custom portfolio highlights
   const stats = [
     { 
-      value: 'Top 10', 
-      label: 'Finalist', 
-      sublabel: 'Vietnam AI Open Hackathon', 
+      value: '3+', 
+      label: 'Competition Certifications', 
+      sublabel: 'Hackathons & Challenges Certification of Achievement', 
       icon: <Trophy size={20} className="text-accent" /> 
     },
     { 
