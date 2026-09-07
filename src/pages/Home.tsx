@@ -869,7 +869,6 @@ export const Home: React.FC = () => {
                   {/* Panel Header */}
                   <div className="flex items-center justify-between border-b border-border-token/10 pb-4">
                     <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-text-heading font-bold">¶ Correspondence</span>
-                    <span className="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-text-muted">Four Channels</span>
                   </div>
 
                   {/* Communication Channels list */}
